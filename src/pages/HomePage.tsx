@@ -1,10 +1,20 @@
 import { Link } from 'wouter'
 import { Plus, Eye, Headphones, Heart, Infinity } from 'lucide-react'
+import { WavyBackground } from '../components/ui/wavy-background'
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="min-h-screen pt-8 pb-16">
+    <WavyBackground
+      className="min-h-screen"
+      containerClassName="min-h-screen"
+      colors={["#8B5CF6", "#3B82F6", "#06B6D4", "#10B981", "#F59E0B"]}
+      waveWidth={50}
+      backgroundFill="white"
+      blur={10}
+      speed="slow"
+      waveOpacity={0.3}
+    >
+      <div className="relative z-10 min-h-screen pt-8 pb-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}
           <div className="text-center mb-16">
@@ -93,6 +103,6 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-    </div>
+    </WavyBackground>
   )
 }
