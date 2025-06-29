@@ -145,11 +145,8 @@ export default function DefinePage() {
                   disabled={!canProceed}
                   className={`soul-button ${!canProceed ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
-                  <span className="soul-button-spinner" />
-                  <span className="soul-button-inner flex items-center">
-                    Continue to Gather
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </span>
+                  Continue to Gather
+                  <ArrowRight className="w-4 h-4 ml-2" />
                 </button>
               </Link>
             </div>

@@ -247,11 +247,8 @@ With gratitude and love`
                   disabled={isMixing || !canMix}
                   className="w-full soul-button disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span className="soul-button-spinner" />
-                  <span className="soul-button-inner flex items-center justify-center w-full">
-                    <Music className="w-4 h-4 mr-2" />
-                    {isMixing ? 'Mixing Audio...' : 'Mix Audio'}
-                  </span>
+                  <Music className="w-4 h-4 mr-2" />
+                  {isMixing ? 'Mixing Audio...' : 'Mix Audio'}
                 </button>
 
                 {!canMix && (
@@ -300,12 +297,9 @@ With gratitude and love`
                 disabled={!hasAudio}
                 className="soul-button disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <span className="soul-button-spinner" />
-                <span className="soul-button-inner flex items-center">
-                  <Download className="w-4 h-4 mr-2" />
-                  <span className="hidden sm:inline">Download</span>
-                  <span className="sm:hidden">Save</span>
-                </span>
+                <Download className="w-4 h-4 mr-2" />
+                <span className="hidden sm:inline">Download</span>
+                <span className="sm:hidden">Save</span>
               </button>
               
               <button
@@ -313,11 +307,8 @@ With gratitude and love`
                 disabled={!hasAudio}
                 className="soul-button disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <span className="soul-button-spinner" />
-                <span className="soul-button-inner flex items-center">
-                  <Share2 className="w-4 h-4 mr-2" />
-                  Share
-                </span>
+                <Share2 className="w-4 h-4 mr-2" />
+                Share
               </button>
             </div>
           </div>

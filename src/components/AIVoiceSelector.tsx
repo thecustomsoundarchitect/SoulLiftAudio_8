@@ -119,13 +119,10 @@ export const AIVoiceSelector: React.FC<AIVoiceSelectorProps> = ({
       <button
         onClick={generateVoice}
         disabled={isGenerating || !message.trim()}
-        className="w-full soul-button disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-3 rounded-lg font-medium transition-colors flex items-center justify-center"
       >
-        <span className="soul-button-spinner" />
-        <span className="soul-button-inner flex items-center justify-center w-full">
-          <Wand2 className="w-4 h-4 mr-2" />
-          {isGenerating ? 'Generating Voice...' : 'Generate AI Voice'}
-        </span>
+        <Wand2 className="w-4 h-4 mr-2" />
+        {isGenerating ? 'Generating Voice...' : 'Generate AI Voice'}
       </button>
       
       {!message.trim() && (

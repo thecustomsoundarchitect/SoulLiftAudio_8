@@ -50,10 +50,7 @@ export default function MyHugsPage() {
               <p className="text-gray-400 mb-6">Create your first heartfelt message to get started</p>
               <Link href="/define">
                 <button className="soul-button">
-                  <span className="soul-button-spinner" />
-                  <span className="soul-button-inner">
-                    Create Your First Soul Hug
-                  </span>
+                  Create Your First Soul Hug
                 </button>
               </Link>
             </div>

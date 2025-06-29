@@ -56,10 +56,7 @@ export default function Navigation() {
 
             {/* Desktop Sign In Button */}
             <button className="hidden md:block soul-button">
-              <span className="soul-button-spinner" />
-              <span className="soul-button-inner">
-                Sign In
-              </span>
+              Sign In
             </button>
 
             {/* Mobile menu button */}
@@ -67,19 +64,16 @@ export default function Navigation() {
               onClick={toggleMobileMenu}
               className="md:hidden relative z-50 soul-button"
             >
-              <span className="soul-button-spinner" />
-              <span className="soul-button-inner">
-                <motion.div
-                  animate={{ rotate: isMobileMenuOpen ? 180 : 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {isMobileMenuOpen ? (
-                    <X className="w-5 h-5" />
-                  ) : (
-                    <Menu className="w-5 h-5" />
-                  )}
-                </motion.div>
-              </span>
+              <motion.div
+                animate={{ rotate: isMobileMenuOpen ? 180 : 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                {isMobileMenuOpen ? (
+                  <X className="w-5 h-5" />
+                ) : (
+                  <Menu className="w-5 h-5" />
+                )}
+              </motion.div>
             </button>
           </div>
         </div>

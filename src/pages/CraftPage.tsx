@@ -245,10 +245,7 @@ With gratitude and love`
                   disabled={isWeaving || ingredients.length === 0}
                   className="soul-button disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span className="soul-button-spinner" />
-                  <span className="soul-button-inner">
-                    {isWeaving ? 'AI Weaving...' : 'AI Weave (1 Credit)'}
-                  </span>
+                  {isWeaving ? 'AI Weaving...' : 'AI Weave (1 Credit)'}
                 </button>
                 
                 <button
@@ -256,10 +253,7 @@ With gratitude and love`
                   disabled={isPolishing || !message.trim()}
                   className="soul-button disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span className="soul-button-spinner" />
-                  <span className="soul-button-inner">
-                    {isPolishing ? 'AI Polishing...' : 'AI Polish (1 Credit)'}
-                  </span>
+                  {isPolishing ? 'AI Polishing...' : 'AI Polish (1 Credit)'}
                 </button>
 
                 <button
@@ -267,11 +261,8 @@ With gratitude and love`
                   disabled={!message.trim()}
                   className="soul-button disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span className="soul-button-spinner" />
-                  <span className="soul-button-inner flex items-center">
-                    <Download className="w-4 h-4 mr-2" />
-                    Export Hug
-                  </span>
+                  <Download className="w-4 h-4 mr-2" />
+                  Export Hug
                 </button>
               </div>
             </div>
@@ -296,10 +287,7 @@ With gratitude and love`
                 disabled={!message.trim()}
                 className="soul-button disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <span className="soul-button-spinner" />
-                <span className="soul-button-inner">
-                  Continue to Audio
-                </span>
+                Continue to Audio
               </button>
             </Link>
           </div>

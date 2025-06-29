@@ -197,11 +197,8 @@ export default function GatherPage() {
                   }`}
                   disabled={ingredients.length === 0 && descriptors.length === 0}
                 >
-                  <span className="soul-button-spinner" />
-                  <span className="soul-button-inner flex items-center">
-                    Continue to Craft
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </span>
+                  Continue to Craft
+                  <ArrowRight className="w-4 h-4 ml-2" />
                 </button>
               </Link>
             </div>

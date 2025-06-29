@@ -98,11 +98,8 @@ export default function HomePage() {
 
           {/* Sign In CTA */}
           <div className="text-center">
-            <button className="soul-button-secondary">
-              <span className="soul-button-secondary-spinner" />
-              <span className="soul-button-secondary-inner text-base md:text-lg px-8">
-                Sign In to Save Your Creations
-              </span>
+            <button className="soul-button-outline text-base md:text-lg px-8">
+              Sign In to Save Your Creations
             </button>
           </div>
         </div>
