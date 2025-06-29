@@ -98,8 +98,11 @@ export default function HomePage() {
 
           {/* Sign In CTA */}
           <div className="text-center">
-            <button className="border-2 border-purple-600 text-purple-600 px-6 md:px-8 py-3 md:py-4 rounded-xl font-medium transition-all duration-200 hover:bg-purple-600 hover:text-white text-base md:text-lg min-h-12">
-              Sign In to Save Your Creations
+            <button className="soul-button-secondary">
+              <span className="soul-button-secondary-spinner" />
+              <span className="soul-button-secondary-inner text-base md:text-lg px-8">
+                Sign In to Save Your Creations
+              </span>
             </button>
           </div>
         </div>

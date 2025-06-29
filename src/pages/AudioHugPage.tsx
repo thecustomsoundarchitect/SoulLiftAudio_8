@@ -245,10 +245,13 @@ With gratitude and love`
                 <button
                   onClick={mixAudio}
                   disabled={isMixing || !canMix}
-                  className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-2 md:py-3 rounded-lg font-medium transition-colors flex items-center justify-center text-sm md:text-base min-h-12"
+                  className="w-full soul-button disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <Music className="w-3 h-3 md:w-4 md:h-4 mr-2" />
-                  {isMixing ? 'Mixing Audio...' : 'Mix Audio'}
+                  <span className="soul-button-spinner" />
+                  <span className="soul-button-inner flex items-center justify-center w-full">
+                    <Music className="w-4 h-4 mr-2" />
+                    {isMixing ? 'Mixing Audio...' : 'Mix Audio'}
+                  </span>
                 </button>
 
                 {!canMix && (
@@ -295,20 +298,26 @@ With gratitude and love`
               <button
                 onClick={handleDownload}
                 disabled={!hasAudio}
-                className="flex items-center px-3 md:px-6 py-2 md:py-3 text-sm md:text-base bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-xl font-medium transition-colors min-h-12"
+                className="soul-button disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <Download className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
-                <span className="hidden sm:inline">Download</span>
-                <span className="sm:hidden">Save</span>
+                <span className="soul-button-spinner" />
+                <span className="soul-button-inner flex items-center">
+                  <Download className="w-4 h-4 mr-2" />
+                  <span className="hidden sm:inline">Download</span>
+                  <span className="sm:hidden">Save</span>
+                </span>
               </button>
               
               <button
                 onClick={handleShare}
                 disabled={!hasAudio}
-                className="flex items-center px-3 md:px-6 py-2 md:py-3 text-sm md:text-base bg-purple-600 hover:bg-purple-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-xl font-medium transition-colors min-h-12"
+                className="soul-button disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <Share2 className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
-                Share
+                <span className="soul-button-spinner" />
+                <span className="soul-button-inner flex items-center">
+                  <Share2 className="w-4 h-4 mr-2" />
+                  Share
+                </span>
               </button>
             </div>
           </div>

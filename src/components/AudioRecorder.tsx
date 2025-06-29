@@ -156,20 +156,26 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({ onRecordingComplet
         {!isRecording && !audioBlob && (
           <button
             onClick={startRecording}
-            className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center"
+            className="soul-button"
           >
-            <Mic className="w-4 h-4 mr-2" />
-            Start Recording
+            <span className="soul-button-spinner" />
+            <span className="soul-button-inner flex items-center">
+              <Mic className="w-4 h-4 mr-2" />
+              Start Recording
+            </span>
           </button>
         )}
         
         {isRecording && (
           <button
             onClick={stopRecording}
-            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center"
+            className="soul-button"
           >
-            <Square className="w-4 h-4 mr-2" />
-            Stop Recording
+            <span className="soul-button-spinner" />
+            <span className="soul-button-inner flex items-center">
+              <Square className="w-4 h-4 mr-2" />
+              Stop Recording
+            </span>
           </button>
         )}
         
@@ -177,26 +183,35 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({ onRecordingComplet
           <>
             <button
               onClick={isPlaying ? pauseRecording : playRecording}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center"
+              className="soul-button-secondary"
             >
-              {isPlaying ? <Pause className="w-4 h-4 mr-2" /> : <Play className="w-4 h-4 mr-2" />}
-              {isPlaying ? 'Pause' : 'Play'}
+              <span className="soul-button-secondary-spinner" />
+              <span className="soul-button-secondary-inner flex items-center">
+                {isPlaying ? <Pause className="w-4 h-4 mr-2" /> : <Play className="w-4 h-4 mr-2" />}
+                {isPlaying ? 'Pause' : 'Play'}
+              </span>
             </button>
             
             <button
               onClick={startRecording}
-              className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center"
+              className="soul-button-secondary"
             >
-              <RotateCcw className="w-4 h-4 mr-2" />
-              Re-record
+              <span className="soul-button-secondary-spinner" />
+              <span className="soul-button-secondary-inner flex items-center">
+                <RotateCcw className="w-4 h-4 mr-2" />
+                Re-record
+              </span>
             </button>
             
             <button
               onClick={deleteRecording}
-              className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center"
+              className="soul-button-secondary"
             >
-              <Trash2 className="w-4 h-4 mr-2" />
-              Delete
+              <span className="soul-button-secondary-spinner" />
+              <span className="soul-button-secondary-inner flex items-center">
+                <Trash2 className="w-4 h-4 mr-2" />
+                Delete
+              </span>
             </button>
           </>
         )}

@@ -243,26 +243,35 @@ With gratitude and love`
                 <button
                   onClick={aiWeave}
                   disabled={isWeaving || ingredients.length === 0}
-                  className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="soul-button disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isWeaving ? 'AI Weaving...' : 'AI Weave (1 Credit)'}
+                  <span className="soul-button-spinner" />
+                  <span className="soul-button-inner">
+                    {isWeaving ? 'AI Weaving...' : 'AI Weave (1 Credit)'}
+                  </span>
                 </button>
                 
                 <button
                   onClick={aiPolish}
                   disabled={isPolishing || !message.trim()}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="soul-button disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isPolishing ? 'AI Polishing...' : 'AI Polish (1 Credit)'}
+                  <span className="soul-button-spinner" />
+                  <span className="soul-button-inner">
+                    {isPolishing ? 'AI Polishing...' : 'AI Polish (1 Credit)'}
+                  </span>
                 </button>
 
                 <button
                   onClick={exportHug}
                   disabled={!message.trim()}
-                  className="flex items-center bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="soul-button disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <Download className="w-4 h-4 mr-2" />
-                  Export Hug
+                  <span className="soul-button-spinner" />
+                  <span className="soul-button-inner flex items-center">
+                    <Download className="w-4 h-4 mr-2" />
+                    Export Hug
+                  </span>
                 </button>
               </div>
             </div>
@@ -287,7 +296,10 @@ With gratitude and love`
                 disabled={!message.trim()}
                 className="soul-button disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Continue to Audio
+                <span className="soul-button-spinner" />
+                <span className="soul-button-inner">
+                  Continue to Audio
+                </span>
               </button>
             </Link>
           </div>

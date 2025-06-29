@@ -190,15 +190,18 @@ export default function GatherPage() {
               
               <Link href="/craft">
                 <button 
-                  className={`flex items-center px-6 py-3 rounded-lg transition-colors ${
+                  className={`${
                     ingredients.length > 0 || descriptors.length > 0
-                      ? 'bg-purple-600 text-white hover:bg-purple-700'
-                      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                      ? 'soul-button'
+                      : 'soul-button opacity-50 cursor-not-allowed'
                   }`}
                   disabled={ingredients.length === 0 && descriptors.length === 0}
                 >
-                  Continue to Craft
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                  <span className="soul-button-spinner" />
+                  <span className="soul-button-inner flex items-center">
+                    Continue to Craft
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </span>
                 </button>
               </Link>
             </div>
