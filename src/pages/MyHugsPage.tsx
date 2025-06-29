@@ -3,6 +3,7 @@ import { Play, Heart, Calendar, Download, Share2, X, Plus, Sparkles, CheckCircle
 import { Link } from 'wouter'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useSoulHug } from '../context/SoulHugContext'
+import ExpandableCardDemo from '../components/ui/expandable-card-demo-standard'
 
 export default function MyHugsPage() {
   const { savedSoulHugs, loadSavedSoulHugs, deleteSoulHug } = useSoulHug()
@@ -147,114 +148,12 @@ export default function MyHugsPage() {
             </motion.div>
           </motion.div>
         ) : (
-          <motion.div 
-            className="space-y-6"
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.6 }}
           >
-            <AnimatePresence>
-              {savedSoulHugs.map((hug, index) => (
-                <motion.div 
-                  key={hug.id} 
-                  className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/50 group relative overflow-hidden"
-                  initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -30, scale: 0.95 }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
-                  whileHover={{ scale: 1.02, y: -5 }}
-                  onMouseEnter={() => setHoveredHug(hug.id!)}
-                  onMouseLeave={() => setHoveredHug(null)}
-                >
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"
-                    animate={{ 
-                      opacity: hoveredHug === hug.id ? 1 : 0.3,
-                      scale: hoveredHug === hug.id ? 1.1 : 1
-                    }}
-                    transition={{ duration: 0.3 }}
-                  />
-                  
-                  <div className="flex items-center relative z-10">
-                    {/* Thumbnail */}
-                    <motion.div 
-                      className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${getThumbnailGradient(hug.coreFeeling)} flex items-center justify-center mr-6 flex-shrink-0 shadow-lg relative overflow-hidden`}
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                    >
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent"
-                        animate={{ rotate: hoveredHug === hug.id ? [0, 360] : 0 }}
-                        transition={{ duration: 2, ease: "linear" }}
-                      />
-                      <Heart className="w-8 h-8 text-white relative z-10" />
-                    </motion.div>
-                    
-                    {/* Content */}
-                    <div className="flex-1 min-w-0">
-                      <motion.h3 
-                        className="text-lg font-semibold text-gray-800 mb-2 truncate"
-                        whileHover={{ x: 5 }}
-                        transition={{ type: "spring", stiffness: 300 }}
-                      >
-                        {getTitle(hug)}
-                      </motion.h3>
-                      <motion.p 
-                        className="text-sm text-gray-600 mb-2"
-                        initial={{ opacity: 0.7 }}
-                        animate={{ opacity: hoveredHug === hug.id ? 1 : 0.7 }}
-                      >
-                        For {hug.recipient || 'Someone Special'} • {hug.duration || '2:30'}
-                      </motion.p>
-                      <div className="flex items-center text-xs text-gray-500">
-                        <Calendar className="w-3 h-3 mr-1" />
-                        {new Date(hug.createdAt || Date.now()).toLocaleDateString()}
-                      </div>
-                    </div>
-                    
-                    {/* Actions */}
-                    <motion.div 
-                      className="flex items-center space-x-2 ml-4"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ 
-                        opacity: hoveredHug === hug.id ? 1 : 0.7,
-                        x: hoveredHug === hug.id ? 0 : 10
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <motion.button 
-                        className="p-3 bg-blue-100 hover:bg-blue-200 rounded-xl transition-colors shadow-sm hover:shadow-md"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                      >
-                        <Play className="w-4 h-4 text-blue-600" />
-                      </motion.button>
-                      <motion.button 
-                        className="p-3 bg-gray-100 hover:bg-gray-200 rounded-xl transition-colors shadow-sm hover:shadow-md"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                      >
-                        <Download className="w-4 h-4 text-gray-600" />
-                      </motion.button>
-                      <motion.button 
-                        className="p-3 bg-gray-100 hover:bg-gray-200 rounded-xl transition-colors shadow-sm hover:shadow-md"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                      >
-                        <Share2 className="w-4 h-4 text-gray-600" />
-                      </motion.button>
-                      <motion.button 
-                        onClick={() => deleteSoulHug(hug.id!)}
-                        className="p-3 bg-red-100 hover:bg-red-200 rounded-xl transition-colors shadow-sm hover:shadow-md"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                      >
-                        <X className="w-4 h-4 text-red-600" />
-                      </motion.button>
-                    </motion.div>
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
+            <ExpandableCardDemo />
           </motion.div>
         )}
 
