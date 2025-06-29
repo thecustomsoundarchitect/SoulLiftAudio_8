@@ -18,6 +18,12 @@ export default function HomePage() {
         <div className="max-w-sm sm:max-w-2xl lg:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}
           <div className="text-center mb-8 md:mb-16">
+            <img 
+              src="/images/Screenshot 2025-06-29 at 3.40.03 AM copy.jpg" 
+              alt="SoulLift Audio Logo" 
+              className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6 md:mb-8 object-cover object-bottom"
+            />
+            
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-800 mb-4 md:mb-6">
               <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
                 SoulLift
