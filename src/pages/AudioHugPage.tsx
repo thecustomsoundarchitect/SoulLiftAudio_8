@@ -7,7 +7,7 @@ import { AIVoiceSelector } from '../components/AIVoiceSelector'
 import { BackgroundMusicSelector } from '../components/BackgroundMusicSelector'
 import { CoverImageSelector } from '../components/CoverImageSelector'
 import { DeliveryOptions } from '../components/DeliveryOptions'
-import { ProgressIndicator } from '../components/ProgressIndicator'
+import ProgressIndicator from '../components/ProgressIndicator'
 
 export default function AudioHugPage() {
   const { currentSoulHug, updateCurrentSoulHug } = useSoulHug()
