@@ -4,8 +4,22 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
+      animation: {
+        shimmer: "shimmer 2s linear infinite",
+      },
+      keyframes: {
+        shimmer: {
+          from: {
+            backgroundPosition: "0 0",
+          },
+          to: {
+            backgroundPosition: "-200% 0",
+          },
+        },
+      },
       colors: {
         'soul-purple': '#8B5CF6',
         'soul-blue': '#3B82F6',
@@ -15,6 +29,12 @@ export default {
       backgroundImage: {
         'soul-gradient': 'linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%)',
         'soul-gradient-light': 'linear-gradient(135deg, #F3E8FF 0%, #EBF4FF 100%)',
+        'dot-black': 'radial-gradient(circle, black 1px, transparent 1px)',
+        'dot-white': 'radial-gradient(circle, white 1px, transparent 1px)',
+      },
+      backgroundSize: {
+        'dot-black': '20px 20px',
+        'dot-white': '20px 20px',
       },
     },
   },
