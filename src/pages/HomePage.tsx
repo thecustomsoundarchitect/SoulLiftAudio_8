@@ -37,62 +37,25 @@ export default function HomePage() {
           </div>
 
           {/* Main Action Cards */}
-          <div className="grid grid-cols-1 gap-4 md:gap-8 max-w-sm sm:max-w-2xl lg:max-w-4xl mx-auto mb-8 md:mb-12">
+          <div className="flex flex-col items-center gap-6 max-w-sm sm:max-w-2xl lg:max-w-4xl mx-auto mb-8 md:mb-12">
             <Link href="/define">
-              <div className="soul-card cursor-pointer group hover:shadow-2xl transition-all duration-300">
-                <div className="flex items-center p-4 md:p-0">
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl md:rounded-2xl flex items-center justify-center mr-4 md:mr-6 group-hover:scale-110 transition-transform duration-200 flex-shrink-0">
-                    <Plus className="w-6 h-6 md:w-8 md:h-8 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg md:text-2xl font-bold text-gray-800 mb-1 md:mb-2">Create New Soul Hug</h3>
-                    <p className="text-sm md:text-base text-gray-600">Start your creative journey with AI assistance</p>
-                  </div>
-                  <div className="text-gray-400 group-hover:text-gray-600 transition-colors">
-                    <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
+              <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-6 py-1 text-sm font-medium text-white backdrop-blur-3xl">
+                  <Plus className="w-4 h-4 mr-2" />
+                  Create New Soul Hug
+                </span>
+              </button>
             </Link>
 
             <Link href="/my-hugs">
-              <div className="soul-card cursor-pointer group hover:shadow-2xl transition-all duration-300">
-                <div className="flex items-center p-4 md:p-0">
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-xl md:rounded-2xl flex items-center justify-center mr-4 md:mr-6 group-hover:scale-110 transition-transform duration-200 flex-shrink-0">
-                    <Eye className="w-6 h-6 md:w-8 md:h-8 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg md:text-2xl font-bold text-gray-800 mb-1 md:mb-2">View My Soul Hugs</h3>
-                    <p className="text-sm md:text-base text-gray-600">Access your saved creations and memories</p>
-                  </div>
-                  <div className="text-gray-400 group-hover:text-gray-600 transition-colors">
-                    <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-            <Link href="/audio-hug">
-              <div className="soul-card cursor-pointer group hover:shadow-2xl transition-all duration-300">
-                <div className="flex items-center p-4 md:p-0">
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-xl md:rounded-2xl flex items-center justify-center mr-4 md:mr-6 group-hover:scale-110 transition-transform duration-200 flex-shrink-0">
-                    <Headphones className="w-6 h-6 md:w-8 md:h-8 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg md:text-2xl font-bold text-gray-800 mb-1 md:mb-2">Audio Features</h3>
-                    <p className="text-sm md:text-base text-gray-600">Voice recording, AI narration, and music mixing</p>
-                  </div>
-                  <div className="text-gray-400 group-hover:text-gray-600 transition-colors">
-                    <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
+              <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-6 py-1 text-sm font-medium text-white backdrop-blur-3xl">
+                  <Eye className="w-4 h-4 mr-2" />
+                  View My Soul Hugs
+                </span>
+              </button>
             </Link>
           </div>
 
