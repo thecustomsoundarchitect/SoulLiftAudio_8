@@ -1,24 +1,20 @@
 import { Link } from 'wouter'
 import { Plus, Eye, Headphones, Heart, Infinity } from 'lucide-react'
-import { BackgroundGradientAnimation } from '../components/ui/background-gradient-animation'
+import { WavyBackground } from '../components/ui/wavy-background'
 
 export default function HomePage() {
   return (
-    <BackgroundGradientAnimation
-      gradientBackgroundStart="rgb(49, 26, 85)"
-      gradientBackgroundEnd="rgb(36, 25, 70)"
-      firstColor="91, 40, 133"
-      secondColor="49, 26, 85"
-      thirdColor="123, 78, 255"
-      fourthColor="91, 40, 133"
-      fifthColor="36, 25, 70"
-      pointerColor="140, 100, 255"
-      size="80%"
-      blendingValue="hard-light"
+    <WavyBackground
+      colors={["#8B5CF6", "#3B82F6", "#06B6D4", "#10B981", "#F59E0B"]}
+      waveWidth={50}
+      backgroundFill="rgb(49, 26, 85)"
+      blur={10}
+      speed="fast"
+      waveOpacity={0.5}
       containerClassName="min-h-screen"
-      interactive={true}
+      className="flex flex-col items-center justify-center"
     >
-      <div className="relative z-50 min-h-screen pt-8 pb-16">
+      <div className="relative z-10 min-h-screen pt-8 pb-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}
           <div className="text-center mb-16">
@@ -107,6 +103,6 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-    </BackgroundGradientAnimation>
+    </WavyBackground>
   )
 }
