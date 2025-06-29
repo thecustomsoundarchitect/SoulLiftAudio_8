@@ -21,6 +21,7 @@
     "react-dom": "^18.2.0",
     "react-element-to-jsx-string": "^15.0.0",
     "simplex-noise": "^4.0.1",
+    "@tabler/icons-react": "^3.0.0",
     "tailwind-merge": "^2.0.0",
     "wouter": "^3.2.1"
   },

@@ -4,6 +4,7 @@ import { Link } from 'wouter'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useSoulHug } from '../context/SoulHugContext'
 import ExpandableCardDemo from '../components/ui/expandable-card-demo-standard'
+import FloatingDockDemo from '../components/ui/floating-dock-demo'
 
 export default function MyHugsPage() {
   const { savedSoulHugs, loadSavedSoulHugs, deleteSoulHug } = useSoulHug()
@@ -154,6 +155,26 @@ export default function MyHugsPage() {
             transition={{ delay: 0.6, duration: 0.6 }}
           >
             <ExpandableCardDemo />
+            
+            {/* Floating Dock Demo */}
+            <motion.div 
+              className="mt-16"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.0, duration: 0.6 }}
+            >
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-semibold mb-4">
+                  <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                    Quick Navigation
+                  </span>
+                </h3>
+                <p className="text-gray-600">
+                  Access your favorite features with our floating dock
+                </p>
+              </div>
+              <FloatingDockDemo />
+            </motion.div>
           </motion.div>
         )}
 
