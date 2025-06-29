@@ -6,6 +6,8 @@ import GatherPage from './pages/GatherPage'
 import CraftPage from './pages/CraftPage'
 import AudioHugPage from './pages/AudioHugPage'
 import MyHugsPage from './pages/MyHugsPage'
+import SoulArchivePage from './pages/SoulArchivePage'
+import BottomNavigation from './components/BottomNavigation'
 
 function AppContent() {
   const [location] = useLocation()
@@ -22,6 +24,7 @@ function AppContent() {
           <Route path="/craft" component={CraftPage} />
           <Route path="/audio-hug" component={AudioHugPage} />
           <Route path="/my-hugs" component={MyHugsPage} />
+          <Route path="/soul-archive" component={SoulArchivePage} />
           <Route>
             <div className="flex items-center justify-center min-h-screen">
               <div className="soul-card text-center">
@@ -32,6 +35,7 @@ function AppContent() {
           </Route>
         </Switch>
       </main>
+      <BottomNavigation />
     </>
   )
 }
