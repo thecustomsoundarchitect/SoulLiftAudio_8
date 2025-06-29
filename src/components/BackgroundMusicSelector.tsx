@@ -197,7 +197,7 @@ export const BackgroundMusicSelector: React.FC<BackgroundMusicSelectorProps> = (
 
       <div className="text-center">
         <p className="text-xs text-gray-500">
-          💡 Adjust volume in the Audio Mixer section
+          Adjust volume in the Audio Mixer section
         </p>
       </div>
     </div>

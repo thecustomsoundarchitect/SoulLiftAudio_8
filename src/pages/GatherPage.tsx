@@ -14,15 +14,15 @@ export default function GatherPage() {
   const [progress, setProgress] = useState(0)
 
   const promptCards = [
-    { text: "When they showed unwavering kindness", icon: "💝", color: "from-pink-400 to-rose-500" },
-    { text: "How their smile lights up rooms", icon: "😊", color: "from-yellow-400 to-orange-500" },
-    { text: "Their gift of making everyone feel welcome", icon: "🤗", color: "from-blue-400 to-cyan-500" },
-    { text: "The natural way they comfort others", icon: "🫂", color: "from-green-400 to-emerald-500" },
-    { text: "What you see blossoming in them", icon: "🌸", color: "from-purple-400 to-pink-500" },
-    { text: "That time they stood up bravely", icon: "💪", color: "from-red-400 to-pink-500" },
-    { text: "The small ways they show care", icon: "🌟", color: "from-indigo-400 to-purple-500" },
-    { text: "Why they deserve all the love", icon: "❤️", color: "from-rose-400 to-red-500" },
-    { text: "The real them that shines through", icon: "✨", color: "from-amber-400 to-yellow-500" }
+    { text: "When they showed unwavering kindness", icon: Heart, color: "from-pink-400 to-rose-500" },
+    { text: "How their smile lights up rooms", icon: Star, color: "from-yellow-400 to-orange-500" },
+    { text: "Their gift of making everyone feel welcome", icon: Sparkles, color: "from-blue-400 to-cyan-500" },
+    { text: "The natural way they comfort others", icon: Heart, color: "from-green-400 to-emerald-500" },
+    { text: "What you see blossoming in them", icon: Star, color: "from-purple-400 to-pink-500" },
+    { text: "That time they stood up bravely", icon: CheckCircle, color: "from-red-400 to-pink-500" },
+    { text: "The small ways they show care", icon: Sparkles, color: "from-indigo-400 to-purple-500" },
+    { text: "Why they deserve all the love", icon: Heart, color: "from-rose-400 to-red-500" },
+    { text: "The real them that shines through", icon: Star, color: "from-amber-400 to-yellow-500" }
   ]
 
   const descriptorOptions = [
@@ -206,7 +206,7 @@ export default function GatherPage() {
                 transition={{ duration: 0.3 }}
               />
               <div className="relative z-10">
-                <div className="text-3xl mb-3">{card.icon}</div>
+                <card.icon className="w-8 h-8 mb-3 text-white" />
                 <p className="text-sm font-medium leading-tight">{card.text}</p>
               </div>
               <motion.div
