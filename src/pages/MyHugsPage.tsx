@@ -10,53 +10,6 @@ export default function MyHugsPage() {
   const { savedSoulHugs, loadSavedSoulHugs, deleteSoulHug } = useSoulHug()
   const [hoveredHug, setHoveredHug] = useState<string | null>(null)
 
-  // Demo Soul Hugs data
-  const demoSoulHugs = [
-    {
-      id: 'demo-1',
-      recipient: 'Mom',
-      coreFeeling: 'deeply appreciated',
-      occasion: 'Birthday',
-      tone: 'Warm & Loving',
-      message: 'Happy Birthday Mom! Your love and wisdom have shaped who I am today...',
-      createdAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(), // 2 days ago
-      duration: '3:45'
-    },
-    {
-      id: 'demo-2',
-      recipient: 'Sarah',
-      coreFeeling: 'truly supported',
-      occasion: 'Encouragement',
-      tone: 'Inspiring & Uplifting',
-      message: 'You\'ve got this, Sarah! Your strength and determination inspire me every day...',
-      createdAt: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(), // 5 days ago
-      duration: '2:30'
-    },
-    {
-      id: 'demo-3',
-      recipient: 'Dad',
-      coreFeeling: 'grateful',
-      occasion: 'Thank You',
-      tone: 'Heartfelt & Sincere',
-      message: 'Thank you for everything, Dad. Your guidance and support mean the world to me...',
-      createdAt: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(), // 1 week ago
-      duration: '4:15'
-    },
-    {
-      id: 'demo-4',
-      recipient: 'Best Friend',
-      coreFeeling: 'completely loved',
-      occasion: 'Just Because',
-      tone: 'Playful & Fun',
-      message: 'Just wanted to remind you how amazing you are! Our friendship means everything to me...',
-      createdAt: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toISOString(), // 10 days ago
-      duration: '2:45'
-    }
-  ]
-
-  // Combine saved Soul Hugs with demo data
-  const allSoulHugs = [...savedSoulHugs, ...demoSoulHugs]
-
   useEffect(() => {
     loadSavedSoulHugs()
   }, [])
@@ -148,7 +101,7 @@ export default function MyHugsPage() {
           </motion.p>
         </motion.div>
 
-        {allSoulHugs.length === 0 ? (
+        {savedSoulHugs.length === 0 ? (
           <motion.div 
             className="text-center py-16"
             initial={{ opacity: 0, scale: 0.9 }}
@@ -226,7 +179,7 @@ export default function MyHugsPage() {
         )}
 
         {/* Stats */}
-        {allSoulHugs.length > 0 && (
+        {savedSoulHugs.length > 0 && (
           <motion.div 
             className="mt-16 pt-8 border-t border-gray-200"
             initial={{ opacity: 0, y: 30 }}
@@ -244,7 +197,7 @@ export default function MyHugsPage() {
                   animate={{ scale: [1, 1.1, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
-                  {allSoulHugs.length}
+                  {savedSoulHugs.length}
                 </motion.div>
                 <div className="text-sm text-gray-600 font-medium">Total Hugs</div>
               </motion.div>
@@ -259,7 +212,7 @@ export default function MyHugsPage() {
                   animate={{ scale: [1, 1.1, 1] }}
                   transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
                 >
-                  {allSoulHugs.reduce((total, hug) => {
+                  {savedSoulHugs.reduce((total, hug) => {
                     const duration = hug.duration || '2:30'
                     const [min, sec] = duration.split(':').map(Number)
                     return total + min + sec / 60
@@ -278,7 +231,7 @@ export default function MyHugsPage() {
                   animate={{ scale: [1, 1.1, 1] }}
                   transition={{ duration: 2, repeat: Infinity, delay: 1 }}
                 >
-                  {new Set(allSoulHugs.map(hug => hug.recipient)).size}
+                  {new Set(savedSoulHugs.map(hug => hug.recipient)).size}
                 </motion.div>
                 <div className="text-sm text-gray-600 font-medium">People Touched</div>
               </motion.div>
