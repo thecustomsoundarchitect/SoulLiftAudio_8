@@ -126,14 +126,7 @@ export default function DefinePage() {
           </div>
 
           <div className="flex flex-col sm:flex-row justify-between items-center mt-6 md:mt-8 space-y-4 sm:space-y-0">
-            <Link href="/">
-              <button className="flex items-center px-4 md:px-6 py-2 md:py-3 text-sm md:text-base text-gray-600 border border-gray-300 rounded-xl hover:bg-gray-50 transition-all duration-200 min-h-12">
-                <ArrowLeft className="w-3 h-3 md:w-4 md:h-4 mr-2" />
-                Back to Home
-              </button>
-            </Link>
-            
-            <div className="text-center">
+            <div className="text-center w-full">
               {!canProceed && (
                 <p className="text-red-500 text-xs md:text-sm mb-2">
                   Please fill in: {!formData.coreFeeling.trim() && 'feeling'} {!formData.coreFeeling.trim() && !formData.tone && ' and '} {!formData.tone && 'tone'}
