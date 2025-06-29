@@ -7,7 +7,7 @@ export default function HomePage() {
     <WavyBackground
       className="min-h-screen"
       containerClassName="min-h-screen"
-      colors={["#8B5CF6", "#3B82F6", "#06B6D4", "#10B981", "#F59E0B"]}
+      colors={["#5B2885", "#DF86F9", "#29D3FF"]}
       waveWidth={50}
       backgroundFill="white"
       blur={10}
