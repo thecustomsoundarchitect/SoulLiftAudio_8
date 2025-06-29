@@ -9,7 +9,7 @@ import MyHugsPage from './pages/MyHugsPage'
 
 function AppContent() {
   const [location] = useLocation()
-  const showNavigation = false // Hide navigation on all pages for now, but especially home
+  const showNavigation = location !== '/'
 
   return (
     <>
