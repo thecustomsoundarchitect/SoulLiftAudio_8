@@ -22,7 +22,7 @@ export default function HomePage() {
               <img 
                 src="/images/Screenshot 2025-06-29 at 3.40.03 AM copy.jpg" 
                 alt="SoulLift Audio Logo" 
-                className="w-16 h-16 rounded-full object-cover object-center"
+                className="w-16 h-16 rounded-full object-cover object-bottom"
               />
             </div>
             
