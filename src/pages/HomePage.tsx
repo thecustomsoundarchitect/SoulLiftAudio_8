@@ -3,7 +3,7 @@ import { Plus, Eye, Headphones } from 'lucide-react'
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#241946] to-[#7B4EFF] pt-8 pb-16">
+    <div className="min-h-screen bg-gradient-to-br from-[#311A55] via-[#5B2885] to-[#241946] pt-8 pb-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
         <div className="text-center mb-16">
