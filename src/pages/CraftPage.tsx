@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Link } from 'wouter'
 import { ArrowLeft, Download } from 'lucide-react'
 import { useSoulHug } from '../context/SoulHugContext'
-import { RiverProgressIndicator } from '../components/RiverProgressIndicator'
 
 export default function CraftPage() {
   const { currentSoulHug, updateCurrentSoulHug } = useSoulHug()
@@ -98,9 +97,7 @@ With gratitude and love`
   const wordCount = message ? message.split(' ').filter(word => word.length > 0).length : 0
 
   return (
-    <div className="min-h-screen pt-28 pb-20">
-      <RiverProgressIndicator currentStep={3} />
-      
+    <div className="min-h-screen pt-8 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="soul-card">
           <h1 className="text-4xl font-bold text-center bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent mb-8">

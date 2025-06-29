@@ -7,7 +7,6 @@ import { AIVoiceSelector } from '../components/AIVoiceSelector'
 import { BackgroundMusicSelector } from '../components/BackgroundMusicSelector'
 import { CoverImageSelector } from '../components/CoverImageSelector'
 import { DeliveryOptions } from '../components/DeliveryOptions'
-import { RiverProgressIndicator } from '../components/RiverProgressIndicator'
 
 export default function AudioHugPage() {
   const { currentSoulHug, updateCurrentSoulHug } = useSoulHug()
@@ -159,9 +158,7 @@ With gratitude and love`
   }
 
   return (
-    <div className="min-h-screen pt-24 md:pt-28 pb-20 md:pb-16">
-      <RiverProgressIndicator currentStep={4} />
-      
+    <div className="min-h-screen pt-4 md:pt-8 pb-20 md:pb-16">
       <div className="max-w-sm sm:max-w-2xl lg:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="soul-card">
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 md:mb-6 space-y-4 md:space-y-0">

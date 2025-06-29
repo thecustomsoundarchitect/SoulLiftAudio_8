@@ -3,7 +3,6 @@ import { Link } from 'wouter'
 import { ArrowRight, ArrowLeft, Heart, CheckCircle } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useSoulHug } from '../context/SoulHugContext'
-import { RiverProgressIndicator } from '../components/RiverProgressIndicator'
 
 export default function DefinePage() {
   const { currentSoulHug, updateCurrentSoulHug } = useSoulHug()
@@ -51,11 +50,9 @@ export default function DefinePage() {
   }
 
   return (
-    <div className="min-h-screen bg-white pb-20 pt-20">
-      <RiverProgressIndicator currentStep={1} />
-      
+    <div className="min-h-screen bg-white pb-20">
       {/* Floating back button */}
-      <div className="fixed top-24 left-6 z-10">
+      <div className="fixed top-6 left-6 z-10">
         <Link href="/">
           <button className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group">
             <ArrowLeft className="w-5 h-5 text-gray-600 group-hover:text-purple-600 transition-colors" />
@@ -210,6 +207,16 @@ export default function DefinePage() {
               <ArrowRight className="w-5 h-5 ml-2" />
             </button>
           </Link>
+        </div>
+
+        {/* Progress Indicator */}
+        <div className="mt-8 flex justify-center">
+          <div className="flex space-x-2">
+            <div className="w-8 h-2 bg-purple-500 rounded-full"></div>
+            <div className="w-2 h-2 bg-gray-200 rounded-full"></div>
+            <div className="w-2 h-2 bg-gray-200 rounded-full"></div>
+            <div className="w-2 h-2 bg-gray-200 rounded-full"></div>
+          </div>
         </div>
       </div>
     </div>

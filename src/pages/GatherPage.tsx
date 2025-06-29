@@ -3,7 +3,6 @@ import { Link } from 'wouter'
 import { ArrowRight, ArrowLeft, X, Plus } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useSoulHug } from '../context/SoulHugContext'
-import { RiverProgressIndicator } from '../components/RiverProgressIndicator'
 
 export default function GatherPage() {
   const { currentSoulHug, updateCurrentSoulHug } = useSoulHug()
@@ -67,9 +66,7 @@ export default function GatherPage() {
   const canProceed = ingredients.length > 0 || descriptors.length > 0
 
   return (
-    <div className="min-h-screen bg-white pt-20 pb-20">
-      <RiverProgressIndicator currentStep={2} />
-      
+    <div className="min-h-screen bg-white">
       <div className="max-w-4xl mx-auto px-6 py-8">
         {/* Header */}
         <div className="text-center mb-8">
