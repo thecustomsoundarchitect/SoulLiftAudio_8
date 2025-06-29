@@ -8,10 +8,10 @@ export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const navItems = [
-    { path: '/define', label: 'Define', icon: '✨' },
-    { path: '/gather', label: 'Gather', icon: '🌟' },
-    { path: '/craft', label: 'Craft', icon: '✍️' },
-    { path: '/audio-hug', label: 'Audio Hug', icon: '🎵' },
+    { path: '/define', label: 'Define' },
+    { path: '/gather', label: 'Gather' },
+    { path: '/craft', label: 'Craft' },
+    { path: '/audio-hug', label: 'Audio Hug' },
   ]
 
   const toggleMobileMenu = () => {
@@ -24,7 +24,7 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-purple-100">
+      <nav className="bg-white shadow-lg sticky top-0 z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-2" onClick={closeMobileMenu}>
@@ -99,7 +99,7 @@ export default function Navigation() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="fixed top-20 left-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-purple-100 z-40 md:hidden overflow-hidden"
+              className="fixed top-20 left-4 right-4 bg-white rounded-2xl shadow-2xl border border-gray-100 z-40 md:hidden overflow-hidden"
             >
               <div className="p-6">
                 <div className="space-y-3">
@@ -119,7 +119,6 @@ export default function Navigation() {
                             : 'text-gray-700 hover:bg-purple-50 hover:text-purple-600'
                         }`}
                       >
-                        <span className="text-2xl">{item.icon}</span>
                         <span className="font-medium text-lg">{item.label}</span>
                       </Link>
                     </motion.div>
