@@ -53,7 +53,7 @@ export default function HomePage() {
                 }}
                 transition={{
                   duration: 3,
-                  repeat: Infinity,
+                  repeat: 999999,
                   ease: "easeInOut"
                 }}
               />
@@ -67,7 +67,7 @@ export default function HomePage() {
                 }}
                 transition={{
                   duration: 2,
-                  repeat: Infinity,
+                  repeat: 999999,
                   ease: "easeInOut",
                   delay: 0.5
                 }}
@@ -81,7 +81,7 @@ export default function HomePage() {
                 }}
                 transition={{
                   duration: 4,
-                  repeat: Infinity,
+                  repeat: 999999,
                   ease: "easeInOut"
                 }}
               >
@@ -104,7 +104,7 @@ export default function HomePage() {
                   }}
                   transition={{
                     duration: 2,
-                    repeat: Infinity,
+                    repeat: 999999,
                     delay: i * 0.3,
                     ease: "easeInOut"
                   }}
