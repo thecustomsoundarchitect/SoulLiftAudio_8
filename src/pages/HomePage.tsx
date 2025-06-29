@@ -1,39 +1,40 @@
 import { Link } from 'wouter'
 import { Plus, Eye, Headphones, Heart, Infinity } from 'lucide-react'
-import { WavyBackground } from '../components/ui/wavy-background'
+import { BackgroundGradientAnimation } from '../components/ui/background-gradient-animation'
 
 export default function HomePage() {
   return (
-    <WavyBackground
-      backgroundFill="white"
-      colors={["#8B5CF6", "#3B82F6", "#06B6D4", "#8B5CF6", "#3B82F6"]}
-      waveWidth={30}
-      blur={8}
-      speed="slow"
-      waveOpacity={0.3}
+    <BackgroundGradientAnimation
+      gradientBackgroundStart="rgb(49, 26, 85)"
+      gradientBackgroundEnd="rgb(36, 25, 70)"
+      firstColor="91, 40, 133"
+      secondColor="49, 26, 85"
+      thirdColor="123, 78, 255"
+      fourthColor="91, 40, 133"
+      fifthColor="36, 25, 70"
+      pointerColor="140, 100, 255"
+      size="80%"
+      blendingValue="hard-light"
       containerClassName="min-h-screen"
-      className=""
+      interactive={true}
     >
-      <div className="relative z-10 min-h-screen pt-8 pb-16">
+      <div className="relative z-50 min-h-screen pt-8 pb-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-24 h-24 mb-8">
-              <img 
-                src="/River  copy.webp" 
-                alt="SoulLift Audio Logo" 
-                className="w-20 h-20 drop-shadow-2xl"
-              />
+            <div className="inline-flex flex-col items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full mb-8">
+              <Heart className="w-6 h-6 text-cyan-300 mb-[-4px] drop-shadow-lg" />
+              <Infinity className="w-10 h-10 text-purple-300 drop-shadow-lg" />
             </div>
             
-            <h1 className="text-6xl font-bold mb-6 drop-shadow-lg">
-              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+            <h1 className="text-6xl font-bold text-white mb-6 drop-shadow-2xl">
+              <span className="bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">
                 SoulLift
               </span>
-              <span className="block text-4xl font-normal text-gray-700 mt-2">Audio</span>
+              <span className="block text-4xl font-normal text-white/90 mt-2">Audio</span>
             </h1>
             
-            <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
               Join thousands creating meaningful connections through personalized audio messages
             </p>
           </div>
@@ -41,7 +42,7 @@ export default function HomePage() {
           {/* Main Action Cards */}
           <div className="grid md:grid-cols-1 gap-8 max-w-4xl mx-auto mb-12">
             <Link href="/define">
-              <div className="soul-card cursor-pointer group bg-white/90 backdrop-blur-sm hover:bg-white transition-all duration-300 shadow-xl hover:shadow-2xl">
+              <div className="soul-card cursor-pointer group backdrop-blur-sm bg-white/95 hover:bg-white/100 transition-all duration-300">
                 <div className="flex items-center">
                   <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mr-6 group-hover:scale-110 transition-transform duration-200">
                     <Plus className="w-8 h-8 text-white" />
@@ -60,7 +61,7 @@ export default function HomePage() {
             </Link>
 
             <Link href="/my-hugs">
-              <div className="soul-card cursor-pointer group bg-white/90 backdrop-blur-sm hover:bg-white transition-all duration-300 shadow-xl hover:shadow-2xl">
+              <div className="soul-card cursor-pointer group backdrop-blur-sm bg-white/95 hover:bg-white/100 transition-all duration-300">
                 <div className="flex items-center">
                   <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl flex items-center justify-center mr-6 group-hover:scale-110 transition-transform duration-200">
                     <Eye className="w-8 h-8 text-white" />
@@ -79,7 +80,7 @@ export default function HomePage() {
             </Link>
 
             <Link href="/audio-hug">
-              <div className="soul-card cursor-pointer group bg-white/90 backdrop-blur-sm hover:bg-white transition-all duration-300 shadow-xl hover:shadow-2xl">
+              <div className="soul-card cursor-pointer group backdrop-blur-sm bg-white/95 hover:bg-white/100 transition-all duration-300">
                 <div className="flex items-center">
                   <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-2xl flex items-center justify-center mr-6 group-hover:scale-110 transition-transform duration-200">
                     <Headphones className="w-8 h-8 text-white" />
@@ -100,12 +101,12 @@ export default function HomePage() {
 
           {/* Sign In CTA */}
           <div className="text-center">
-            <button className="bg-white/80 backdrop-blur-sm border-2 border-purple-300 text-purple-700 px-8 py-4 rounded-xl font-medium text-lg transition-all duration-200 hover:bg-purple-50 hover:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2">
+            <button className="soul-button-outline text-lg px-8 py-4 backdrop-blur-sm">
               Sign In to Save Your Creations
             </button>
           </div>
         </div>
       </div>
-    </WavyBackground>
+    </BackgroundGradientAnimation>
   )
 }
