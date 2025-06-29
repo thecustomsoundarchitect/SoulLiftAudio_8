@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'wouter'
-import { Heart, Infinity, Menu, X, Sparkles, Star, Music } from 'lucide-react'
+import { Heart, Infinity, Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Navigation() {
