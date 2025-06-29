@@ -17,7 +17,10 @@ export default function GatherPage() {
     "Their gift of making everyone feel welcome",
     "The natural way they comfort others",
     "What you see blossoming in them",
-    "That time they stood up bravely"
+    "That time they stood up bravely",
+    "The small ways they show care",
+    "Why they deserve all the love",
+    "The real them that shines through"
   ]
 
   const descriptorOptions = [
