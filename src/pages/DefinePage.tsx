@@ -139,7 +139,7 @@ export default function DefinePage() {
         />
       </motion.div>
 
-      <div className="max-w-2xl mx-auto px-6 py-20 relative z-10">
+      <div className="max-w-2xl mx-auto px-6 py-20 relative">
         {/* Header */}
         <motion.div 
           className="text-center mb-16"
