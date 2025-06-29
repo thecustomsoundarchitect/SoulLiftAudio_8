@@ -195,21 +195,10 @@ export const BackgroundMusicSelector: React.FC<BackgroundMusicSelectorProps> = (
         </div>
       )}
 
-      <div className="space-y-3">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center">
-            <Volume2 className="w-4 h-4 mr-1" />
-            Music Volume: {volume}%
-          </label>
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={volume}
-            onChange={(e) => handleVolumeChange(Number(e.target.value))}
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
-          />
-        </div>
+      <div className="text-center">
+        <p className="text-xs text-gray-500">
+          💡 Adjust volume in the Audio Mixer section
+        </p>
       </div>
     </div>
   )
