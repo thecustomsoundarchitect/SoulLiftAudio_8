@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Download, Share2, QrCode, Mail, Copy, Check } from 'lucide-react'
-import QRCodeLib from 'qrcode'
+import * as QRCode from 'qrcode'
 import JSZip from 'jszip'
 import { saveAs } from 'file-saver'
 
@@ -96,7 +96,7 @@ export const DeliveryOptions: React.FC<DeliveryOptionsProps> = ({
     setIsGeneratingQR(true)
     
     try {
-      const qrCodeDataUrl = await QRCodeLib.toDataURL(shareUrl, {
+      const qrCodeDataUrl = await QRCode.toDataURL(shareUrl, {
         width: 300,
         margin: 2,
         color: {
