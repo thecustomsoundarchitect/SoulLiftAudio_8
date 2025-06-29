@@ -254,7 +254,7 @@ With gratitude and love`
                 {mixedAudioUrl && (
                   <div className="mt-4 p-3 bg-green-100 border border-green-300 rounded-lg">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-green-700 text-xs md:text-sm font-medium">✓ Audio mixed successfully!</span>
+                      <span className="text-green-700 text-xs md:text-sm font-medium">Audio mixed successfully!</span>
                     </div>
                     <audio controls src={mixedAudioUrl} className="w-full h-6 md:h-8" />
                   </div>

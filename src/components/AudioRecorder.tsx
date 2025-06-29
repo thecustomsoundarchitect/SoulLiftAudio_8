@@ -141,13 +141,13 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({ onRecordingComplet
         
         {isRecording && (
           <div className="text-red-600 font-mono text-lg mb-2">
-            🔴 {formatTime(recordingTime)}
+            REC {formatTime(recordingTime)}
           </div>
         )}
         
         {audioBlob && !isRecording && (
           <div className="text-green-600 font-mono text-sm mb-2">
-            ✓ Recorded: {formatTime(recordingTime)}
+            Recorded: {formatTime(recordingTime)}
           </div>
         )}
       </div>

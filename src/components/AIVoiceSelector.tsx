@@ -108,7 +108,7 @@ export const AIVoiceSelector: React.FC<AIVoiceSelectorProps> = ({
       {generatedAudio && (
         <div className="mb-4 p-3 bg-green-100 border border-green-300 rounded-lg">
           <div className="flex items-center justify-between">
-            <span className="text-green-700 text-sm font-medium">✓ Voice generated successfully!</span>
+            <span className="text-green-700 text-sm font-medium">Voice generated successfully!</span>
             <audio controls className="h-8">
               <source src={generatedAudio} type="audio/mpeg" />
             </audio>
