@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { Link } from 'wouter'
-import { Mic, Square, Play, Pause, Trash2, Download, Share2, ArrowLeft, Music, Image, Volume2 } from 'lucide-react'
+import { Mic, Square, Play, Pause, Trash2, Download, Share2, ArrowLeft, Music, Image, Volume2, Wand2 } from 'lucide-react'
 import { useSoulHug } from '../context/SoulHugContext'
 
 export default function AudioHugPage() {
@@ -14,6 +14,12 @@ export default function AudioHugPage() {
   const [recordingTime, setRecordingTime] = useState(0)
   const [error, setError] = useState<string | null>(null)
 
+  // AI Voice State
+  const [selectedVoice, setSelectedVoice] = useState('female-warm')
+  const [isGeneratingVoice, setIsGeneratingVoice] = useState(false)
+  const [generatedVoiceUrl, setGeneratedVoiceUrl] = useState<string | null>(null)
+  const [audioMode, setAudioMode] = useState<'record' | 'ai'>('record')
+
   // Music and Image State
   const [selectedMusic, setSelectedMusic] = useState<string | null>(null)
   const [musicVolume, setMusicVolume] = useState(30)
@@ -23,6 +29,27 @@ export default function AudioHugPage() {
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const chunksRef = useRef<Blob[]>([])
   const timerRef = useRef<NodeJS.Timeout | null>(null)
+
+  const voiceOptions = [
+    { 
+      value: 'female-warm', 
+      label: 'Female - Warm & Caring', 
+      description: 'Gentle, nurturing tone perfect for comfort',
+      preview: '/audio/preview-female-warm.mp3' 
+    },
+    { 
+      value: 'male-gentle', 
+      label: 'Male - Gentle & Sincere', 
+      description: 'Deep, reassuring voice for meaningful messages',
+      preview: '/audio/preview-male-gentle.mp3' 
+    },
+    { 
+      value: 'neutral-calm', 
+      label: 'Neutral - Calm & Soothing', 
+      description: 'Peaceful, meditative quality for relaxation',
+      preview: '/audio/preview-neutral-calm.mp3' 
+    },
+  ]
 
   const musicOptions = [
     { name: 'Gentle Piano', url: '/music/gentle-piano.mp3', description: 'Soft piano melodies for peaceful moments' },
@@ -50,12 +77,29 @@ export default function AudioHugPage() {
       if (audioUrl) {
         URL.revokeObjectURL(audioUrl)
       }
+      if (generatedVoiceUrl) {
+        URL.revokeObjectURL(generatedVoiceUrl)
+      }
       if (coverImage && coverImage.startsWith('blob:')) {
         URL.revokeObjectURL(coverImage)
       }
     }
-  }, [audioUrl, coverImage])
+  }, [audioUrl, generatedVoiceUrl, coverImage])
 
+  // Generate message from current Soul Hug data
+  const soulHugMessage = `Dear ${currentSoulHug.recipient || 'Beautiful Soul'},
+
+I wanted to take a moment to remind you of something important - you are absolutely incredible, and here's why:
+
+${currentSoulHug.ingredients?.map(ingredient => `• ${ingredient}`).join('\n') || '• Your amazing spirit shines through everything you do'}
+
+${currentSoulHug.descriptors?.length ? `You are: ${currentSoulHug.descriptors.join(', ')}` : ''}
+
+Never forget how much you mean to the people around you. Your presence makes the world a brighter place.
+
+With gratitude and love`
+
+  // Audio Recording Functions
   const startRecording = async () => {
     try {
       setError(null)
@@ -77,6 +121,7 @@ export default function AudioHugPage() {
         
         setAudioBlob(blob)
         setAudioUrl(url)
+        setGeneratedVoiceUrl(null) // Clear AI voice when recording
         updateCurrentSoulHug({ audioUrl: url })
         
         stream.getTracks().forEach(track => track.stop())
@@ -133,6 +178,36 @@ export default function AudioHugPage() {
     updateCurrentSoulHug({ audioUrl: undefined })
   }
 
+  // AI Voice Functions
+  const generateAIVoice = async () => {
+    if (!soulHugMessage.trim()) return
+    
+    setIsGeneratingVoice(true)
+    
+    try {
+      // Mock AI voice generation - replace with actual OpenAI TTS API call
+      await new Promise(resolve => setTimeout(resolve, 3000))
+      
+      // Mock generated audio URL
+      const mockAudioUrl = `/audio/generated-${selectedVoice}-${Date.now()}.mp3`
+      setGeneratedVoiceUrl(mockAudioUrl)
+      setAudioUrl(null) // Clear recording when AI voice is generated
+      setAudioBlob(null)
+      updateCurrentSoulHug({ audioUrl: mockAudioUrl })
+      
+    } catch (error) {
+      console.error('Error generating voice:', error)
+    } finally {
+      setIsGeneratingVoice(false)
+    }
+  }
+
+  const playPreview = (previewUrl: string) => {
+    const audio = new Audio(previewUrl)
+    audio.play().catch(err => console.log('Preview not available:', err))
+  }
+
+  // Music Functions
   const handleMusicSelect = (musicUrl: string) => {
     setSelectedMusic(musicUrl)
     updateCurrentSoulHug({ backgroundMusic: musicUrl, musicVolume })
@@ -143,8 +218,8 @@ export default function AudioHugPage() {
     updateCurrentSoulHug({ musicVolume: newVolume })
   }
 
+  // Image Functions
   const handlePresetImageSelect = (imageId: string) => {
-    // Clear custom image if selecting preset
     if (coverImage && coverImage.startsWith('blob:')) {
       URL.revokeObjectURL(coverImage)
     }
@@ -155,7 +230,6 @@ export default function AudioHugPage() {
   const handleCustomImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
     if (file) {
-      // Clear previous custom image
       if (coverImage && coverImage.startsWith('blob:')) {
         URL.revokeObjectURL(coverImage)
       }
@@ -170,10 +244,12 @@ export default function AudioHugPage() {
     }
   }
 
+  // Delivery Functions
   const handleDownload = () => {
-    if (audioUrl) {
+    const finalAudioUrl = audioUrl || generatedVoiceUrl
+    if (finalAudioUrl) {
       const link = document.createElement('a')
-      link.href = audioUrl
+      link.href = finalAudioUrl
       link.download = `soul-hug-${Date.now()}.wav`
       document.body.appendChild(link)
       link.click()
@@ -197,16 +273,7 @@ export default function AudioHugPage() {
     return `${mins}:${secs.toString().padStart(2, '0')}`
   }
 
-  // Generate message preview from current Soul Hug data
-  const messagePreview = `Dear ${currentSoulHug.recipient || 'Beautiful Soul'},
-
-${currentSoulHug.ingredients?.slice(0, 3).map(ingredient => `• ${ingredient}`).join('\n') || '• Your amazing spirit shines through everything you do'}
-
-${currentSoulHug.descriptors?.length ? `You are: ${currentSoulHug.descriptors.slice(0, 5).join(', ')}` : ''}
-
-Never forget how much you mean to the people around you.
-
-With love ❤️`
+  const hasAudio = audioUrl || generatedVoiceUrl
 
   return (
     <div className="min-h-screen pt-8 pb-16">
@@ -227,109 +294,209 @@ With love ❤️`
           <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 mb-8">
             <h3 className="text-lg font-semibold mb-3 text-purple-700">Your Message Preview</h3>
             <div className="bg-white rounded-xl p-4 text-gray-700 leading-relaxed whitespace-pre-line text-sm max-h-48 overflow-y-auto">
-              {messagePreview}
+              {soulHugMessage}
+            </div>
+          </div>
+
+          {/* Audio Mode Toggle */}
+          <div className="flex justify-center mb-8">
+            <div className="bg-gray-100 rounded-xl p-1 flex">
+              <button
+                onClick={() => setAudioMode('record')}
+                className={`px-6 py-2 rounded-lg font-medium transition-colors ${
+                  audioMode === 'record'
+                    ? 'bg-white text-gray-900 shadow-sm'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                <Mic className="w-4 h-4 inline mr-2" />
+                Record Voice
+              </button>
+              <button
+                onClick={() => setAudioMode('ai')}
+                className={`px-6 py-2 rounded-lg font-medium transition-colors ${
+                  audioMode === 'ai'
+                    ? 'bg-white text-gray-900 shadow-sm'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                <Wand2 className="w-4 h-4 inline mr-2" />
+                AI Voice
+              </button>
             </div>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
-            {/* Left Column - Audio Recording */}
+            {/* Left Column - Audio Creation */}
             <div className="space-y-6">
-              <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl p-6">
-                <h3 className="text-xl font-semibold mb-4 flex items-center text-orange-700">
-                  <Mic className="w-6 h-6 mr-2" />
-                  Record Your Voice
-                </h3>
-                
-                {error && (
-                  <div className="mb-4 p-3 bg-red-100 border border-red-300 rounded-lg text-red-700 text-sm">
-                    {error}
-                  </div>
-                )}
-
-                <div className="text-center mb-6">
-                  <div className={`w-24 h-24 mx-auto mb-4 rounded-full flex items-center justify-center transition-all duration-300 ${
-                    isRecording 
-                      ? 'bg-red-500 animate-pulse shadow-lg scale-110' 
-                      : audioBlob 
-                        ? 'bg-green-500 hover:bg-green-600' 
-                        : 'bg-orange-500 hover:bg-orange-600'
-                  } cursor-pointer`}>
-                    <Mic className="w-8 h-8 text-white" />
-                  </div>
+              {audioMode === 'record' ? (
+                /* Voice Recording */
+                <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl p-6">
+                  <h3 className="text-xl font-semibold mb-4 flex items-center text-orange-700">
+                    <Mic className="w-6 h-6 mr-2" />
+                    Record Your Voice
+                  </h3>
                   
-                  {isRecording && (
-                    <div className="text-red-600 font-mono text-lg mb-2">
-                      🔴 {formatTime(recordingTime)}
+                  {error && (
+                    <div className="mb-4 p-3 bg-red-100 border border-red-300 rounded-lg text-red-700 text-sm">
+                      {error}
                     </div>
                   )}
-                  
-                  {audioBlob && !isRecording && (
-                    <div className="text-green-600 font-mono text-sm mb-2">
-                      ✓ Recorded: {formatTime(recordingTime)}
-                    </div>
-                  )}
-                </div>
 
-                <div className="flex justify-center space-x-2 mb-4">
-                  {!isRecording && !audioBlob && (
-                    <button
-                      onClick={startRecording}
-                      className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center"
-                    >
-                      <Mic className="w-4 h-4 mr-2" />
-                      Start Recording
-                    </button>
-                  )}
-                  
-                  {isRecording && (
-                    <button
-                      onClick={stopRecording}
-                      className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center"
-                    >
-                      <Square className="w-4 h-4 mr-2" />
-                      Stop Recording
-                    </button>
-                  )}
-                  
-                  {audioBlob && !isRecording && (
-                    <>
-                      <button
-                        onClick={isPlaying ? pauseRecording : playRecording}
-                        className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg font-medium transition-colors flex items-center"
-                      >
-                        {isPlaying ? <Pause className="w-4 h-4 mr-1" /> : <Play className="w-4 h-4 mr-1" />}
-                        {isPlaying ? 'Pause' : 'Play'}
-                      </button>
-                      
+                  <div className="text-center mb-6">
+                    <div className={`w-24 h-24 mx-auto mb-4 rounded-full flex items-center justify-center transition-all duration-300 ${
+                      isRecording 
+                        ? 'bg-red-500 animate-pulse shadow-lg scale-110' 
+                        : audioBlob 
+                          ? 'bg-green-500 hover:bg-green-600' 
+                          : 'bg-orange-500 hover:bg-orange-600'
+                    } cursor-pointer`}>
+                      <Mic className="w-8 h-8 text-white" />
+                    </div>
+                    
+                    {isRecording && (
+                      <div className="text-red-600 font-mono text-lg mb-2">
+                        🔴 {formatTime(recordingTime)}
+                      </div>
+                    )}
+                    
+                    {audioBlob && !isRecording && (
+                      <div className="text-green-600 font-mono text-sm mb-2">
+                        ✓ Recorded: {formatTime(recordingTime)}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="flex justify-center space-x-2 mb-4">
+                    {!isRecording && !audioBlob && (
                       <button
                         onClick={startRecording}
-                        className="bg-orange-600 hover:bg-orange-700 text-white px-3 py-2 rounded-lg font-medium transition-colors flex items-center"
+                        className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center"
                       >
-                        <Mic className="w-4 h-4 mr-1" />
-                        Re-record
+                        <Mic className="w-4 h-4 mr-2" />
+                        Start Recording
                       </button>
-                      
+                    )}
+                    
+                    {isRecording && (
                       <button
-                        onClick={deleteRecording}
-                        className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-2 rounded-lg font-medium transition-colors flex items-center"
+                        onClick={stopRecording}
+                        className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center"
                       >
-                        <Trash2 className="w-4 h-4 mr-1" />
-                        Delete
+                        <Square className="w-4 h-4 mr-2" />
+                        Stop Recording
                       </button>
-                    </>
+                    )}
+                    
+                    {audioBlob && !isRecording && (
+                      <>
+                        <button
+                          onClick={isPlaying ? pauseRecording : playRecording}
+                          className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg font-medium transition-colors flex items-center"
+                        >
+                          {isPlaying ? <Pause className="w-4 h-4 mr-1" /> : <Play className="w-4 h-4 mr-1" />}
+                          {isPlaying ? 'Pause' : 'Play'}
+                        </button>
+                        
+                        <button
+                          onClick={startRecording}
+                          className="bg-orange-600 hover:bg-orange-700 text-white px-3 py-2 rounded-lg font-medium transition-colors flex items-center"
+                        >
+                          <Mic className="w-4 h-4 mr-1" />
+                          Re-record
+                        </button>
+                        
+                        <button
+                          onClick={deleteRecording}
+                          className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-2 rounded-lg font-medium transition-colors flex items-center"
+                        >
+                          <Trash2 className="w-4 h-4 mr-1" />
+                          Delete
+                        </button>
+                      </>
+                    )}
+                  </div>
+
+                  {audioUrl && (
+                    <audio
+                      ref={audioRef}
+                      src={audioUrl}
+                      onEnded={() => setIsPlaying(false)}
+                      onPause={() => setIsPlaying(false)}
+                      className="hidden"
+                    />
                   )}
                 </div>
-
-                {audioUrl && (
-                  <audio
-                    ref={audioRef}
-                    src={audioUrl}
-                    onEnded={() => setIsPlaying(false)}
-                    onPause={() => setIsPlaying(false)}
-                    className="hidden"
-                  />
-                )}
-              </div>
+              ) : (
+                /* AI Voice Generation */
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6">
+                  <h3 className="text-xl font-semibold mb-4 flex items-center text-blue-700">
+                    <Volume2 className="w-6 h-6 mr-2" />
+                    AI Voice Option
+                  </h3>
+                  
+                  <p className="text-sm text-gray-600 mb-4">
+                    Let AI read your message with a warm, natural voice.
+                  </p>
+                  
+                  <div className="space-y-3 mb-6">
+                    {voiceOptions.map((voice) => (
+                      <div
+                        key={voice.value}
+                        className={`p-4 rounded-lg border-2 cursor-pointer transition-all ${
+                          selectedVoice === voice.value
+                            ? 'border-blue-500 bg-blue-50'
+                            : 'border-gray-200 hover:border-blue-300 bg-white'
+                        }`}
+                        onClick={() => setSelectedVoice(voice.value)}
+                      >
+                        <div className="flex items-center justify-between">
+                          <div className="flex-1">
+                            <h4 className="font-medium text-gray-800">{voice.label}</h4>
+                            <p className="text-sm text-gray-600 mt-1">{voice.description}</p>
+                          </div>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              playPreview(voice.preview)
+                            }}
+                            className="ml-3 p-2 bg-blue-100 hover:bg-blue-200 rounded-lg transition-colors"
+                            title="Preview voice"
+                          >
+                            <Play className="w-4 h-4 text-blue-600" />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {generatedVoiceUrl && (
+                    <div className="mb-4 p-3 bg-green-100 border border-green-300 rounded-lg">
+                      <div className="flex items-center justify-between">
+                        <span className="text-green-700 text-sm font-medium">✓ Voice generated successfully!</span>
+                        <audio controls className="h-8">
+                          <source src={generatedVoiceUrl} type="audio/mpeg" />
+                        </audio>
+                      </div>
+                    </div>
+                  )}
+                  
+                  <button
+                    onClick={generateAIVoice}
+                    disabled={isGeneratingVoice || !soulHugMessage.trim()}
+                    className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-3 rounded-lg font-medium transition-colors flex items-center justify-center"
+                  >
+                    <Wand2 className="w-4 h-4 mr-2" />
+                    {isGeneratingVoice ? 'Generating Voice...' : 'Generate AI Voice'}
+                  </button>
+                  
+                  {!soulHugMessage.trim() && (
+                    <p className="text-xs text-gray-500 mt-2 text-center">
+                      Complete your message in the Craft step to generate AI voice
+                    </p>
+                  )}
+                </div>
+              )}
 
               {/* Background Music */}
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6">
@@ -487,7 +654,7 @@ With love ❤️`
             <div className="flex space-x-3">
               <button
                 onClick={handleDownload}
-                disabled={!audioUrl}
+                disabled={!hasAudio}
                 className="flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-xl font-medium transition-colors"
               >
                 <Download className="w-4 h-4 mr-2" />
@@ -496,7 +663,7 @@ With love ❤️`
               
               <button
                 onClick={handleShare}
-                disabled={!audioUrl}
+                disabled={!hasAudio}
                 className="flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-xl font-medium transition-colors"
               >
                 <Share2 className="w-4 h-4 mr-2" />
