@@ -11,13 +11,14 @@
   },
   "dependencies": {
     "clsx": "^2.0.0",
-    "file-saver": "^2.0.5",
     "framer-motion": "^10.16.4",
+    "file-saver": "^2.0.5",
     "jszip": "^3.10.1",
     "lucide-react": "^0.395.0",
     "qrcode": "^1.5.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "simplex-noise": "^4.0.1",
     "tailwind-merge": "^2.0.0",
     "wouter": "^3.2.1"
   },
