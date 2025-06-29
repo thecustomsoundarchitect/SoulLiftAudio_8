@@ -582,68 +582,74 @@ With gratitude and love`
                   </div>
                 )}
               </div>
-
-              {/* Audio Mixer */}
-              {canMix && (
-                <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-6">
-                  <h3 className="text-xl font-semibold mb-4 flex items-center text-indigo-700">
-                    <Volume2 className="w-6 h-6 mr-2" />
-                    Audio Mixer
-                  </h3>
-                  
-                  <div className="space-y-4 mb-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Voice Volume: {voiceVolume}%
-                      </label>
-                      <input
-                        type="range"
-                        min="0"
-                        max="100"
-                        value={voiceVolume}
-                        onChange={(e) => handleVolumeChange('voice', Number(e.target.value))}
-                        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Music Volume: {musicVolume}%
-                      </label>
-                      <input
-                        type="range"
-                        min="0"
-                        max="100"
-                        value={musicVolume}
-                        onChange={(e) => handleVolumeChange('music', Number(e.target.value))}
-                        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
-                      />
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={mixAudio}
-                    disabled={isMixing}
-                    className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-3 rounded-lg font-medium transition-colors flex items-center justify-center"
-                  >
-                    <Music className="w-4 h-4 mr-2" />
-                    {isMixing ? 'Mixing Audio...' : 'Mix Audio'}
-                  </button>
-
-                  {mixedAudioUrl && (
-                    <div className="mt-4 p-3 bg-green-100 border border-green-300 rounded-lg">
-                      <div className="flex items-center justify-between">
-                        <span className="text-green-700 text-sm font-medium">✓ Audio mixed successfully!</span>
-                      </div>
-                      <audio controls src={mixedAudioUrl} className="w-full mt-2 h-8" />
-                    </div>
-                  )}
-                </div>
-              )}
             </div>
 
             {/* Right Column - Cover Image */}
             <div className="space-y-6">
+              {/* Audio Mixer - Always Visible */}
+              <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-6">
+                <h3 className="text-xl font-semibold mb-4 flex items-center text-indigo-700">
+                  <Volume2 className="w-6 h-6 mr-2" />
+                  Audio Mixer
+                </h3>
+                
+                <div className="space-y-4 mb-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Voice Volume: {voiceVolume}%
+                    </label>
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
+                      value={voiceVolume}
+                      onChange={(e) => handleVolumeChange('voice', Number(e.target.value))}
+                      className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                      disabled={!hasAudio}
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Music Volume: {musicVolume}%
+                    </label>
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
+                      value={musicVolume}
+                      onChange={(e) => handleVolumeChange('music', Number(e.target.value))}
+                      className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                      disabled={!selectedMusic}
+                    />
+                  </div>
+                </div>
+
+                <button
+                  onClick={mixAudio}
+                  disabled={isMixing || !canMix}
+                  className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-3 rounded-lg font-medium transition-colors flex items-center justify-center"
+                >
+                  <Music className="w-4 h-4 mr-2" />
+                  {isMixing ? 'Mixing Audio...' : 'Mix Audio'}
+                </button>
+
+                {!canMix && (
+                  <p className="text-xs text-gray-500 mt-2 text-center">
+                    Add both voice and music to enable mixing
+                  </p>
+                )}
+
+                {mixedAudioUrl && (
+                  <div className="mt-4 p-3 bg-green-100 border border-green-300 rounded-lg">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-green-700 text-sm font-medium">✓ Audio mixed successfully!</span>
+                    </div>
+                    <audio controls src={mixedAudioUrl} className="w-full h-8" />
+                  </div>
+                )}
+              </div>
+
               <div className="bg-gradient-to-br from-green-50 to-teal-50 rounded-2xl p-6">
                 <h3 className="text-xl font-semibold mb-4 flex items-center text-green-700">
                   <Image className="w-6 h-6 mr-2" />
