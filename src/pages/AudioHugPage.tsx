@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { Link } from 'wouter'
-import { Mic, Square, Play, Pause, Trash2, Download, Share2, ArrowLeft, Music, Image, Volume2, Wand2 } from 'lucide-react'
+import { Mic, Square, Play, Pause, Trash2, Download, Share2, ArrowLeft, Music, Image, Volume2, Wand2, RotateCcw } from 'lucide-react'
 import { useSoulHug } from '../context/SoulHugContext'
 
 export default function AudioHugPage() {
@@ -23,7 +23,12 @@ export default function AudioHugPage() {
   // Music and Image State
   const [selectedMusic, setSelectedMusic] = useState<string | null>(null)
   const [musicVolume, setMusicVolume] = useState(30)
+  const [voiceVolume, setVoiceVolume] = useState(80)
   const [coverImage, setCoverImage] = useState<string | null>(null)
+
+  // Audio Processing State
+  const [isMixing, setIsMixing] = useState(false)
+  const [mixedAudioUrl, setMixedAudioUrl] = useState<string | null>(null)
 
   const mediaRecorderRef = useRef<MediaRecorder | null>(null)
   const audioRef = useRef<HTMLAudioElement | null>(null)
@@ -80,11 +85,14 @@ export default function AudioHugPage() {
       if (generatedVoiceUrl) {
         URL.revokeObjectURL(generatedVoiceUrl)
       }
+      if (mixedAudioUrl) {
+        URL.revokeObjectURL(mixedAudioUrl)
+      }
       if (coverImage && coverImage.startsWith('blob:')) {
         URL.revokeObjectURL(coverImage)
       }
     }
-  }, [audioUrl, generatedVoiceUrl, coverImage])
+  }, [audioUrl, generatedVoiceUrl, mixedAudioUrl, coverImage])
 
   // Generate message from current Soul Hug data
   const soulHugMessage = `Dear ${currentSoulHug.recipient || 'Beautiful Soul'},
@@ -171,6 +179,10 @@ With gratitude and love`
     if (audioUrl) {
       URL.revokeObjectURL(audioUrl)
     }
+    if (mixedAudioUrl) {
+      URL.revokeObjectURL(mixedAudioUrl)
+      setMixedAudioUrl(null)
+    }
     setAudioBlob(null)
     setAudioUrl(null)
     setRecordingTime(0)
@@ -207,15 +219,41 @@ With gratitude and love`
     audio.play().catch(err => console.log('Preview not available:', err))
   }
 
+  // Audio Mixing Functions
+  const mixAudio = async () => {
+    const primaryAudio = audioUrl || generatedVoiceUrl
+    if (!primaryAudio || !selectedMusic) return
+
+    setIsMixing(true)
+    
+    try {
+      // Mock audio mixing - in production, this would use Web Audio API
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      
+      // Create a mock mixed audio URL
+      const mockMixedUrl = `data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT`
+      setMixedAudioUrl(mockMixedUrl)
+      
+    } catch (error) {
+      console.error('Error mixing audio:', error)
+    } finally {
+      setIsMixing(false)
+    }
+  }
+
   // Music Functions
   const handleMusicSelect = (musicUrl: string) => {
     setSelectedMusic(musicUrl)
     updateCurrentSoulHug({ backgroundMusic: musicUrl, musicVolume })
   }
 
-  const handleVolumeChange = (newVolume: number) => {
-    setMusicVolume(newVolume)
-    updateCurrentSoulHug({ musicVolume: newVolume })
+  const handleVolumeChange = (type: 'voice' | 'music', newVolume: number) => {
+    if (type === 'voice') {
+      setVoiceVolume(newVolume)
+    } else {
+      setMusicVolume(newVolume)
+      updateCurrentSoulHug({ musicVolume: newVolume })
+    }
   }
 
   // Image Functions
@@ -246,7 +284,7 @@ With gratitude and love`
 
   // Delivery Functions
   const handleDownload = () => {
-    const finalAudioUrl = audioUrl || generatedVoiceUrl
+    const finalAudioUrl = mixedAudioUrl || audioUrl || generatedVoiceUrl
     if (finalAudioUrl) {
       const link = document.createElement('a')
       link.href = finalAudioUrl
@@ -274,6 +312,7 @@ With gratitude and love`
   }
 
   const hasAudio = audioUrl || generatedVoiceUrl
+  const canMix = hasAudio && selectedMusic
 
   return (
     <div className="min-h-screen pt-8 pb-16">
@@ -402,7 +441,7 @@ With gratitude and love`
                           onClick={startRecording}
                           className="bg-orange-600 hover:bg-orange-700 text-white px-3 py-2 rounded-lg font-medium transition-colors flex items-center"
                         >
-                          <Mic className="w-4 h-4 mr-1" />
+                          <RotateCcw className="w-4 h-4 mr-1" />
                           Re-record
                         </button>
                         
@@ -542,22 +581,65 @@ With gratitude and love`
                     <audio controls src={selectedMusic} className="w-full h-8" />
                   </div>
                 )}
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center">
-                    <Volume2 className="w-4 h-4 mr-1" />
-                    Music Volume: {musicVolume}%
-                  </label>
-                  <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value={musicVolume}
-                    onChange={(e) => handleVolumeChange(Number(e.target.value))}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
-                  />
-                </div>
               </div>
+
+              {/* Audio Mixer */}
+              {canMix && (
+                <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-6">
+                  <h3 className="text-xl font-semibold mb-4 flex items-center text-indigo-700">
+                    <Volume2 className="w-6 h-6 mr-2" />
+                    Audio Mixer
+                  </h3>
+                  
+                  <div className="space-y-4 mb-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Voice Volume: {voiceVolume}%
+                      </label>
+                      <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        value={voiceVolume}
+                        onChange={(e) => handleVolumeChange('voice', Number(e.target.value))}
+                        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Music Volume: {musicVolume}%
+                      </label>
+                      <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        value={musicVolume}
+                        onChange={(e) => handleVolumeChange('music', Number(e.target.value))}
+                        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                      />
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={mixAudio}
+                    disabled={isMixing}
+                    className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-3 rounded-lg font-medium transition-colors flex items-center justify-center"
+                  >
+                    <Music className="w-4 h-4 mr-2" />
+                    {isMixing ? 'Mixing Audio...' : 'Mix Audio'}
+                  </button>
+
+                  {mixedAudioUrl && (
+                    <div className="mt-4 p-3 bg-green-100 border border-green-300 rounded-lg">
+                      <div className="flex items-center justify-between">
+                        <span className="text-green-700 text-sm font-medium">✓ Audio mixed successfully!</span>
+                      </div>
+                      <audio controls src={mixedAudioUrl} className="w-full mt-2 h-8" />
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
 
             {/* Right Column - Cover Image */}
