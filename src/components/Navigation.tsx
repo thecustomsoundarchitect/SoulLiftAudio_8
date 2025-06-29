@@ -125,17 +125,6 @@ export default function Navigation() {
                     </motion.div>
                   ))}
                 </div>
-                
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4, duration: 0.2 }}
-                  className="mt-6 pt-6 border-t border-gray-200"
-                >
-                  <button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-4 rounded-xl font-medium text-lg transition-all duration-200 hover:shadow-lg hover:scale-105">
-                    Sign In
-                  </button>
-                </motion.div>
               </div>
             </motion.div>
           </>
