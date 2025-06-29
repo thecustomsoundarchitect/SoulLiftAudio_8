@@ -73,11 +73,9 @@ export default function HomePage() {
                 }}
               />
               
-              {/* Main logo image */}
-              <motion.img 
-                src="/images/2.png" 
-                alt="SoulLift Audio Logo" 
-                className="w-full h-full object-contain relative z-10"
+              {/* Main logo - using Heart icon as fallback */}
+              <motion.div
+                className="w-full h-full flex items-center justify-center relative z-10"
                 animate={{
                   y: [0, -2, 0],
                 }}
@@ -86,7 +84,9 @@ export default function HomePage() {
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-              />
+              >
+                <Heart className="w-12 h-12 text-purple-600" />
+              </motion.div>
               
               {/* Sparkle effects */}
               {[...Array(6)].map((_, i) => (

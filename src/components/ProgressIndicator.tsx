@@ -1,4 +1,5 @@
 import { useLocation } from 'wouter'
+import { Heart } from 'lucide-react'
 
 interface ProgressIndicatorProps {
   className?: string
@@ -29,14 +30,7 @@ export default function ProgressIndicator({ className = '' }: ProgressIndicatorP
   return (
     <div className={`flex justify-center ${className}`}>
       <div className="flex items-center space-x-2">
-        <img 
-          src="/images/2.png" 
-          alt="SoulLift Logo" 
-          className="w-8 h-8 object-contain"
-          style={{
-            clipPath: `inset(0 ${100 - progress}% 0 0)`
-          }}
-        />
+        <Heart className="w-8 h-8 text-purple-600" />
         <div className="w-32 h-2 bg-gray-200 rounded-full overflow-hidden">
           <div 
             className="h-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-500 ease-out"

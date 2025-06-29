@@ -43,13 +43,7 @@ export default function FloatingDockDemo() {
     {
       title: "SoulLift",
       icon: (
-        <img
-          src="/images/2.png"
-          width={20}
-          height={20}
-          alt="SoulLift Logo"
-          className="rounded-full"
-        />
+        <Heart className="h-full w-full text-purple-600 dark:text-purple-300" />
       ),
       href: "/",
     },
