@@ -22,9 +22,12 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <div className="inline-flex flex-col items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full mb-8">
-              <Heart className="w-6 h-6 text-cyan-300 mb-[-4px] drop-shadow-lg" />
-              <Infinity className="w-10 h-10 text-purple-300 drop-shadow-lg" />
+            <div className="inline-flex items-center justify-center w-24 h-24 mb-8">
+              <img 
+                src="/River  copy.webp" 
+                alt="SoulLift Audio Logo" 
+                className="w-20 h-20 drop-shadow-2xl"
+              />
             </div>
             
             <h1 className="text-6xl font-bold text-white mb-6 drop-shadow-2xl">
