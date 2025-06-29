@@ -16,9 +16,9 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center space-x-2">
-            <div className="flex flex-col items-center">
-              <Heart className="w-4 h-4 text-cyan-400 mb-[-2px]" />
-              <Infinity className="w-6 h-6 text-purple-600" />
+            <div className="flex flex-col items-center justify-center w-8 h-8">
+              <Heart className="w-3 h-3 text-cyan-400 mb-[-1px]" />
+              <Infinity className="w-5 h-5 text-purple-600" />
             </div>
             <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
               SoulLift
