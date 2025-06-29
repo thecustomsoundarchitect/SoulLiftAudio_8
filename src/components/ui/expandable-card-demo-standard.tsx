@@ -102,10 +102,9 @@ export default function ExpandableCardDemo() {
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
-                      // Handle play functionality here
                       console.log('Playing:', active.title);
                     }}
-                    className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 hover:bg-green-600 text-white transition-colors"
+                    className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white hover:bg-green-600 transition-colors"
                   >
                     {active.ctaText}
                   </motion.button>
