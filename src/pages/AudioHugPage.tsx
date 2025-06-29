@@ -158,31 +158,32 @@ With gratitude and love`
   }
 
   return (
-    <div className="min-h-screen pt-8 pb-16">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen pt-4 md:pt-8 pb-20 md:pb-16">
+      <div className="max-w-sm sm:max-w-2xl lg:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="soul-card">
-          <div className="flex items-center justify-between mb-6">
-            <Link href="/craft" className="flex items-center text-purple-600 hover:text-purple-700 transition-colors">
-              <ArrowLeft className="w-5 h-5 mr-2" />
-              Back to Craft
+          <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 md:mb-6 space-y-4 md:space-y-0">
+            <Link href="/craft" className="flex items-center text-purple-600 hover:text-purple-700 transition-colors text-sm md:text-base">
+              <ArrowLeft className="w-4 h-4 md:w-5 md:h-5 mr-2" />
+              <span className="hidden sm:inline">Back to Craft</span>
+              <span className="sm:hidden">Back</span>
             </Link>
-            <h1 className="text-4xl font-bold text-center bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               CREATE AUDIO HUG
             </h1>
-            <div className="w-24"></div>
+            <div className="hidden md:block w-24"></div>
           </div>
 
           {/* Message Preview */}
-          <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 mb-8">
-            <h3 className="text-lg font-semibold mb-3 text-purple-700">Your Message Preview</h3>
-            <div className="bg-white rounded-xl p-4 text-gray-700 leading-relaxed whitespace-pre-line text-sm max-h-48 overflow-y-auto">
+          <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl md:rounded-2xl p-4 md:p-6 mb-6 md:mb-8">
+            <h3 className="text-base md:text-lg font-semibold mb-3 text-purple-700">Your Message Preview</h3>
+            <div className="bg-white rounded-lg md:rounded-xl p-3 md:p-4 text-gray-700 leading-relaxed whitespace-pre-line text-xs md:text-sm max-h-32 md:max-h-48 overflow-y-auto">
               {soulHugMessage}
             </div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8">
             {/* Left Column - Audio Creation */}
-            <div className="space-y-6">
+            <div className="space-y-4 md:space-y-6">
               {/* Voice Recording */}
               <AudioRecorder 
                 onRecordingComplete={handleRecordingComplete}
@@ -201,11 +202,11 @@ With gratitude and love`
             </div>
 
             {/* Right Column - Mixer, Cover Image, and Delivery */}
-            <div className="space-y-6">
+            <div className="space-y-4 md:space-y-6">
               {/* Audio Mixer - Always Visible */}
-              <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-6">
-                <h3 className="text-xl font-semibold mb-4 flex items-center text-indigo-700">
-                  <Volume2 className="w-6 h-6 mr-2" />
+              <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl md:rounded-2xl p-4 md:p-6">
+                <h3 className="text-lg md:text-xl font-semibold mb-4 flex items-center text-indigo-700">
+                  <Volume2 className="w-5 h-5 md:w-6 md:h-6 mr-2" />
                   Audio Mixer
                 </h3>
                 
@@ -244,14 +245,14 @@ With gratitude and love`
                 <button
                   onClick={mixAudio}
                   disabled={isMixing || !canMix}
-                  className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-3 rounded-lg font-medium transition-colors flex items-center justify-center"
+                  className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-2 md:py-3 rounded-lg font-medium transition-colors flex items-center justify-center text-sm md:text-base min-h-12"
                 >
-                  <Music className="w-4 h-4 mr-2" />
+                  <Music className="w-3 h-3 md:w-4 md:h-4 mr-2" />
                   {isMixing ? 'Mixing Audio...' : 'Mix Audio'}
                 </button>
 
                 {!canMix && (
-                  <p className="text-xs text-gray-500 mt-2 text-center">
+                  <p className="text-xs md:text-sm text-gray-500 mt-2 text-center">
                     Add both voice and music to enable mixing
                   </p>
                 )}
@@ -259,9 +260,9 @@ With gratitude and love`
                 {mixedAudioUrl && (
                   <div className="mt-4 p-3 bg-green-100 border border-green-300 rounded-lg">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-green-700 text-sm font-medium">✓ Audio mixed successfully!</span>
+                      <span className="text-green-700 text-xs md:text-sm font-medium">✓ Audio mixed successfully!</span>
                     </div>
-                    <audio controls src={mixedAudioUrl} className="w-full h-8" />
+                    <audio controls src={mixedAudioUrl} className="w-full h-6 md:h-8" />
                   </div>
                 )}
               </div>
@@ -281,30 +282,32 @@ With gratitude and love`
           </div>
 
           {/* Action Buttons */}
-          <div className="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+          <div className="flex flex-col sm:flex-row justify-between items-center mt-6 md:mt-8 pt-4 md:pt-6 border-t border-gray-200 space-y-4 sm:space-y-0">
             <Link href="/craft">
-              <button className="flex items-center px-6 py-3 text-gray-600 border border-gray-300 rounded-xl hover:bg-gray-50 transition-all duration-200">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Craft
+              <button className="flex items-center px-4 md:px-6 py-2 md:py-3 text-sm md:text-base text-gray-600 border border-gray-300 rounded-xl hover:bg-gray-50 transition-all duration-200 min-h-12">
+                <ArrowLeft className="w-3 h-3 md:w-4 md:h-4 mr-2" />
+                <span className="hidden sm:inline">Back to Craft</span>
+                <span className="sm:hidden">Back</span>
               </button>
             </Link>
             
-            <div className="flex space-x-3">
+            <div className="flex space-x-2 md:space-x-3">
               <button
                 onClick={handleDownload}
                 disabled={!hasAudio}
-                className="flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-xl font-medium transition-colors"
+                className="flex items-center px-3 md:px-6 py-2 md:py-3 text-sm md:text-base bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-xl font-medium transition-colors min-h-12"
               >
-                <Download className="w-4 h-4 mr-2" />
-                Download
+                <Download className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
+                <span className="hidden sm:inline">Download</span>
+                <span className="sm:hidden">Save</span>
               </button>
               
               <button
                 onClick={handleShare}
                 disabled={!hasAudio}
-                className="flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-xl font-medium transition-colors"
+                className="flex items-center px-3 md:px-6 py-2 md:py-3 text-sm md:text-base bg-purple-600 hover:bg-purple-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-xl font-medium transition-colors min-h-12"
               >
-                <Share2 className="w-4 h-4 mr-2" />
+                <Share2 className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
                 Share
               </button>
             </div>
