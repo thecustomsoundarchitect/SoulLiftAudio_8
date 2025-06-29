@@ -39,20 +39,42 @@ export default function HomePage() {
           {/* Main Action Cards */}
           <div className="flex flex-col items-center gap-6 max-w-sm sm:max-w-2xl lg:max-w-4xl mx-auto mb-8 md:mb-12">
             <Link href="/define">
-              <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
+              <button className="
+                bg-gradient-to-br from-purple-400 to-purple-600 
+                rounded-3xl 
+                p-6 
+                shadow-xl 
+                text-white 
+                font-semibold 
+                text-lg
+                transform 
+                hover:scale-105 
+                transition-all 
+                duration-200
+                border-0
+                min-w-[280px]
+              ">
                   Create New Soul Hug
-                </span>
               </button>
             </Link>
 
             <Link href="/my-hugs">
-              <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
+              <button className="
+                bg-gradient-to-br from-blue-400 to-blue-600 
+                rounded-3xl 
+                p-6 
+                shadow-xl 
+                text-white 
+                font-semibold 
+                text-lg
+                transform 
+                hover:scale-105 
+                transition-all 
+                duration-200
+                border-0
+                min-w-[280px]
+              ">
                   View My Soul Hugs
-                </span>
               </button>
             </Link>
           </div>
