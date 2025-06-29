@@ -40,6 +40,7 @@ export default function HomePage() {
           <div className="flex flex-col items-center gap-6 max-w-sm sm:max-w-2xl lg:max-w-4xl mx-auto mb-8 md:mb-12">
             <Link href="/define">
               <button className="
+                relative
                 bg-gradient-to-br from-purple-400 to-purple-600 
                 rounded-3xl 
                 p-6 
@@ -53,13 +54,33 @@ export default function HomePage() {
                 duration-200
                 border-0
                 min-w-[280px]
+                overflow-hidden
+                before:absolute
+                before:inset-0
+                before:bg-gradient-to-br
+                before:from-white/30
+                before:via-white/10
+                before:to-transparent
+                before:rounded-3xl
+                before:pointer-events-none
+                after:absolute
+                after:top-0
+                after:left-0
+                after:right-0
+                after:h-1/2
+                after:bg-gradient-to-b
+                after:from-white/20
+                after:to-transparent
+                after:rounded-t-3xl
+                after:pointer-events-none
               ">
-                  Create New Soul Hug
+                <span className="relative z-10">Create New Soul Hug</span>
               </button>
             </Link>
 
             <Link href="/my-hugs">
               <button className="
+                relative
                 bg-gradient-to-br from-blue-400 to-blue-600 
                 rounded-3xl 
                 p-6 
@@ -73,8 +94,27 @@ export default function HomePage() {
                 duration-200
                 border-0
                 min-w-[280px]
+                overflow-hidden
+                before:absolute
+                before:inset-0
+                before:bg-gradient-to-br
+                before:from-white/30
+                before:via-white/10
+                before:to-transparent
+                before:rounded-3xl
+                before:pointer-events-none
+                after:absolute
+                after:top-0
+                after:left-0
+                after:right-0
+                after:h-1/2
+                after:bg-gradient-to-b
+                after:from-white/20
+                after:to-transparent
+                after:rounded-t-3xl
+                after:pointer-events-none
               ">
-                  View My Soul Hugs
+                <span className="relative z-10">View My Soul Hugs</span>
               </button>
             </Link>
           </div>
