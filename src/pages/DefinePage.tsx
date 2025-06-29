@@ -3,6 +3,7 @@ import { Link } from 'wouter'
 import { ArrowRight, ArrowLeft, Heart, CheckCircle } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useSoulHug } from '../context/SoulHugContext'
+import ProgressIndicator from '../components/ProgressIndicator'
 
 export default function DefinePage() {
   const { currentSoulHug, updateCurrentSoulHug } = useSoulHug()
@@ -63,6 +64,11 @@ export default function DefinePage() {
       <div className="max-w-2xl mx-auto px-6 py-12">
         {/* Header */}
         <div className="text-center mb-8">
+          <img 
+            src="/images/2.png" 
+            alt="SoulLift Audio Logo" 
+            className="w-16 h-16 mx-auto mb-6 object-contain"
+          />
           <h1 className="text-3xl font-bold text-gray-900 mb-3">
             <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               DEFINE YOUR HUG
@@ -205,15 +211,7 @@ export default function DefinePage() {
           </Link>
         </div>
 
-        {/* Progress Indicator */}
-        <div className="mt-8 flex justify-center">
-          <div className="flex space-x-2">
-            <div className="w-8 h-2 bg-purple-500 rounded-full"></div>
-            <div className="w-2 h-2 bg-gray-200 rounded-full"></div>
-            <div className="w-2 h-2 bg-gray-200 rounded-full"></div>
-            <div className="w-2 h-2 bg-gray-200 rounded-full"></div>
-          </div>
-        </div>
+        <ProgressIndicator className="mt-8" />
       </div>
     </div>
   )

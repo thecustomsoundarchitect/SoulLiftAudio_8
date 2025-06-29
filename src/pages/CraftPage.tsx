@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'wouter'
 import { ArrowLeft, Download } from 'lucide-react'
 import { useSoulHug } from '../context/SoulHugContext'
+import ProgressIndicator from '../components/ProgressIndicator'
 
 export default function CraftPage() {
   const { currentSoulHug, updateCurrentSoulHug } = useSoulHug()
@@ -100,6 +101,13 @@ With gratitude and love`
     <div className="min-h-screen pt-8 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="soul-card">
+          <div className="text-center mb-8">
+            <img 
+              src="/images/2.png" 
+              alt="SoulLift Audio Logo" 
+              className="w-16 h-16 mx-auto mb-6 object-contain"
+            />
+          </div>
           <h1 className="text-4xl font-bold text-center bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent mb-8">
             <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               CRAFT YOUR SOUL HUG
@@ -293,6 +301,8 @@ With gratitude and love`
               </button>
             </Link>
           </div>
+
+          <ProgressIndicator className="mt-8" />
         </div>
       </div>
     </div>

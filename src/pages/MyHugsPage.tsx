@@ -78,18 +78,11 @@ export default function MyHugsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <motion.div 
-            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-green-500 via-teal-500 to-green-600 rounded-3xl mb-8 shadow-xl shadow-green-200/50 relative overflow-hidden"
-            whileHover={{ scale: 1.05, rotate: 5 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent"
-              animate={{ rotate: [0, 360] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-            />
-            <Heart className="w-10 h-10 text-white relative z-10" />
-          </motion.div>
+          <img 
+            src="/images/2.png" 
+            alt="SoulLift Audio Logo" 
+            className="w-20 h-20 mx-auto mb-8 object-contain"
+          />
           
           <motion.h1 
             className="text-4xl font-bold mb-4 tracking-tight"

@@ -161,6 +161,13 @@ With gratitude and love`
     <div className="min-h-screen pt-4 md:pt-8 pb-20 md:pb-16">
       <div className="max-w-sm sm:max-w-2xl lg:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="soul-card">
+          <div className="text-center mb-8">
+            <img 
+              src="/images/2.png" 
+              alt="SoulLift Audio Logo" 
+              className="w-16 h-16 mx-auto mb-6 object-contain"
+            />
+          </div>
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 md:mb-6 space-y-4 md:space-y-0">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               CREATE AUDIO HUG
@@ -298,6 +305,8 @@ With gratitude and love`
               </button>
             </div>
           </div>
+
+          <ProgressIndicator className="mt-8" />
         </div>
       </div>
     </div>

@@ -10,13 +10,11 @@ export default function SoulArchivePage() {
       <div className="max-w-4xl mx-auto px-6 py-8">
         {/* Header */}
         <div className="text-center mb-8">
-          <motion.div 
-            className="w-24 h-24 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center"
-            whileHover={{ scale: 1.05 }}
-          >
-            <User className="w-12 h-12 text-white" />
-          </motion.div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Soul Archive</h1>
+          <img 
+            src="/images/2.png" 
+            alt="SoulLift Audio Logo" 
+            className="w-24 h-24 mx-auto mb-4 object-contain"
+          />
           <h1 className="text-3xl font-bold mb-2">
             <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               SOUL ARCHIVE

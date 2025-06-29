@@ -3,6 +3,7 @@ import { Link } from 'wouter'
 import { ArrowRight, ArrowLeft, X, Plus } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useSoulHug } from '../context/SoulHugContext'
+import ProgressIndicator from '../components/ProgressIndicator'
 
 export default function GatherPage() {
   const { currentSoulHug, updateCurrentSoulHug } = useSoulHug()
@@ -70,6 +71,11 @@ export default function GatherPage() {
       <div className="max-w-4xl mx-auto px-6 py-8">
         {/* Header */}
         <div className="text-center mb-8">
+          <img 
+            src="/images/2.png" 
+            alt="SoulLift Audio Logo" 
+            className="w-16 h-16 mx-auto mb-6 object-contain"
+          />
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               GATHER YOUR INGREDIENTS
@@ -204,6 +210,8 @@ export default function GatherPage() {
             </button>
           </Link>
         </div>
+
+        <ProgressIndicator className="mt-8" />
 
         {/* Writing Modal */}
         <AnimatePresence>

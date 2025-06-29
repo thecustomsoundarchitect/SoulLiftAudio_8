@@ -19,7 +19,7 @@ export default function HomePage() {
           {/* Hero Section */}
           <div className="text-center mb-8 md:mb-16">
             <img 
-              src="/images/Screenshot 2025-06-29 at 3.40.03 AM copy.jpg" 
+              src="/images/2.png" 
               alt="SoulLift Audio Logo" 
               className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6 md:mb-8 object-cover object-bottom"
             />
