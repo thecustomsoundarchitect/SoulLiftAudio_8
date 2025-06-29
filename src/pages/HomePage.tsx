@@ -1,9 +1,9 @@
 import { Link } from 'wouter'
-import { Plus, Eye, Headphones, Sparkles, Mic, Music } from 'lucide-react'
+import { Plus, Eye, Headphones } from 'lucide-react'
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen pt-8 pb-16">
+    <div className="min-h-screen bg-gradient-to-br from-[#241946] to-[#7B4EFF] pt-8 pb-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
         <div className="text-center mb-16">
@@ -19,35 +19,9 @@ export default function HomePage() {
           </h1>
           
           <p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Emotional intelligence meets technology — Craft your perfect Soul Hug with advanced personalization
+            Join thousands creating meaningful connections through personalized audio messages
           </p>
 
-          {/* Feature Highlights */}
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-purple-500/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Sparkles className="w-8 h-8 text-purple-200" />
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Guided Creation</h3>
-              <p className="text-white/80 text-sm">Step-by-step journey to craft meaningful messages</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-500/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Mic className="w-8 h-8 text-blue-200" />
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Voice Recording</h3>
-              <p className="text-white/80 text-sm">Add your personal touch with voice messages</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-purple-500/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Music className="w-8 h-8 text-purple-200" />
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Audio Enhancement</h3>
-              <p className="text-white/80 text-sm">Background music and ambient sounds</p>
-            </div>
-          </div>
         </div>
 
         {/* Main Action Cards */}
@@ -115,27 +89,6 @@ export default function HomePage() {
           <button className="soul-button-outline text-lg px-8 py-4">
             Sign In to Save Your Creations
           </button>
-        </div>
-
-        {/* Bottom Feature Text */}
-        <div className="text-center mt-16">
-          <p className="text-white/80 text-lg mb-4">
-            Join thousands creating meaningful connections through personalized audio messages
-          </p>
-          <div className="flex items-center justify-center space-x-8 text-white/60">
-            <div className="flex items-center space-x-2">
-              <Sparkles className="w-5 h-5" />
-              <span>Guided Experience</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Music className="w-5 h-5" />
-              <span>Audio Features</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <div className="w-5 h-5 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div>
-              <span>Heartfelt Messages</span>
-            </div>
-          </div>
         </div>
       </div>
     </div>
