@@ -9,11 +9,10 @@ import MyHugsPage from './pages/MyHugsPage'
 
 function AppContent() {
   const [location] = useLocation()
-  const showNavigation = location !== '/'
 
   return (
     <>
-      {showNavigation && <Navigation />}
+      <Navigation />
       <main>
         <Switch>
           <Route path="/" component={HomePage} />
