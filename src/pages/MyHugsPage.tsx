@@ -78,12 +78,6 @@ export default function MyHugsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <img 
-            src="/images/2.png" 
-            alt="SoulLift Audio Logo" 
-            className="w-20 h-20 mx-auto mb-8 object-contain"
-          />
-          
           <motion.h1 
             className="text-4xl font-bold mb-4 tracking-tight"
             initial={{ opacity: 0, y: 20 }}

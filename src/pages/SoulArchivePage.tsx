@@ -10,11 +10,6 @@ export default function SoulArchivePage() {
       <div className="max-w-4xl mx-auto px-6 py-8">
         {/* Header */}
         <div className="text-center mb-8">
-          <img 
-            src="/images/2.png" 
-            alt="SoulLift Audio Logo" 
-            className="w-24 h-24 mx-auto mb-4 object-contain"
-          />
           <h1 className="text-3xl font-bold mb-2">
             <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               SOUL ARCHIVE
