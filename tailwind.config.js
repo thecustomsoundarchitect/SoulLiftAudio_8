@@ -7,6 +7,9 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        'sans': ['Calibri', 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'],
+      },
       animation: {
         shimmer: "shimmer 2s linear infinite",
       },

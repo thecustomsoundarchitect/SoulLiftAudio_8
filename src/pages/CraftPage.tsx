@@ -212,7 +212,7 @@ With gratitude and love`
                   onDragOver={handleDragOver}
                   placeholder="Begin crafting your Soul Hug here... Click on ingredients from the left panel to add them, or start typing your heart's message."
                   className="w-full h-80 p-4 border-2 border-dashed border-gray-300 rounded-xl bg-white focus:outline-none focus:border-green-400 focus:bg-green-50/30 resize-none text-gray-700 leading-relaxed"
-                  style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+                  style={{ fontFamily: 'Calibri, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif' }}
                 />
               </div>
             </div>
