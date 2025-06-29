@@ -205,61 +205,125 @@ export const CloseIcon = () => {
 
 const cards = [
   {
-    description: "Birthday Message",
+    description: "Birthday Message • 3:45",
     title: "Happy Birthday Mom",
+    src: "https://images.pexels.com/photos/1181533/pexels-photo-1181533.jpeg?auto=compress&cs=tinysrgb&w=400",
+    ctaText: "Play",
+    ctaLink: "#",
+    content: () => {
+      return (
+        <p>
+          <strong>Happy Birthday Mom!</strong> <br /> <br />
+          Your love and wisdom have shaped who I am today. Every lesson you taught me, every hug you gave me, and every sacrifice you made has led me to this moment. On your special day, I want you to know how deeply grateful I am to have you as my mother.
+          <br /> <br />
+          You've always been my biggest supporter, my voice of reason, and my source of unconditional love. The way you light up a room with your smile and make everyone feel welcome is truly magical. May this year bring you all the joy and happiness you've given to others.
+          <br /> <br />
+          <em>Created with love on your birthday ❤️</em>
+        </p>
+      );
+    },
+  },
+  {
+    description: "Encouragement • 2:30",
+    title: "You've Got This, Sarah",
     src: "https://images.pexels.com/photos/1587927/pexels-photo-1587927.jpeg?auto=compress&cs=tinysrgb&w=400",
     ctaText: "Play",
     ctaLink: "#",
     content: () => {
       return (
         <p>
-          A heartfelt birthday message filled with love and appreciation for all the wonderful moments we've shared. This Soul Hug captures the warmth and joy of celebrating another year of your amazing life. <br /> <br /> 
-          Your kindness, wisdom, and unconditional love have shaped who I am today. On your special day, I want you to know how deeply grateful I am to have you in my life. May this year bring you all the happiness you deserve.
+          <strong>Hey Sarah,</strong> <br /> <br />
+          I know things have been tough lately, but I want you to remember something important - you are absolutely incredible. Your strength and determination inspire me every single day. The way you handle challenges with grace and keep pushing forward is remarkable.
+          <br /> <br />
+          You've overcome so much already, and I have complete faith that you'll get through this too. Your resilience, your kind heart, and your brilliant mind are more powerful than any obstacle in your path. 
+          <br /> <br />
+          Remember: you are braver than you believe, stronger than you seem, and more loved than you know. I'm here for you, always.
+          <br /> <br />
+          <em>Sending you strength and love 💪</em>
         </p>
       );
     },
   },
   {
-    description: "Encouragement",
-    title: "You've Got This",
+    description: "Gratitude • 4:15",
+    title: "Thank You, Dad",
+    src: "https://images.pexels.com/photos/1040881/pexels-photo-1040881.jpeg?auto=compress&cs=tinysrgb&w=400",
+    ctaText: "Play",
+    ctaLink: "#",
+    content: () => {
+      return (
+        <p>
+          <strong>Dear Dad,</strong> <br /> <br />
+          I've been thinking about all the ways you've shaped my life, and I realized I don't say "thank you" nearly enough. Your guidance, your patience, and your unwavering support have been the foundation of everything good in my life.
+          <br /> <br />
+          From teaching me to ride a bike to helping me navigate life's biggest decisions, you've always been there. Your wisdom, your work ethic, and your integrity have shown me what it means to be a good person. The values you instilled in me guide every choice I make.
+          <br /> <br />
+          Thank you for believing in me even when I didn't believe in myself. Thank you for your sacrifices, your love, and for being the amazing father you are.
+          <br /> <br />
+          <em>With endless gratitude and love 🙏</em>
+        </p>
+      );
+    },
+  },
+  {
+    description: "Friendship • 2:45",
+    title: "To My Best Friend",
+    src: "https://images.pexels.com/photos/1587927/pexels-photo-1587927.jpeg?auto=compress&cs=tinysrgb&w=400",
+    ctaText: "Play",
+    ctaLink: "#",
+    content: () => {
+      return (
+        <p>
+          <strong>Hey you amazing human!</strong> <br /> <br />
+          I was just thinking about our friendship and couldn't help but smile. You bring so much joy, laughter, and light into my life. From our inside jokes to our deep 2 AM conversations, every moment with you is a treasure.
+          <br /> <br />
+          You have this incredible ability to make everyone around you feel special and loved. Your authenticity, your humor, and your generous heart make you one of the most wonderful people I know. I'm so grateful that life brought us together.
+          <br /> <br />
+          Thank you for being you - for your friendship, your support, and for all the memories we've created together. Here's to many more adventures ahead!
+          <br /> <br />
+          <em>Love you to the moon and back! 🌙✨</em>
+        </p>
+      );
+    },
+  },
+  {
+    description: "Encouragement • 3:20",
+    title: "You're Stronger Than You Know",
+    src: "https://images.pexels.com/photos/1040881/pexels-photo-1040881.jpeg?auto=compress&cs=tinysrgb&w=400",
+    ctaText: "Play",
+    ctaLink: "#",
+    content: () => {
+      return (
+        <p>
+          <strong>A gentle reminder for tough times...</strong> <br /> <br />
+          Life has a way of testing us, doesn't it? But here's what I want you to remember: you are so much stronger than you realize. Every challenge you've faced, every obstacle you've overcome, has built the incredible resilience that lives within you.
+          <br /> <br />
+          Your courage doesn't always roar. Sometimes it's the quiet voice at the end of the day saying "I will try again tomorrow." And that's exactly what makes you extraordinary - your ability to keep going, to keep believing, to keep hoping.
+          <br /> <br />
+          You are worthy of love, success, and all the beautiful things life has to offer. Trust in your journey, trust in your strength, and most importantly, trust in yourself.
+          <br /> <br />
+          <em>Believing in you always 💜</em>
+        </p>
+      );
+    },
+  },
+  {
+    description: "Celebration • 2:15",
+    title: "Congratulations Graduate!",
     src: "https://images.pexels.com/photos/1181533/pexels-photo-1181533.jpeg?auto=compress&cs=tinysrgb&w=400",
     ctaText: "Play",
     ctaLink: "#",
     content: () => {
       return (
         <p>
-          Sometimes we all need a gentle reminder of our inner strength and resilience. This Soul Hug is designed to lift your spirits and remind you of your incredible capabilities. <br /> <br /> 
-          You have overcome challenges before, and you will overcome this one too. Your determination, courage, and beautiful spirit are more powerful than any obstacle. Believe in yourself as much as I believe in you.
-        </p>
-      );
-    },
-  },
-  {
-    description: "Gratitude",
-    title: "Thank You for Everything",
-    src: "https://images.pexels.com/photos/1181533/pexels-photo-1181533.jpeg?auto=compress&cs=tinysrgb&w=400",
-    ctaText: "Play",
-    ctaLink: "#",
-    content: () => {
-      return (
-        <p>
-          A message of deep appreciation for all the ways you've touched my life. This Soul Hug expresses gratitude that words alone cannot fully capture. <br /> <br /> 
-          Your presence in my life has been a gift beyond measure. From the small daily kindnesses to the big moments of support, you've made such a difference. Thank you for being exactly who you are.
-        </p>
-      );
-    },
-  },
-  {
-    description: "Love & Support",
-    title: "You Are Loved",
-    src: "https://images.pexels.com/photos/1181533/pexels-photo-1181533.jpeg?auto=compress&cs=tinysrgb&w=400",
-    ctaText: "Play",
-    ctaLink: "#",
-    content: () => {
-      return (
-        <p>
-          A warm embrace in audio form, reminding you that you are cherished and valued. This Soul Hug wraps you in love and comfort during any moment you need it most. <br /> <br /> 
-          You are worthy of love, kindness, and all the beautiful things life has to offer. Never forget how special you are and how much joy you bring to those around you.
+          <strong>You did it! 🎓</strong> <br /> <br />
+          What an incredible achievement! All those late nights studying, the stress of exams, the hard work and dedication - it has all led to this amazing moment. I am so incredibly proud of you and everything you've accomplished.
+          <br /> <br />
+          Your determination, intelligence, and perseverance have brought you to this milestone. But more than that, your kindness, your curiosity, and your passion for learning make you truly special. The world is lucky to have someone like you ready to make a difference.
+          <br /> <br />
+          As you step into this next chapter, remember that this is just the beginning. You have so much potential and so many wonderful things ahead of you. Congratulations on this well-deserved success!
+          <br /> <br />
+          <em>Celebrating you today and always! 🎉</em>
         </p>
       );
     },
