@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Download, Share2, QrCode, Mail, Copy, Check } from 'lucide-react'
-import * as QRCode from 'qrcode'
+import QRCode from 'qrcode'
 import JSZip from 'jszip'
 import { saveAs } from 'file-saver'
 
@@ -115,7 +115,13 @@ export const DeliveryOptions: React.FC<DeliveryOptionsProps> = ({
       
     } catch (error) {
       console.error('Error generating QR code:', error)
-      alert('Error generating QR code. Please try again.')
+      // Fallback: just copy the URL to clipboard
+      try {
+        await navigator.clipboard.writeText(shareUrl)
+        alert('QR code generation failed, but share link copied to clipboard!')
+      } catch (clipboardError) {
+        alert('Error generating QR code. Please try again.')
+      }
     } finally {
       setIsGeneratingQR(false)
     }
