@@ -71,7 +71,9 @@ export default function GatherPage() {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Gather Your Ingredients
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              GATHER YOUR INGREDIENTS
+            </span>
           </h1>
           <p className="text-gray-600">
             Click prompts to write stories, select descriptors that fit

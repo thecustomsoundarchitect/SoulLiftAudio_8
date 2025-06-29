@@ -68,7 +68,9 @@ export default function DefinePage() {
           </div>
           
           <h1 className="text-3xl font-bold text-gray-900 mb-3">
-            Define Your Hug
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              DEFINE YOUR HUG
+            </span>
           </h1>
           
           <p className="text-lg text-gray-600">

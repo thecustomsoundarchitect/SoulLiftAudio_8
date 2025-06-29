@@ -92,12 +92,14 @@ export default function MyHugsPage() {
           </motion.div>
           
           <motion.h1 
-            className="text-4xl font-bold text-gray-900 mb-4 tracking-tight"
+            className="text-4xl font-bold mb-4 tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            My Soul Hugs
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              MY SOUL HUGS
+            </span>
           </motion.h1>
           
           <motion.p 

@@ -17,6 +17,11 @@ export default function SoulArchivePage() {
             <User className="w-12 h-12 text-white" />
           </motion.div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Soul Archive</h1>
+          <h1 className="text-3xl font-bold mb-2">
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              SOUL ARCHIVE
+            </span>
+          </h1>
           <p className="text-gray-600">Your personal profile and achievements</p>
         </div>
 
