@@ -162,15 +162,9 @@ With gratitude and love`
       <div className="max-w-sm sm:max-w-2xl lg:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="soul-card">
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 md:mb-6 space-y-4 md:space-y-0">
-            <Link href="/craft" className="flex items-center text-purple-600 hover:text-purple-700 transition-colors text-sm md:text-base">
-              <ArrowLeft className="w-4 h-4 md:w-5 md:h-5 mr-2" />
-              <span className="hidden sm:inline">Back to Craft</span>
-              <span className="sm:hidden">Back</span>
-            </Link>
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               CREATE AUDIO HUG
             </h1>
-            <div className="hidden md:block w-24"></div>
           </div>
 
           {/* Message Preview */}
@@ -283,15 +277,7 @@ With gratitude and love`
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row justify-between items-center mt-6 md:mt-8 pt-4 md:pt-6 border-t border-gray-200 space-y-4 sm:space-y-0">
-            <Link href="/craft">
-              <button className="flex items-center px-4 md:px-6 py-2 md:py-3 text-sm md:text-base text-gray-600 border border-gray-300 rounded-xl hover:bg-gray-50 transition-all duration-200 min-h-12">
-                <ArrowLeft className="w-3 h-3 md:w-4 md:h-4 mr-2" />
-                <span className="hidden sm:inline">Back to Craft</span>
-                <span className="sm:hidden">Back</span>
-              </button>
-            </Link>
-            
-            <div className="flex space-x-2 md:space-x-3">
+            <div className="flex justify-center space-x-2 md:space-x-3 w-full">
               <button
                 onClick={handleDownload}
                 disabled={!hasAudio}
