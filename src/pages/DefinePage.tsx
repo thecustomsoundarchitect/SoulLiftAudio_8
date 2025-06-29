@@ -584,48 +584,6 @@ export default function DefinePage() {
           </div>
         </motion.div>
 
-        {/* Celebration Animation */}
-        <AnimatePresence>
-          {showCelebration && (
-            <motion.div
-              className="fixed inset-0 pointer-events-none z-50 flex items-center justify-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              {[...Array(12)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-4 h-4 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full"
-                  initial={{ 
-                    scale: 0,
-                    x: 0,
-                    y: 0,
-                    rotate: 0
-                  }}
-                  animate={{ 
-                    scale: [0, 1, 0],
-                    x: Math.cos(i * 30 * Math.PI / 180) * 200,
-                    y: Math.sin(i * 30 * Math.PI / 180) * 200,
-                    rotate: 360
-                  }}
-                  transition={{ 
-                    duration: 2,
-                    ease: "easeOut"
-                  }}
-                />
-              ))}
-              <motion.div
-                className="text-4xl"
-                initial={{ scale: 0, rotate: -180 }}
-                animate={{ scale: [0, 1.2, 1], rotate: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-              >
-                🎉
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
     </div>
   )
