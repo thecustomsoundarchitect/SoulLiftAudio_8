@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useLocation } from 'wouter'
 import { Heart, Infinity, Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import ProgressIndicator from './ProgressIndicator'
 
 export default function Navigation() {
   const [location] = useLocation()
@@ -129,6 +130,11 @@ export default function Navigation() {
           </>
         )}
       </AnimatePresence>
+      
+      {/* Progress Indicator - only show on workflow pages */}
+      {['/define', '/gather', '/craft', '/audio-hug'].includes(location) && (
+        <ProgressIndicator />
+      )}
     </>
   )
 }
