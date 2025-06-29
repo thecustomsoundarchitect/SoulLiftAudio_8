@@ -10,9 +10,9 @@ export default function HomePage() {
       colors={["#5B2885", "#DF86F9", "#29D3FF"]}
       waveWidth={50}
       backgroundFill="white"
-      blur={10}
+      blur={15}
       speed="slow"
-      waveOpacity={0.3}
+      waveOpacity={0.2}
     >
       <div className="relative z-10 min-h-screen pt-8 pb-16">
         <div className="max-w-sm sm:max-w-2xl lg:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
