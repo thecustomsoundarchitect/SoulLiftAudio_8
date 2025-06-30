@@ -98,10 +98,10 @@ export default function GatherPage() {
       <div className="max-w-6xl mx-auto px-6 py-8 page-content">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold mb-2" style={{ color: '#8A37EA' }}>
+          <h1 className="text-3xl font-bold mb-2 text-primary">
             GATHER YOUR INGREDIENTS
           </h1>
-          <p className="text-lg" style={{ color: '#8A37EA', opacity: 0.8 }}>
+          <p className="text-lg text-secondary">
             Click prompts to write stories, select descriptors that fit
           </p>
         </div>
@@ -109,15 +109,15 @@ export default function GatherPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Column - Story Prompts */}
           <div>
-            <div className="bg-white/70 backdrop-blur-lg rounded-3xl border border-purple-200 shadow-xl p-6">
-              <h3 className="text-xl font-semibold mb-6 pl-4" style={{ color: '#8A37EA' }}>Story Prompts</h3>
+            <div className="glass-surface rounded-3xl shadow-xl p-6">
+              <h3 className="text-xl font-semibold mb-6 pl-4 text-primary">Story Prompts</h3>
               
               <ul className="space-y-4 pl-4">
                 {promptCards.map((prompt, idx) => (
                   <li key={idx} className="flex items-center gap-4">
                     <button
                       onClick={() => openWritingModal(prompt.title)}
-                      className="flex items-center gap-4 w-full text-left hover:bg-white/40 rounded-xl p-3 transition-all duration-200"
+                      className="flex items-center gap-4 w-full text-left glass-hover rounded-xl p-3 transition-all duration-200"
                     >
                       <img
                         src={prompt.image}
@@ -125,7 +125,7 @@ export default function GatherPage() {
                         className="w-12 h-12 rounded-full object-cover shadow-md"
                       />
                       <div className="flex flex-col">
-                        <span className="text-sm font-medium truncate max-w-[280px]" style={{ color: '#8A37EA' }}>
+                        <span className="text-sm font-medium truncate max-w-[280px] text-primary">
                           {prompt.title}
                         </span>
                       </div>
@@ -136,8 +136,8 @@ export default function GatherPage() {
             </div>
 
             {/* Descriptors */}
-            <div className="mt-6 bg-white/70 backdrop-blur-lg rounded-3xl border border-purple-200 shadow-xl p-6">
-              <h3 className="text-xl font-semibold mb-6" style={{ color: '#8A37EA' }}>Choose Descriptors</h3>
+            <div className="mt-6 glass-surface rounded-3xl shadow-xl p-6">
+              <h3 className="text-xl font-semibold mb-6 text-primary">Choose Descriptors</h3>
               <div className="grid grid-cols-3 gap-3">
                 {descriptorOptions.map((descriptor) => (
                   <button
@@ -145,10 +145,9 @@ export default function GatherPage() {
                     onClick={() => toggleDescriptor(descriptor)}
                     className={`p-3 rounded-xl text-sm font-medium transition-all duration-200 ${
                       descriptors.includes(descriptor)
-                        ? 'bg-purple-200 shadow-lg border border-purple-300'
-                        : 'bg-white/40 hover:bg-white/60 border border-purple-200'
+                        ? 'bg-button-primary text-inverted shadow-lg'
+                        : 'glass-surface glass-hover text-primary'
                     }`}
-                    style={{ color: '#8A37EA' }}
                   >
                     {descriptor}
                   </button>
@@ -159,15 +158,15 @@ export default function GatherPage() {
 
           {/* Right Column - Your Stories */}
           <div>
-            <div className="bg-white/70 backdrop-blur-lg rounded-3xl border border-purple-200 shadow-xl p-6 min-h-[600px]">
-              <h3 className="text-xl font-semibold mb-6" style={{ color: '#8A37EA' }}>
+            <div className="glass-surface rounded-3xl shadow-xl p-6 min-h-[600px]">
+              <h3 className="text-xl font-semibold mb-6 text-primary">
                 Your Stories ({ingredients.length})
               </h3>
               
               {ingredients.length === 0 ? (
-                <div className="text-center py-20" style={{ color: '#8A37EA', opacity: 0.7 }}>
-                  <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Plus className="w-8 h-8" style={{ color: '#8A37EA', opacity: 0.6 }} />
+                <div className="text-center py-20 text-muted">
+                  <div className="w-16 h-16 glass-surface rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Plus className="w-8 h-8 text-muted" />
                   </div>
                   <p className="text-lg font-medium mb-2">Your stories will appear here</p>
                   <p className="text-sm">Click prompts on the left to get started</p>
@@ -177,27 +176,26 @@ export default function GatherPage() {
                   {ingredients.map((ingredient, index) => (
                     <div 
                       key={index} 
-                      className="bg-white/60 backdrop-blur-md rounded-xl p-4 border border-purple-200 group hover:bg-white/80 transition-all duration-200"
+                      className="glass-surface glass-hover rounded-xl p-4 group transition-all duration-200"
                     >
                       <div className="flex justify-between items-start">
                         <div className="flex-1 pr-4">
                           {ingredient.includes(':') ? (
                             <>
-                              <div className="font-semibold mb-2 text-sm" style={{ color: '#8A37EA' }}>
+                              <div className="font-semibold mb-2 text-sm text-primary">
                                 {ingredient.split(':')[0]}:
                               </div>
-                              <div className="text-sm leading-relaxed" style={{ color: '#8A37EA', opacity: 0.8 }}>
+                              <div className="text-sm leading-relaxed text-secondary">
                                 {ingredient.split(':').slice(1).join(':').trim()}
                               </div>
                             </>
                           ) : (
-                            <div className="font-semibold text-sm" style={{ color: '#8A37EA' }}>{ingredient}</div>
+                            <div className="font-semibold text-sm text-primary">{ingredient}</div>
                           )}
                         </div>
                         <button
                           onClick={() => removeIngredient(ingredient)}
-                          className="p-2 hover:bg-purple-100 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200"
-                          style={{ color: '#8A37EA', opacity: 0.6 }}
+                          className="p-2 glass-hover rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200 text-muted"
                         >
                           <X className="w-4 h-4" />
                         </button>
@@ -210,13 +208,12 @@ export default function GatherPage() {
               {/* Selected Descriptors */}
               {descriptors.length > 0 && (
                 <div className="mt-6 pt-6 border-t border-white/20">
-                  <h4 className="text-sm font-medium mb-3" style={{ color: '#8A37EA', opacity: 0.9 }}>Selected Descriptors</h4>
+                  <h4 className="text-sm font-medium mb-3 text-secondary">Selected Descriptors</h4>
                   <div className="flex flex-wrap gap-2">
                     {descriptors.map((descriptor) => (
                       <span
                         key={descriptor}
-                        className="px-3 py-1 bg-purple-100 backdrop-blur-md rounded-full text-sm border border-purple-200"
-                        style={{ color: '#8A37EA' }}
+                        className="px-3 py-1 glass-surface rounded-full text-sm text-primary"
                       >
                         {descriptor}
                       </span>
@@ -231,7 +228,7 @@ export default function GatherPage() {
         {/* Navigation */}
         <div className="flex justify-between items-center mt-8">
           <Link href="/define">
-            <button className="flex items-center px-6 py-3 bg-white/60 backdrop-blur-lg border border-purple-200 rounded-xl hover:bg-white/80 transition-all duration-200" style={{ color: '#8A37EA' }}>
+            <button className="flex items-center px-6 py-3 glass-surface glass-hover rounded-xl transition-all duration-200 text-primary">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Define
             </button>
@@ -242,10 +239,9 @@ export default function GatherPage() {
               disabled={!canProceed}
               className={`flex items-center px-8 py-3 rounded-xl font-medium transition-all duration-200 ${
                 canProceed
-                  ? 'bg-white/60 backdrop-blur-lg border border-purple-300 hover:bg-white/80 shadow-lg'
-                  : 'bg-white/20 cursor-not-allowed border border-purple-200'
+                  ? 'glass-surface glass-hover shadow-lg text-primary'
+                  : 'glass-surface cursor-not-allowed text-muted'
               }`}
-              style={{ color: canProceed ? '#8A37EA' : '#8A37EA80' }}
             >
               Continue to Craft
               <ArrowRight className="w-4 h-4 ml-2" />

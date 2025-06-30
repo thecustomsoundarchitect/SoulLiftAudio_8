@@ -101,26 +101,26 @@ With gratitude and love`
     <div className="min-h-screen light-background pt-8 pb-16">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 page-content">
-        <div className="bg-white/70 backdrop-blur-lg rounded-3xl p-6 md:p-8 border border-purple-200 shadow-xl">
-          <h1 className="text-4xl font-bold text-center mb-8" style={{ color: '#8A37EA' }}>
+        <div className="glass-surface rounded-3xl p-6 md:p-8 shadow-xl">
+          <h1 className="text-4xl font-bold text-center mb-8 text-primary">
             CRAFT YOUR SOUL HUG
           </h1>
 
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Left Column - Ingredients */}
             <div>
-              <div className="bg-white/60 backdrop-blur-lg rounded-2xl p-6 mb-6 border border-purple-200">
+              <div className="glass-surface rounded-2xl p-6 mb-6">
                 <div className="flex items-center mb-4">
-                  <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
-                    <span className="text-sm font-bold" style={{ color: '#8A37EA' }}>✓</span>
+                  <div className="w-8 h-8 glass-surface rounded-lg flex items-center justify-center mr-3">
+                    <span className="text-sm font-bold text-primary">✓</span>
                   </div>
-                  <h3 className="text-lg font-semibold" style={{ color: '#8A37EA' }}>Your Ingredients</h3>
+                  <h3 className="text-lg font-semibold text-primary">Your Ingredients</h3>
                 </div>
                 
                 {ingredients.length === 0 ? (
                   <div className="text-center py-8">
-                    <p className="text-sm" style={{ color: '#8A37EA', opacity: 0.7 }}>No ingredients available</p>
-                    <p className="text-xs mt-1" style={{ color: '#8A37EA', opacity: 0.6 }}>Go back to Gather to collect some!</p>
+                    <p className="text-sm text-secondary">No ingredients available</p>
+                    <p className="text-xs mt-1 text-muted">Go back to Gather to collect some!</p>
                   </div>
                 ) : (
                   <div className="space-y-3">
@@ -129,20 +129,20 @@ With gratitude and love`
                         key={index}
                         draggable
                         onDragStart={(e) => handleDragStart(e, ingredient)}
-                        className="bg-white/80 backdrop-blur-sm rounded-lg p-3 shadow-sm cursor-grab active:cursor-grabbing hover:shadow-md transition-shadow border border-purple-200"
+                        className="glass-surface glass-hover rounded-lg p-3 shadow-sm cursor-grab active:cursor-grabbing transition-shadow"
                       >
-                        <p className="text-sm leading-relaxed" style={{ color: '#8A37EA' }}>
+                        <p className="text-sm leading-relaxed text-primary">
                           {ingredient.includes(':') ? (
                             <>
-                              <span className="font-medium block mb-1" style={{ color: '#8A37EA' }}>
+                              <span className="font-medium block mb-1 text-primary">
                                 {ingredient.split(':')[0]}
                               </span>
-                              <span style={{ color: '#8A37EA', opacity: 0.8 }}>
+                              <span className="text-secondary">
                                 {ingredient.split(':').slice(1).join(':').trim()}
                               </span>
                             </>
                           ) : (
-                            <span className="font-medium" style={{ color: '#8A37EA' }}>{ingredient}</span>
+                            <span className="font-medium text-primary">{ingredient}</span>
                           )}
                         </p>
                       </div>
@@ -153,13 +153,12 @@ With gratitude and love`
 
               {/* Descriptors */}
               {descriptors.length > 0 && (
-                <div className="bg-white/60 backdrop-blur-lg rounded-2xl p-6 border border-purple-200">
+                <div className="glass-surface rounded-2xl p-6">
                   <div className="flex items-center justify-between mb-3">
-                    <h4 className="font-medium" style={{ color: '#8A37EA' }}>Selected Descriptors</h4>
+                    <h4 className="font-medium text-primary">Selected Descriptors</h4>
                     <button
                       onClick={moveAllDescriptors}
-                      className="text-xs bg-purple-100 hover:bg-purple-200 px-3 py-1 rounded-full transition-colors border border-purple-200"
-                      style={{ color: '#8A37EA' }}
+                      className="text-xs glass-surface glass-hover px-3 py-1 rounded-full transition-colors text-primary"
                     >
                       Move All to Message
                     </button>
@@ -167,16 +166,15 @@ With gratitude and love`
                   <div 
                     draggable={descriptors.length > 0}
                     onDragStart={handleDescriptorDragStart}
-                    className={`bg-white/60 backdrop-blur-md rounded-lg p-3 shadow-sm border border-purple-200 ${
-                      descriptors.length > 0 ? 'cursor-grab active:cursor-grabbing hover:bg-white/80' : ''
+                    className={`glass-surface rounded-lg p-3 shadow-sm ${
+                      descriptors.length > 0 ? 'cursor-grab active:cursor-grabbing glass-hover' : ''
                     } transition-shadow`}
                   >
                     <div className="flex flex-wrap gap-2">
                       {descriptors.map((descriptor, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1 bg-purple-100 rounded-full text-sm font-medium border border-purple-200"
-                          style={{ color: '#8A37EA' }}
+                          className="px-3 py-1 glass-surface rounded-full text-sm font-medium text-primary"
                         >
                           {descriptor}
                         </span>
@@ -184,7 +182,7 @@ With gratitude and love`
                     </div>
                   </div>
                   {descriptors.length > 0 && (
-                    <p className="text-xs mt-2" style={{ color: '#8A37EA', opacity: 0.6 }}>
+                    <p className="text-xs mt-2 text-muted">
                       💡 Drag this box to your message or click "Move All"
                     </p>
                   )}
@@ -194,15 +192,15 @@ With gratitude and love`
 
             {/* Right Column - Message */}
             <div>
-              <div className="bg-white/60 backdrop-blur-lg rounded-2xl p-6 border border-purple-200">
+              <div className="glass-surface rounded-2xl p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center">
-                    <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
-                      <span className="text-sm font-bold" style={{ color: '#8A37EA' }}>✓</span>
+                    <div className="w-8 h-8 glass-surface rounded-lg flex items-center justify-center mr-3">
+                      <span className="text-sm font-bold text-primary">✓</span>
                     </div>
-                    <h3 className="text-lg font-semibold" style={{ color: '#8A37EA' }}>Your Soul Hug Message</h3>
+                    <h3 className="text-lg font-semibold text-primary">Your Soul Hug Message</h3>
                   </div>
-                  <div className="text-sm" style={{ color: '#8A37EA', opacity: 0.7 }}>
+                  <div className="text-sm text-secondary">
                     {wordCount} words
                   </div>
                 </div>
@@ -215,7 +213,7 @@ With gratitude and love`
                   onDrop={handleDrop}
                   onDragOver={handleDragOver}
                   placeholder="Begin crafting your Soul Hug here... Click on ingredients from the left panel to add them, or start typing your heart's message."
-                  className="w-full h-80 p-4 border-2 border-dashed border-purple-300 rounded-xl bg-white/60 backdrop-blur-md focus:outline-none focus:border-purple-400 focus:bg-white/80 resize-none placeholder-purple-400 leading-relaxed"
+                  className="w-full h-80 p-4 border-2 border-dashed border-input rounded-xl glass-surface focus:outline-none focus:border-focus glass-hover resize-none placeholder-muted leading-relaxed text-primary"
                   style={{ fontFamily: 'Calibri, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif' }}
                 />
               </div>
@@ -227,14 +225,13 @@ With gratitude and love`
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
               {/* Target Length */}
               <div className="flex items-center space-x-4">
-                <label htmlFor="target-length" className="text-sm font-medium" style={{ color: '#8A37EA' }}>Target Length</label>
+                <label htmlFor="target-length" className="text-sm font-medium text-primary">Target Length</label>
                 <select
                   id="target-length"
                   name="targetLength"
                   value={targetLength}
                   onChange={(e) => setTargetLength(e.target.value)}
-                  className="px-3 py-2 border border-purple-300 bg-white/60 backdrop-blur-md rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 text-sm"
-                  style={{ color: '#8A37EA' }}
+                  className="px-3 py-2 border border-input glass-surface rounded-lg focus:outline-none focus:ring-2 focus:ring-focus text-sm text-primary"
                 >
                   <option value="30s - Brief">30s - Brief</option>
                   <option value="1m - Heartfelt">1m - Heartfelt</option>
@@ -248,8 +245,7 @@ With gratitude and love`
                 <button
                   onClick={aiWeave}
                   disabled={isWeaving || ingredients.length === 0}
-                  className="bg-white/60 backdrop-blur-lg border border-purple-300 px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:bg-white/80 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 disabled:opacity-50 disabled:cursor-not-allowed"
-                  style={{ color: '#8A37EA' }}
+                  className="glass-surface glass-hover px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-focus disabled:opacity-50 disabled:cursor-not-allowed text-primary"
                 >
                   {isWeaving ? 'AI Weaving...' : 'AI Weave (1 Credit)'}
                 </button>
@@ -257,8 +253,7 @@ With gratitude and love`
                 <button
                   onClick={aiPolish}
                   disabled={isPolishing || !message.trim()}
-                  className="bg-white/60 backdrop-blur-lg border border-purple-300 px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:bg-white/80 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 disabled:opacity-50 disabled:cursor-not-allowed"
-                  style={{ color: '#8A37EA' }}
+                  className="glass-surface glass-hover px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-focus disabled:opacity-50 disabled:cursor-not-allowed text-primary"
                 >
                   {isPolishing ? 'AI Polishing...' : 'AI Polish (1 Credit)'}
                 </button>
@@ -266,8 +261,7 @@ With gratitude and love`
                 <button
                   onClick={exportHug}
                   disabled={!message.trim()}
-                  className="bg-white/60 backdrop-blur-lg border border-purple-300 px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:bg-white/80 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 disabled:opacity-50 disabled:cursor-not-allowed"
-                  style={{ color: '#8A37EA' }}
+                  className="glass-surface glass-hover px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-focus disabled:opacity-50 disabled:cursor-not-allowed text-primary"
                 >
                   <Download className="w-4 h-4 mr-2" />
                   Export Hug
@@ -277,6 +271,7 @@ With gratitude and love`
 
             {/* Pro tip */}
             <p className="text-xs mt-4" style={{ color: '#8A37EA', opacity: 0.7 }}>
+            <p className="text-xs mt-4 text-secondary">
               Pro tip: Click on ingredients from the left panel to add them to your message. Use AI Weave to create from ingredients, or AI Polish to refine existing text.
             </p>
           </div>
@@ -284,7 +279,7 @@ With gratitude and love`
           {/* Navigation */}
           <div className="flex justify-between items-center mt-8 pt-6 border-t border-purple-200">
             <Link href="/gather">
-              <button className="flex items-center px-6 py-3 border border-purple-300 bg-white/60 backdrop-blur-lg rounded-xl hover:bg-white/80 transition-all duration-200" style={{ color: '#8A37EA' }}>
+              <button className="flex items-center px-6 py-3 glass-surface glass-hover rounded-xl transition-all duration-200 text-primary">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Gather
               </button>
@@ -293,8 +288,7 @@ With gratitude and love`
             <Link href="/audio-hug">
               <button
                 disabled={!message.trim()}
-                className="bg-white/60 backdrop-blur-lg border border-purple-300 px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:bg-white/80 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 disabled:opacity-50 disabled:cursor-not-allowed"
-                style={{ color: '#8A37EA' }}
+                className="glass-surface glass-hover px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-focus disabled:opacity-50 disabled:cursor-not-allowed text-primary"
               >
                 Continue to Audio
               </button>

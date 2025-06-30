@@ -25,7 +25,7 @@
 
 /* Global text color override */
 .page-content {
-  color: #8A37EA;
+  color: #4D1A77;
 }
 
 .page-content h1,
@@ -39,12 +39,51 @@
 .page-content div,
 .page-content label,
 .page-content button {
-  color: #8A37EA;
+  color: #4D1A77;
 }
 
 /* Light background for pages */
 .light-background {
-  background: linear-gradient(135deg, #fdfbff 0%, #f8f4ff 25%, #f3edff 50%, #eee7ff 75%, #e9e1ff 100%);
+  background: linear-gradient(to br, #FCE3F1, #D0C4F1);
+}
+
+/* SoulLift Glass Theme Color Tokens */
+:root {
+  --text-primary: #4D1A77;
+  --text-secondary: #6E3BA4;
+  --text-muted: #A082C6;
+  --text-inverted: #FFFFFF;
+  --bg-glass-surface: rgba(255, 255, 255, 0.08);
+  --bg-glass-hover: rgba(255, 255, 255, 0.16);
+  --bg-button-primary: #4D1A77;
+  --bg-button-secondary: #6E3BA4;
+  --border-glass: rgba(255, 255, 255, 0.2);
+  --border-input: #A082C6;
+  --border-focus: #4D1A77;
+}
+
+/* Glass components */
+.glass-surface {
+  background: var(--bg-glass-surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-glass);
+}
+
+.glass-hover:hover {
+  background: var(--bg-glass-hover);
+}
+
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-muted {
+  color: var(--text-muted);
 }
 
 /* Slider styling for audio controls */
