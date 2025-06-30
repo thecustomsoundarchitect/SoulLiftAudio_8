@@ -118,7 +118,6 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({ onRecordingComplet
   return (
     <div className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 ${className}`}>
       <h3 className="text-xl font-semibold mb-4 flex items-center text-orange-700">
-      <h3 className="text-xl font-semibold mb-4 flex items-center text-primary">
         <Mic className="w-6 h-6 mr-2 text-primary" />
         Record Your Voice
       </h3>
