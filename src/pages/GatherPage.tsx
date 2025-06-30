@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'wouter'
-import { ArrowRight, ArrowLeft, X, Plus } from 'lucide-react'
+import { ArrowRight, ArrowLeft, X, Plus, Heart } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useSoulHug } from '../context/SoulHugContext'
 import ProgressIndicator from '../components/ProgressIndicator'
