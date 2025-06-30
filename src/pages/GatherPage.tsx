@@ -15,47 +15,38 @@ export default function GatherPage() {
   const promptCards = [
     { 
       title: "When they showed unwavering kindness", 
-      duration: "2:30",
       image: "https://images.pexels.com/photos/1181533/pexels-photo-1181533.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     { 
       title: "How their smile lights up rooms", 
-      duration: "3:15",
       image: "https://images.pexels.com/photos/1587927/pexels-photo-1587927.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     { 
       title: "Their gift of making everyone feel welcome", 
-      duration: "2:45",
       image: "https://images.pexels.com/photos/1040881/pexels-photo-1040881.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     { 
       title: "The natural way they comfort others", 
-      duration: "4:10",
       image: "https://images.pexels.com/photos/1181533/pexels-photo-1181533.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     { 
       title: "What you see blossoming in them", 
-      duration: "1:50",
       image: "https://images.pexels.com/photos/1587927/pexels-photo-1587927.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     { 
       title: "That time they stood up bravely", 
-      duration: "3:20",
       image: "https://images.pexels.com/photos/1040881/pexels-photo-1040881.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     { 
       title: "The small ways they show care", 
-      duration: "2:15",
       image: "https://images.pexels.com/photos/1181533/pexels-photo-1181533.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     { 
       title: "Why they deserve all the love", 
-      duration: "3:45",
       image: "https://images.pexels.com/photos/1587927/pexels-photo-1587927.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     { 
       title: "The real them that shines through", 
-      duration: "2:55",
       image: "https://images.pexels.com/photos/1040881/pexels-photo-1040881.jpeg?auto=compress&cs=tinysrgb&w=400"
     }
   ]
@@ -137,7 +128,6 @@ export default function GatherPage() {
                         <span className="text-sm font-medium text-white truncate max-w-[280px]">
                           {prompt.title}
                         </span>
-                        <span className="text-xs text-white/60">{prompt.duration}</span>
                       </div>
                     </button>
                   </li>
