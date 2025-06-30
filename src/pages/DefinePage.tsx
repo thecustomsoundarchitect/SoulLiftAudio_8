@@ -147,10 +147,6 @@ export default function DefinePage() {
                 }`}
               />
             </motion.div>
-            
-            <p className="text-xs text-gray-500 mt-2">
-              💡 Watch the examples cycle through for inspiration
-            </p>
           </div>
 
           {/* Two Column Layout for Occasion and Tone */}
