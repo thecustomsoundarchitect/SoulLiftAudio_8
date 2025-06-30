@@ -13,15 +13,51 @@ export default function GatherPage() {
   const [writingModal, setWritingModal] = useState({ isOpen: false, prompt: '', story: '' })
 
   const promptCards = [
-    "When they showed unwavering kindness",
-    "How their smile lights up rooms", 
-    "Their gift of making everyone feel welcome",
-    "The natural way they comfort others",
-    "What you see blossoming in them",
-    "That time they stood up bravely",
-    "The small ways they show care",
-    "Why they deserve all the love",
-    "The real them that shines through"
+    { 
+      title: "When they showed unwavering kindness", 
+      duration: "2:30 mins",
+      image: "https://images.pexels.com/photos/1181533/pexels-photo-1181533.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    { 
+      title: "How their smile lights up rooms", 
+      duration: "3:15 mins",
+      image: "https://images.pexels.com/photos/1587927/pexels-photo-1587927.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    { 
+      title: "Their gift of making everyone feel welcome", 
+      duration: "2:45 mins",
+      image: "https://images.pexels.com/photos/1040881/pexels-photo-1040881.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    { 
+      title: "The natural way they comfort others", 
+      duration: "4:10 mins",
+      image: "https://images.pexels.com/photos/1181533/pexels-photo-1181533.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    { 
+      title: "What you see blossoming in them", 
+      duration: "1:50 mins",
+      image: "https://images.pexels.com/photos/1587927/pexels-photo-1587927.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    { 
+      title: "That time they stood up bravely", 
+      duration: "3:20 mins",
+      image: "https://images.pexels.com/photos/1040881/pexels-photo-1040881.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    { 
+      title: "The small ways they show care", 
+      duration: "2:15 mins",
+      image: "https://images.pexels.com/photos/1181533/pexels-photo-1181533.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    { 
+      title: "Why they deserve all the love", 
+      duration: "3:45 mins",
+      image: "https://images.pexels.com/photos/1587927/pexels-photo-1587927.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    { 
+      title: "The real them that shines through", 
+      duration: "2:55 mins",
+      image: "https://images.pexels.com/photos/1040881/pexels-photo-1040881.jpeg?auto=compress&cs=tinysrgb&w=400"
+    }
   ]
 
   const descriptorOptions = [
@@ -67,100 +103,112 @@ export default function GatherPage() {
   const canProceed = ingredients.length > 0 || descriptors.length > 0
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#DCB2EF] via-[#C8A8E8] to-[#B1E0EC] relative overflow-hidden">
-      {/* Glass morphism overlay */}
-      <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
-      
-      {/* Floating glass orbs for visual interest */}
-      <div className="absolute top-32 right-20 w-28 h-28 bg-white/20 rounded-full blur-xl animate-pulse delay-300"></div>
-      <div className="absolute bottom-32 left-16 w-36 h-36 bg-white/15 rounded-full blur-2xl animate-pulse delay-700"></div>
-      <div className="absolute top-2/3 right-1/4 w-20 h-20 bg-white/10 rounded-full blur-lg animate-pulse delay-1000"></div>
-
-      <div className="max-w-4xl mx-auto px-6 py-8 relative z-10">
+    <div className="min-h-screen bg-gradient-to-br from-purple-300 via-pink-200 to-blue-200 pb-20">
+      <div className="max-w-6xl mx-auto px-6 py-8">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              GATHER YOUR INGREDIENTS
-            </span>
+          <h1 className="text-3xl font-bold text-white mb-2">
+            GATHER YOUR INGREDIENTS
           </h1>
-          <p className="text-gray-700">
+          <p className="text-white/80 text-lg">
             Click prompts to write stories, select descriptors that fit
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Left Column - Prompts */}
+          {/* Left Column - Story Prompts */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">Story Prompts</h3>
-            <div className="grid grid-cols-1 gap-3 mb-6">
-              {promptCards.map((prompt, index) => (
-                <button
-                  key={index}
-                  onClick={() => openWritingModal(prompt)}
-                  className="p-4 bg-white/60 backdrop-blur-sm hover:bg-white/80 rounded-lg text-left transition-all duration-200 border border-white/30 hover:border-white/50 hover:shadow-md"
-                >
-                  <p className="text-sm text-gray-700">{prompt}</p>
-                </button>
-              ))}
+            <div className="bg-white/10 backdrop-blur-lg rounded-3xl border border-white/20 shadow-xl p-6">
+              {/* Left Accent Stripe */}
+              <div className="absolute top-0 left-0 h-full w-2 bg-gradient-to-b from-purple-500 to-pink-400 rounded-l-3xl" />
+              
+              <h3 className="text-xl font-semibold text-white mb-6 pl-4">Story Prompts</h3>
+              
+              <ul className="space-y-4 pl-4">
+                {promptCards.map((prompt, idx) => (
+                  <li key={idx} className="flex items-center gap-4">
+                    <button
+                      onClick={() => openWritingModal(prompt.title)}
+                      className="flex items-center gap-4 w-full text-left hover:bg-white/10 rounded-xl p-3 transition-all duration-200"
+                    >
+                      <img
+                        src={prompt.image}
+                        alt={prompt.title}
+                        className="w-12 h-12 rounded-full object-cover shadow-md"
+                      />
+                      <div className="flex flex-col">
+                        <span className="text-sm font-medium text-white truncate max-w-[280px]">
+                          {prompt.title}
+                        </span>
+                        <span className="text-xs text-white/60">{prompt.duration}</span>
+                      </div>
+                    </button>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             {/* Descriptors */}
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">Choose Descriptors</h3>
-            <div className="grid grid-cols-3 gap-2">
-              {descriptorOptions.map((descriptor) => (
-                <button
-                  key={descriptor}
-                  onClick={() => toggleDescriptor(descriptor)}
-                  className={`p-2 rounded-lg text-sm font-medium transition-all duration-200 backdrop-blur-sm ${
-                    descriptors.includes(descriptor)
-                      ? 'bg-purple-600 text-white shadow-md'
-                      : 'bg-white/60 text-gray-700 hover:bg-white/80 border border-white/30'
-                  }`}
-                >
-                  {descriptor}
-                </button>
-              ))}
+            <div className="mt-6 bg-white/10 backdrop-blur-lg rounded-3xl border border-white/20 shadow-xl p-6">
+              <h3 className="text-xl font-semibold text-white mb-6">Choose Descriptors</h3>
+              <div className="grid grid-cols-3 gap-3">
+                {descriptorOptions.map((descriptor) => (
+                  <button
+                    key={descriptor}
+                    onClick={() => toggleDescriptor(descriptor)}
+                    className={`p-3 rounded-xl text-sm font-medium transition-all duration-200 ${
+                      descriptors.includes(descriptor)
+                        ? 'bg-white/30 text-white shadow-lg border border-white/40'
+                        : 'bg-white/10 text-white/80 hover:bg-white/20 border border-white/20'
+                    }`}
+                  >
+                    {descriptor}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* Right Column - Your Stories */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">
-              Your Stories ({ingredients.length})
-            </h3>
-            
-            <div className="border-2 border-dashed border-white/40 rounded-lg p-4 min-h-80 bg-white/30 backdrop-blur-sm">
+            <div className="bg-white/10 backdrop-blur-lg rounded-3xl border border-white/20 shadow-xl p-6 min-h-[600px]">
+              <h3 className="text-xl font-semibold text-white mb-6">
+                Your Stories ({ingredients.length})
+              </h3>
+              
               {ingredients.length === 0 ? (
-                <div className="text-center text-gray-600 py-12">
+                <div className="text-center text-white/70 py-20">
+                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Plus className="w-8 h-8 text-white/60" />
+                  </div>
                   <p className="text-lg font-medium mb-2">Your stories will appear here</p>
                   <p className="text-sm">Click prompts on the left to get started</p>
                 </div>
               ) : (
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {ingredients.map((ingredient, index) => (
                     <div 
                       key={index} 
-                      className="bg-white/70 backdrop-blur-sm rounded-lg p-3 shadow-sm border border-white/30 group hover:bg-white/80 transition-all duration-200"
+                      className="bg-white/20 backdrop-blur-md rounded-xl p-4 border border-white/30 group hover:bg-white/25 transition-all duration-200"
                     >
                       <div className="flex justify-between items-start">
-                        <p className="text-sm text-gray-700 flex-1 pr-4">
+                        <div className="flex-1 pr-4">
                           {ingredient.includes(':') ? (
                             <>
-                              <span className="font-semibold text-purple-700 block mb-1">
+                              <div className="font-semibold text-white mb-2 text-sm">
                                 {ingredient.split(':')[0]}:
-                              </span>
-                              <span className="text-gray-600">
+                              </div>
+                              <div className="text-white/80 text-sm leading-relaxed">
                                 {ingredient.split(':').slice(1).join(':').trim()}
-                              </span>
+                              </div>
                             </>
                           ) : (
-                            <span className="font-semibold text-purple-700">{ingredient}</span>
+                            <div className="font-semibold text-white text-sm">{ingredient}</div>
                           )}
-                        </p>
+                        </div>
                         <button
                           onClick={() => removeIngredient(ingredient)}
-                          className="p-1 text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity"
+                          className="p-2 text-white/60 hover:text-white hover:bg-white/20 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200"
                         >
                           <X className="w-4 h-4" />
                         </button>
@@ -169,31 +217,31 @@ export default function GatherPage() {
                   ))}
                 </div>
               )}
-            </div>
 
-            {/* Selected Descriptors */}
-            {descriptors.length > 0 && (
-              <div className="mt-4">
-                <h4 className="text-sm font-medium text-gray-700 mb-2">Selected Descriptors</h4>
-                <div className="flex flex-wrap gap-2">
-                  {descriptors.map((descriptor) => (
-                    <span
-                      key={descriptor}
-                      className="px-3 py-1 bg-purple-100/80 backdrop-blur-sm text-purple-800 rounded-full text-sm border border-purple-200/50"
-                    >
-                      {descriptor}
-                    </span>
-                  ))}
+              {/* Selected Descriptors */}
+              {descriptors.length > 0 && (
+                <div className="mt-6 pt-6 border-t border-white/20">
+                  <h4 className="text-sm font-medium text-white/90 mb-3">Selected Descriptors</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {descriptors.map((descriptor) => (
+                      <span
+                        key={descriptor}
+                        className="px-3 py-1 bg-white/20 backdrop-blur-md text-white rounded-full text-sm border border-white/30"
+                      >
+                        {descriptor}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
 
         {/* Navigation */}
-        <div className="flex justify-between items-center mt-8 pt-6 border-t border-white/30">
+        <div className="flex justify-between items-center mt-8">
           <Link href="/define">
-            <button className="flex items-center px-6 py-3 text-gray-700 border border-white/40 bg-white/60 backdrop-blur-sm rounded-lg hover:bg-white/80 transition-all duration-200">
+            <button className="flex items-center px-6 py-3 text-white bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl hover:bg-white/20 transition-all duration-200">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Define
             </button>
@@ -202,10 +250,10 @@ export default function GatherPage() {
           <Link href="/craft">
             <button
               disabled={!canProceed}
-              className={`flex items-center px-8 py-3 rounded-lg font-medium transition-all duration-200 backdrop-blur-sm ${
+              className={`flex items-center px-8 py-3 rounded-xl font-medium transition-all duration-200 ${
                 canProceed
-                  ? 'bg-purple-600 hover:bg-purple-700 text-white shadow-md'
-                  : 'bg-gray-200/70 text-gray-400 cursor-not-allowed'
+                  ? 'bg-white/20 backdrop-blur-lg border border-white/30 text-white hover:bg-white/30 shadow-lg'
+                  : 'bg-white/5 text-white/40 cursor-not-allowed border border-white/10'
               }`}
             >
               Continue to Craft
@@ -226,19 +274,19 @@ export default function GatherPage() {
               exit={{ opacity: 0 }}
             >
               <motion.div 
-                className="bg-white/90 backdrop-blur-md rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-xl border border-white/30"
+                className="bg-white/10 backdrop-blur-lg rounded-3xl border border-white/20 shadow-xl max-w-2xl w-full max-h-[80vh] overflow-y-auto"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
               >
                 <div className="p-6">
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-lg font-semibold text-gray-800 pr-4">
+                  <div className="flex justify-between items-start mb-6">
+                    <h3 className="text-xl font-semibold text-white pr-4">
                       {writingModal.prompt}
                     </h3>
                     <button
                       onClick={closeWritingModal}
-                      className="p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100/50"
+                      className="p-2 text-white/60 hover:text-white hover:bg-white/20 rounded-lg transition-all duration-200"
                     >
                       <X className="w-5 h-5" />
                     </button>
@@ -248,21 +296,21 @@ export default function GatherPage() {
                     value={writingModal.story}
                     onChange={(e) => setWritingModal(prev => ({ ...prev, story: e.target.value }))}
                     placeholder="Share your story here..."
-                    className="w-full h-48 p-4 border border-gray-300/50 bg-white/70 backdrop-blur-sm rounded-lg resize-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full h-48 p-4 bg-white/10 backdrop-blur-md text-white placeholder-white/60 border border-white/20 rounded-xl resize-none focus:ring-2 focus:ring-white/30 focus:border-white/40 outline-none"
                     autoFocus
                   />
                   
-                  <div className="flex justify-end gap-3 mt-4">
+                  <div className="flex justify-end gap-3 mt-6">
                     <button
                       onClick={closeWritingModal}
-                      className="px-4 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100/50 rounded-lg"
+                      className="px-6 py-2 text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-all duration-200"
                     >
                       Cancel
                     </button>
                     <button
                       onClick={saveStory}
                       disabled={!writingModal.story.trim()}
-                      className="px-6 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white rounded-lg font-medium"
+                      className="px-6 py-2 bg-white/20 backdrop-blur-lg border border-white/30 hover:bg-white/30 disabled:bg-white/5 disabled:cursor-not-allowed disabled:text-white/40 text-white rounded-xl font-medium transition-all duration-200"
                     >
                       Save Story
                     </button>
