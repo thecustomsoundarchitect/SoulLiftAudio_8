@@ -38,8 +38,23 @@
 .page-content span,
 .page-content div,
 .page-content label,
-.page-content button {
+.page-content button,
+.page-content input,
+.page-content select,
+.page-content textarea {
   color: #4D1A77;
+}
+
+/* Force text color on form elements */
+.page-content input::placeholder,
+.page-content textarea::placeholder {
+  color: #A082C6 !important;
+}
+
+.page-content input,
+.page-content select,
+.page-content textarea {
+  color: #4D1A77 !important;
 }
 
 /* Light background for pages */

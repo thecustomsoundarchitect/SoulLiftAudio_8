@@ -93,9 +93,10 @@ export default function DefinePage() {
               placeholder="Enter their name or leave blank..."
               className={`w-full px-4 py-3 bg-white/60 backdrop-blur-md border-2 rounded-xl transition-all duration-300 placeholder-purple-400 ${
                 completedFields.includes('recipient')
-                  ? 'border-green-400 bg-white/80 text-primary'
-                  : 'border-input hover:border-focus focus:border-focus focus:bg-white/80 text-primary'
+                  ? 'border-green-400 bg-white/80'
+                  : 'border-input hover:border-focus focus:border-focus focus:bg-white/80'
               }`}
+              style={{ color: '#4D1A77' }}
             />
           </div>
 
@@ -116,9 +117,10 @@ export default function DefinePage() {
               placeholder="e.g., deeply appreciated, truly valued, completely loved..."
               className={`w-full px-4 py-3 bg-white/60 backdrop-blur-md border-2 rounded-xl transition-all duration-300 placeholder-purple-400 ${
                 completedFields.includes('coreFeeling')
-                  ? 'border-green-400 bg-white/80 text-primary'
-                  : 'border-input hover:border-focus focus:border-focus focus:bg-white/80 text-primary'
+                  ? 'border-green-400 bg-white/80'
+                  : 'border-input hover:border-focus focus:border-focus focus:bg-white/80'
               }`}
+              style={{ color: '#4D1A77' }}
               required
             />
           </div>
@@ -139,9 +141,10 @@ export default function DefinePage() {
                 onChange={(e) => setFormData({...formData, occasion: e.target.value})}
                 className={`w-full px-4 py-3 bg-white/60 backdrop-blur-md border-2 rounded-xl transition-all duration-300 appearance-none cursor-pointer ${
                   completedFields.includes('occasion')
-                    ? 'border-green-400 bg-white/80 text-primary'
-                    : 'border-input hover:border-focus focus:border-focus focus:bg-white/80 text-primary'
+                    ? 'border-green-400 bg-white/80'
+                    : 'border-input hover:border-focus focus:border-focus focus:bg-white/80'
                 }`}
+                style={{ color: '#4D1A77' }}
               >
                 <option value="">Select occasion...</option>
                 {occasions.map(occasion => (
@@ -165,9 +168,10 @@ export default function DefinePage() {
                 onChange={(e) => setFormData({...formData, tone: e.target.value})}
                 className={`w-full px-4 py-3 bg-white/60 backdrop-blur-md border-2 rounded-xl transition-all duration-300 appearance-none cursor-pointer ${
                   completedFields.includes('tone')
-                    ? 'border-green-400 bg-white/80 text-primary'
-                    : 'border-input hover:border-focus focus:border-focus focus:bg-white/80 text-primary'
+                    ? 'border-green-400 bg-white/80'
+                    : 'border-input hover:border-focus focus:border-focus focus:bg-white/80'
                 }`}
+                style={{ color: '#4D1A77' }}
                 required
               >
                 <option value="">Select tone...</option>

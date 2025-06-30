@@ -213,8 +213,9 @@ With gratitude and love`
                   onDrop={handleDrop}
                   onDragOver={handleDragOver}
                   placeholder="Begin crafting your Soul Hug here... Click on ingredients from the left panel to add them, or start typing your heart's message."
-                  className="w-full h-80 p-4 border-2 border-dashed border-input rounded-xl glass-surface focus:outline-none focus:border-focus glass-hover resize-none placeholder-muted leading-relaxed text-primary"
+                  className="w-full h-80 p-4 border-2 border-dashed border-input rounded-xl glass-surface focus:outline-none focus:border-focus glass-hover resize-none leading-relaxed"
                   style={{ fontFamily: 'Calibri, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif' }}
+                  style={{ color: '#4D1A77', fontFamily: 'Calibri, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif' }}
                 />
               </div>
             </div>
@@ -231,7 +232,8 @@ With gratitude and love`
                   name="targetLength"
                   value={targetLength}
                   onChange={(e) => setTargetLength(e.target.value)}
-                  className="px-3 py-2 border border-input glass-surface rounded-lg focus:outline-none focus:ring-2 focus:ring-focus text-sm text-primary"
+                  className="px-3 py-2 border border-input glass-surface rounded-lg focus:outline-none focus:ring-2 focus:ring-focus text-sm"
+                  style={{ color: '#4D1A77' }}
                 >
                   <option value="30s - Brief">30s - Brief</option>
                   <option value="1m - Heartfelt">1m - Heartfelt</option>
