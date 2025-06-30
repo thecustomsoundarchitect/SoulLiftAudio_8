@@ -201,6 +201,7 @@ With gratitude and love`
                 SoulLift
               </span>
               <span className="block text-2xl sm:text-3xl lg:text-4xl font-normal text-gray-700 mt-2">Audio</span>
+            </h1>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
@@ -310,7 +311,6 @@ With gratitude and love`
                   onDrop={handleDrop}
                   onDragOver={handleDragOver}
                   placeholder="Begin crafting your Soul Hug here... Click on ingredients from the left panel to add them, or start typing your heart's message."
-                  className="w-full h-80 p-4 border-2 border-dashed border-input rounded-xl glass-surface focus:outline-none focus:border-focus glass-hover resize-none leading-relaxed"
                   className="w-full h-80 p-4 border-2 border-dashed border-white/30 bg-white/10 backdrop-blur-md rounded-xl focus:outline-none focus:border-white/50 focus:bg-white/20 resize-none leading-relaxed text-primary placeholder-white/60"
                   style={{ color: '#4D1A77', fontFamily: 'Calibri, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif' }}
                 />
