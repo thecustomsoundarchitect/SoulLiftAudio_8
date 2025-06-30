@@ -51,11 +51,6 @@ export default function Navigation() {
               ))}
             </div>
 
-            {/* Desktop Sign In Button */}
-            <button className="hidden md:block soul-button">
-              Sign In
-            </button>
-
             {/* Mobile menu button */}
             <button 
               onClick={toggleMobileMenu}
