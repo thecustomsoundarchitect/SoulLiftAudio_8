@@ -154,19 +154,9 @@ export default function MyHugsPage() {
           
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-800 mb-4 md:mb-6">
             <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-              SoulLift
+              MY SOUL HUGS
             </span>
-            <span className="block text-2xl sm:text-3xl lg:text-4xl font-normal text-gray-700 mt-2">Audio</span>
           </h1>
-          
-          <motion.h1 
-            className="text-4xl font-bold mb-4 tracking-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-          >
-            <span className="text-primary">MY SOUL HUGS</span>
-          </motion.h1>
           
           <motion.p 
             className="text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto"
@@ -248,7 +238,7 @@ export default function MyHugsPage() {
             >
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-semibold mb-4">
-                  <span className="text-primary">Quick Navigation</span>
+                  <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Quick Navigation</span>
                 </h3>
                 <p className="text-secondary">
                   Access your favorite features with our floating dock

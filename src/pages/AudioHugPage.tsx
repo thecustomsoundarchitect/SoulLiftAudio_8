@@ -259,15 +259,8 @@ With gratitude and love`
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-800 mb-4 md:mb-6">
               <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-                SoulLift
-              </span>
-              <span className="block text-2xl sm:text-3xl lg:text-4xl font-normal text-gray-700 mt-2">Audio</span>
-            </h1>
-          </div>
-          
-          <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 md:mb-6 space-y-4 md:space-y-0">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-primary">
               CREATE AUDIO HUG
+              </span>
             </h1>
           </div>
 

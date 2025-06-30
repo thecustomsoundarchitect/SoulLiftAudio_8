@@ -201,12 +201,7 @@ With gratitude and love`
                 SoulLift
               </span>
               <span className="block text-2xl sm:text-3xl lg:text-4xl font-normal text-gray-700 mt-2">Audio</span>
-            </h1>
           </div>
-          
-          <h1 className="text-4xl font-bold text-center mb-8 text-primary">
-            CRAFT YOUR SOUL HUG
-          </h1>
 
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Left Column - Ingredients */}

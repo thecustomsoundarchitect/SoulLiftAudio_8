@@ -193,14 +193,10 @@ export default function GatherPage() {
           
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-800 mb-4 md:mb-6">
             <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-              SoulLift
+              GATHER YOUR INGREDIENTS
             </span>
-            <span className="block text-2xl sm:text-3xl lg:text-4xl font-normal text-gray-700 mt-2">Audio</span>
           </h1>
           
-          <h1 className="text-3xl font-bold mb-2 text-primary">
-            GATHER YOUR INGREDIENTS
-          </h1>
           <p className="text-lg text-secondary">
             Click prompts to write stories, select descriptors that fit
           </p>
