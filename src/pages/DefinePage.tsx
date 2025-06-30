@@ -4,7 +4,6 @@ import { ArrowRight, ArrowLeft, Heart, CheckCircle } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useSoulHug } from '../context/SoulHugContext'
 import ProgressIndicator from '../components/ProgressIndicator'
-import { PlaceholdersAndVanishInput } from '../components/ui/placeholders-and-vanish-input'
 
 export default function DefinePage() {
   const { currentSoulHug, updateCurrentSoulHug } = useSoulHug()
@@ -29,20 +28,6 @@ export default function DefinePage() {
     'Professional & Respectful', 'Serious & Thoughtful', 'Grateful & Appreciative'
   ]
 
-  // Animated placeholders for the core feeling input
-  const feelingPlaceholders = [
-    "deeply appreciated and valued",
-    "completely loved and cherished",
-    "truly seen and understood",
-    "incredibly proud and accomplished",
-    "peacefully calm and centered",
-    "joyfully celebrated and honored",
-    "warmly supported and cared for",
-    "confidently empowered and strong",
-    "gently comforted and safe",
-    "beautifully unique and special"
-  ]
-
   const canProceed = formData.coreFeeling.trim().length > 0 && formData.tone.length > 0
 
   // Calculate completed fields
@@ -63,10 +48,6 @@ export default function DefinePage() {
       occasion: formData.occasion,
       tone: formData.tone
     })
-  }
-
-  const handleCoreFeelingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({...formData, coreFeeling: e.target.value})
   }
 
   return (
@@ -127,7 +108,7 @@ export default function DefinePage() {
             />
           </div>
 
-          {/* Core Feeling Field with Animated Input */}
+          {/* Core Feeling Field */}
           <div className="space-y-3">
             <label className="flex items-center text-lg font-semibold text-gray-800">
               <Heart className="w-5 h-5 mr-2" />
@@ -137,24 +118,18 @@ export default function DefinePage() {
                 <CheckCircle className="w-5 h-5 text-green-500 ml-2" />
               )}
             </label>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="relative"
-            >
-              <PlaceholdersAndVanishInput
-                placeholders={feelingPlaceholders}
-                onChange={handleCoreFeelingChange}
-                value={formData.coreFeeling}
-                className={`bg-white/70 backdrop-blur-sm ${
-                  completedFields.includes('coreFeeling')
-                    ? 'border-green-400 bg-green-50/70'
-                    : 'border-white/40 hover:border-white/60 focus-within:border-purple-400 focus-within:bg-white/80'
-                }`}
-              />
-            </motion.div>
+            <input
+              type="text"
+              value={formData.coreFeeling}
+              onChange={(e) => setFormData({...formData, coreFeeling: e.target.value})}
+              placeholder="e.g., deeply appreciated, truly valued, completely loved..."
+              className={`w-full px-4 py-3 bg-white/70 backdrop-blur-sm border-2 rounded-xl transition-all duration-300 text-gray-900 placeholder-gray-500 ${
+                completedFields.includes('coreFeeling')
+                  ? 'border-green-400 bg-green-50/70'
+                  : 'border-white/40 hover:border-white/60 focus:border-purple-400 focus:bg-white/80'
+              }`}
+              required
+            />
           </div>
 
           {/* Two Column Layout for Occasion and Tone */}
