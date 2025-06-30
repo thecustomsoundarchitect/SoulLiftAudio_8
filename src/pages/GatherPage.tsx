@@ -119,9 +119,6 @@ export default function GatherPage() {
           {/* Left Column - Story Prompts */}
           <div>
             <div className="bg-white/10 backdrop-blur-lg rounded-3xl border border-white/20 shadow-xl p-6">
-              {/* Left Accent Stripe */}
-              <div className="absolute top-0 left-0 h-full w-2 bg-gradient-to-b from-purple-500 to-pink-400 rounded-l-3xl" />
-              
               <h3 className="text-xl font-semibold text-white mb-6 pl-4">Story Prompts</h3>
               
               <ul className="space-y-4 pl-4">
