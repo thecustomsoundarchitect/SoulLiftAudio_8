@@ -51,116 +51,117 @@ export default function SoulArchivePage() {
 
         {/* Content */}
         <div className="bg-white/60 backdrop-blur-md rounded-lg p-8 border border-purple-200 shadow-xl">
-        <div className="glass-surface rounded-lg p-8 shadow-xl">
-          {activeTab === 'profile' && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center"
-            >
-              <div className="glass-surface rounded-lg p-6 shadow-sm mb-6">
-                <h3 className="text-xl font-semibold mb-4 text-primary">Profile Information</h3>
+          <div className="glass-surface rounded-lg p-8 shadow-xl">
+            {activeTab === 'profile' && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-center"
+              >
+                <div className="glass-surface rounded-lg p-6 shadow-sm mb-6">
+                  <h3 className="text-xl font-semibold mb-4 text-primary">Profile Information</h3>
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-secondary">Name</span>
+                      <span className="font-medium text-primary">John Doe</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-secondary">Email</span>
+                      <span className="font-medium text-primary">john@example.com</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-secondary">Member Since</span>
+                      <span className="font-medium text-primary">January 2024</span>
+                    </div>
+                  </div>
+                  <button className="mt-4 flex items-center mx-auto px-4 py-2 bg-button-primary text-inverted rounded-lg hover:bg-button-secondary transition-colors">
+                    <Edit3 className="w-4 h-4 mr-2" />
+                    Edit Profile
+                  </button>
+                </div>
+              </motion.div>
+            )}
+
+            {activeTab === 'stats' && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="grid grid-cols-1 md:grid-cols-3 gap-6"
+              >
+                <div className="glass-surface rounded-lg p-6 text-center shadow-sm">
+                  <Heart className="w-8 h-8 text-purple-600 mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-primary">12</div>
+                  <div className="text-secondary">Soul Hugs Created</div>
+                </div>
+                <div className="glass-surface rounded-lg p-6 text-center shadow-sm">
+                  <Calendar className="w-8 h-8 text-blue-600 mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-primary">45</div>
+                  <div className="text-secondary">Days Active</div>
+                </div>
+                <div className="glass-surface rounded-lg p-6 text-center shadow-sm">
+                  <Award className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-primary">3</div>
+                  <div className="text-secondary">Achievements</div>
+                </div>
+              </motion.div>
+            )}
+
+            {activeTab === 'activity' && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="glass-surface rounded-lg p-6 shadow-sm"
+              >
+                <h3 className="text-xl font-semibold mb-4 text-primary">Recent Activity</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center p-3 glass-surface rounded-lg">
+                    <Heart className="w-5 h-5 text-purple-600 mr-3" />
+                    <div>
+                      <div className="font-medium text-primary">Created Soul Hug for Mom</div>
+                      <div className="text-sm text-secondary">2 hours ago</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center p-3 glass-surface rounded-lg">
+                    <Heart className="w-5 h-5 text-purple-600 mr-3" />
+                    <div>
+                      <div className="font-medium text-primary">Shared Soul Hug with Sarah</div>
+                      <div className="text-sm text-secondary">1 day ago</div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {activeTab === 'settings' && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="glass-surface rounded-lg p-6 shadow-sm"
+              >
+                <h3 className="text-xl font-semibold mb-4 text-primary">Settings</h3>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-secondary">Name</span>
-                    <span className="font-medium text-primary">John Doe</span>
+                    <span className="text-secondary">Email Notifications</span>
+                    <button className="w-12 h-6 bg-button-primary rounded-full relative">
+                      <div className="w-5 h-5 bg-white rounded-full absolute right-0.5 top-0.5"></div>
+                    </button>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-secondary">Email</span>
-                    <span className="font-medium text-primary">john@example.com</span>
+                    <span className="text-secondary">Auto-save Drafts</span>
+                    <button className="w-12 h-6 bg-gray-300 rounded-full relative">
+                      <div className="w-5 h-5 bg-white rounded-full absolute left-0.5 top-0.5"></div>
+                    </button>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-secondary">Member Since</span>
-                    <span className="font-medium text-primary">January 2024</span>
+                    <span className="text-secondary">Public Profile</span>
+                    <button className="w-12 h-6 bg-button-primary rounded-full relative">
+                      <div className="w-5 h-5 bg-white rounded-full absolute right-0.5 top-0.5"></div>
+                    </button>
                   </div>
                 </div>
-                <button className="mt-4 flex items-center mx-auto px-4 py-2 bg-button-primary text-inverted rounded-lg hover:bg-button-secondary transition-colors">
-                  <Edit3 className="w-4 h-4 mr-2" />
-                  Edit Profile
-                </button>
-              </div>
-            </motion.div>
-          )}
-
-          {activeTab === 'stats' && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-6"
-            >
-              <div className="glass-surface rounded-lg p-6 text-center shadow-sm">
-                <Heart className="w-8 h-8 text-purple-600 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-primary">12</div>
-                <div className="text-secondary">Soul Hugs Created</div>
-              </div>
-              <div className="glass-surface rounded-lg p-6 text-center shadow-sm">
-                <Calendar className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-primary">45</div>
-                <div className="text-secondary">Days Active</div>
-              </div>
-              <div className="glass-surface rounded-lg p-6 text-center shadow-sm">
-                <Award className="w-8 h-8 text-green-600 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-primary">3</div>
-                <div className="text-secondary">Achievements</div>
-              </div>
-            </motion.div>
-          )}
-
-          {activeTab === 'activity' && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="glass-surface rounded-lg p-6 shadow-sm"
-            >
-              <h3 className="text-xl font-semibold mb-4 text-primary">Recent Activity</h3>
-              <div className="space-y-4">
-                <div className="flex items-center p-3 glass-surface rounded-lg">
-                  <Heart className="w-5 h-5 text-purple-600 mr-3" />
-                  <div>
-                    <div className="font-medium text-primary">Created Soul Hug for Mom</div>
-                    <div className="text-sm text-secondary">2 hours ago</div>
-                  </div>
-                </div>
-                <div className="flex items-center p-3 glass-surface rounded-lg">
-                  <Heart className="w-5 h-5 text-purple-600 mr-3" />
-                  <div>
-                    <div className="font-medium text-primary">Shared Soul Hug with Sarah</div>
-                    <div className="text-sm text-secondary">1 day ago</div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          )}
-
-          {activeTab === 'settings' && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="glass-surface rounded-lg p-6 shadow-sm"
-            >
-              <h3 className="text-xl font-semibold mb-4 text-primary">Settings</h3>
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-secondary">Email Notifications</span>
-                  <button className="w-12 h-6 bg-button-primary rounded-full relative">
-                    <div className="w-5 h-5 bg-white rounded-full absolute right-0.5 top-0.5"></div>
-                  </button>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-secondary">Auto-save Drafts</span>
-                  <button className="w-12 h-6 bg-gray-300 rounded-full relative">
-                    <div className="w-5 h-5 bg-white rounded-full absolute left-0.5 top-0.5"></div>
-                  </button>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-secondary">Public Profile</span>
-                  <button className="w-12 h-6 bg-button-primary rounded-full relative">
-                    <div className="w-5 h-5 bg-white rounded-full absolute right-0.5 top-0.5"></div>
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          )}
+              </motion.div>
+            )}
+          </div>
         </div>
       </div>
     </div>
