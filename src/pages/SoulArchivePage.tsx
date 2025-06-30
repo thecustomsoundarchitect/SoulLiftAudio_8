@@ -18,6 +18,106 @@ export default function SoulArchivePage() {
       <div className="max-w-4xl mx-auto px-6 py-8 relative z-10 page-content">
         {/* Header */}
         <div className="text-center mb-8">
+          <motion.div
+            className="relative mx-auto mb-6 md:mb-8 w-16 h-16 sm:w-20 sm:h-20"
+            initial={{ scale: 0, rotate: -180, opacity: 0 }}
+            animate={{ 
+              scale: [0, 1.2, 1],
+              rotate: [-180, 0, 0],
+              opacity: [0, 1, 1]
+            }}
+            transition={{ 
+              duration: 1.5,
+              ease: "easeOut",
+              times: [0, 0.7, 1]
+            }}
+            whileHover={{ 
+              scale: 1.1,
+              rotate: [0, -5, 5, -5, 0],
+              transition: { 
+                rotate: { duration: 0.5, ease: "easeInOut" },
+                scale: { duration: 0.2 }
+              }
+            }}
+          >
+            {/* Splash effect background */}
+            <motion.div
+              className="absolute inset-0 rounded-full"
+              style={{
+                background: 'radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, rgba(59, 130, 246, 0.2) 50%, transparent 70%)'
+              }}
+              animate={{
+                scale: [1, 1.3, 1],
+                opacity: [0.5, 0.8, 0.5]
+              }}
+              transition={{
+                duration: 3,
+                repeat: 999999,
+                ease: "easeInOut"
+              }}
+            />
+            
+            {/* Secondary splash ring */}
+            <motion.div
+              className="absolute inset-0 rounded-full border-2 border-purple-400/30"
+              animate={{
+                scale: [1, 1.5, 1],
+                opacity: [0, 0.6, 0]
+              }}
+              transition={{
+                duration: 2,
+                repeat: 999999,
+                ease: "easeInOut",
+                delay: 0.5
+              }}
+            />
+            
+            {/* Main logo - using Heart icon as fallback */}
+            <motion.div
+              className="w-full h-full flex items-center justify-center relative z-10"
+              animate={{
+                y: [0, -2, 0],
+              }}
+              transition={{
+                duration: 4,
+                repeat: 999999,
+                ease: "easeInOut"
+              }}
+            >
+              <Heart className="w-12 h-12 text-purple-600" />
+            </motion.div>
+            
+            {/* Sparkle effects */}
+            {[...Array(6)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-1 h-1 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full"
+                style={{
+                  top: `${20 + Math.sin(i * 60 * Math.PI / 180) * 30}%`,
+                  left: `${50 + Math.cos(i * 60 * Math.PI / 180) * 40}%`,
+                }}
+                animate={{
+                  scale: [0, 1, 0],
+                  opacity: [0, 1, 0],
+                  rotate: [0, 180, 360]
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: 999999,
+                  delay: i * 0.3,
+                  ease: "easeInOut"
+                }}
+              />
+            ))}
+          </motion.div>
+          
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-800 mb-4 md:mb-6">
+            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              SoulLift
+            </span>
+            <span className="block text-2xl sm:text-3xl lg:text-4xl font-normal text-gray-700 mt-2">Audio</span>
+          </h1>
+          
           <h1 className="text-3xl font-bold mb-2 text-primary">
             SOUL ARCHIVE
           </h1>
