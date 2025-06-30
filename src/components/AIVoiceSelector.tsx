@@ -66,7 +66,6 @@ export const AIVoiceSelector: React.FC<AIVoiceSelectorProps> = ({
   return (
     <div className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 ${className}`}>
       <h3 className="text-xl font-semibold mb-4 flex items-center text-blue-700">
-      <h3 className="text-xl font-semibold mb-4 flex items-center text-primary">
         <Volume2 className="w-6 h-6 mr-2 text-primary" />
         AI Voice Option
       </h3>
