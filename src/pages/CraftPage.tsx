@@ -170,23 +170,23 @@ With gratitude and love`
                       descriptors.length > 0 ? 'cursor-grab active:cursor-grabbing hover:bg-white/25' : ''
                     } transition-shadow`}
                   >
-                      <p className="text-sm text-white leading-relaxed">
-                      {descriptors.map((descriptor) => (
+                    <div className="flex flex-wrap gap-2">
+                      {descriptors.map((descriptor, index) => (
                         <span
-                            <span className="font-medium text-white block mb-1">
+                          key={index}
                           className="px-3 py-1 bg-white/30 text-white rounded-full text-sm font-medium border border-white/40"
                         >
-                            <span className="text-white/80">
+                          {descriptor}
                         </span>
                       ))}
                     </div>
-                    {descriptors.length > 0 && (
-                          <span className="font-medium text-white">{ingredient}</span>
-                        💡 Drag this box to your message or click "Move All"
-                      </p>
-                    )}
                   </div>
-                      <p className="text-xs text-white/60 mt-2">
+                  {descriptors.length > 0 && (
+                    <p className="text-xs text-white/60 mt-2">
+                      💡 Drag this box to your message or click "Move All"
+                    </p>
+                  )}
+                </div>
               )}
             </div>
 
