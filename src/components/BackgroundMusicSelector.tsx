@@ -127,7 +127,6 @@ export const BackgroundMusicSelector: React.FC<BackgroundMusicSelectorProps> = (
   return (
     <div className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 ${className}`}>
       <h3 className="text-xl font-semibold mb-4 flex items-center text-purple-700">
-      <h3 className="text-xl font-semibold mb-4 flex items-center text-primary">
         <Music className="w-6 h-6 mr-2 text-primary" />
         Background Music
       </h3>
@@ -149,9 +148,7 @@ export const BackgroundMusicSelector: React.FC<BackgroundMusicSelectorProps> = (
                 <div className={`text-xs mt-1 ${
                   selectedTrack === track.id ? 'text-purple-200' : 'text-gray-500'
                 }`}>
-                <div className={`text-xs mt-1 ${
-                  selectedTrack === track.id ? 'text-purple-200' : 'text-secondary'
-                }`}>
+                  {track.genre} • {track.duration}
                 </div>
                 <div className={`text-xs mt-1 ${
                   selectedTrack === track.id ? 'text-purple-100' : 'text-muted'
