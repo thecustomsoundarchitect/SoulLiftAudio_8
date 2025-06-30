@@ -81,7 +81,6 @@ export const CoverImageSelector: React.FC<CoverImageSelectorProps> = ({
   return (
     <div className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 ${className}`}>
       <h3 className="text-xl font-semibold mb-4 flex items-center text-green-700">
-      <h3 className="text-xl font-semibold mb-4 flex items-center text-primary">
         <Image className="w-6 h-6 mr-2 text-primary" />
         Cover Image
       </h3>
