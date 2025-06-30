@@ -271,7 +271,6 @@ With gratitude and love`
 
             {/* Pro tip */}
             <p className="text-xs mt-4" style={{ color: '#8A37EA', opacity: 0.7 }}>
-            <p className="text-xs mt-4 text-secondary">
               Pro tip: Click on ingredients from the left panel to add them to your message. Use AI Weave to create from ingredients, or AI Polish to refine existing text.
             </p>
           </div>
