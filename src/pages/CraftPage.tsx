@@ -98,7 +98,7 @@ With gratitude and love`
   const wordCount = message ? message.split(' ').filter(word => word.length > 0).length : 0
 
   return (
-    <div className="min-h-screen light-background pt-8 pb-16">
+    <div className="min-h-screen bg-gradient-to-br from-[#f5faff] via-[#e9f3ff] to-[#fdfdff] pt-8 pb-16">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 page-content">
         <div className="glass-surface rounded-3xl p-6 md:p-8 shadow-xl">

@@ -159,7 +159,7 @@ With gratitude and love`
   }
 
   return (
-    <div className="min-h-screen light-background pt-4 md:pt-8 pb-20 md:pb-16">
+    <div className="min-h-screen bg-gradient-to-br from-[#f5faff] via-[#e9f3ff] to-[#fdfdff] pt-4 md:pt-8 pb-20 md:pb-16">
 
       <div className="max-w-sm sm:max-w-2xl lg:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 page-content">
         <div className="glass-surface rounded-3xl p-4 md:p-8 shadow-xl">

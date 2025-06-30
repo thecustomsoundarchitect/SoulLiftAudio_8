@@ -94,7 +94,7 @@ export default function GatherPage() {
   const canProceed = ingredients.length > 0 || descriptors.length > 0
 
   return (
-    <div className="min-h-screen light-background pb-20">
+    <div className="min-h-screen bg-gradient-to-br from-[#f5faff] via-[#e9f3ff] to-[#fdfdff] pb-20">
       <div className="max-w-6xl mx-auto px-6 py-8 page-content">
         {/* Header */}
         <div className="text-center mb-8">

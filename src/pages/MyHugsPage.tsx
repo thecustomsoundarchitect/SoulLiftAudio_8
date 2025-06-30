@@ -36,7 +36,7 @@ export default function MyHugsPage() {
   }
 
   return (
-    <div className="min-h-screen light-background">
+    <div className="min-h-screen bg-gradient-to-br from-[#f5faff] via-[#e9f3ff] to-[#fdfdff]">
 
       {/* Floating back button */}
       <motion.div 
@@ -45,7 +45,7 @@ export default function MyHugsPage() {
         whileTap={{ scale: 0.95 }}
       >
         <Link href="/">
-          <button className="flex items-center justify-center w-12 h-12 bg-white/10 backdrop-blur-md rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 group hover:bg-white/20">
+          <button className="flex items-center justify-center w-12 h-12 bg-white/10 backdrop-blur-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 group hover:bg-white/20">
             <Heart className="w-5 h-5 text-primary group-hover:text-secondary transition-colors" />
           </button>
         </Link>
