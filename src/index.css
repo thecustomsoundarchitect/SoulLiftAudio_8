@@ -10,6 +10,7 @@
 /* Custom CSS for SoulLift Audio */
 .soul-card {
   @apply bg-white/95 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-8 border border-white/20;
+  color: #8A37EA;
 }
 
 .soul-button {
@@ -20,6 +21,30 @@
 .soul-button-outline {
   @apply border-2 border-white/30 text-white px-4 md:px-6 py-2 md:py-3 rounded-xl font-medium transition-all duration-200 hover:bg-white/10 hover:border-white/50 focus:outline-none focus:ring-2 focus:ring-white/50 min-h-12;
   font-family: 'Calibri', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Global text color override */
+.page-content {
+  color: #8A37EA;
+}
+
+.page-content h1,
+.page-content h2,
+.page-content h3,
+.page-content h4,
+.page-content h5,
+.page-content h6,
+.page-content p,
+.page-content span,
+.page-content div,
+.page-content label,
+.page-content button {
+  color: #8A37EA;
+}
+
+/* Light background for pages */
+.light-background {
+  background: linear-gradient(135deg, #fdfbff 0%, #f8f4ff 25%, #f3edff 50%, #eee7ff 75%, #e9e1ff 100%);
 }
 
 /* Slider styling for audio controls */

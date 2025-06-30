@@ -159,20 +159,20 @@ With gratitude and love`
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-300 via-pink-200 to-blue-200 pt-4 md:pt-8 pb-20 md:pb-16">
+    <div className="min-h-screen light-background pt-4 md:pt-8 pb-20 md:pb-16">
 
-      <div className="max-w-sm sm:max-w-2xl lg:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-4 md:p-8 border border-white/20 shadow-xl">
+      <div className="max-w-sm sm:max-w-2xl lg:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 page-content">
+        <div className="bg-white/70 backdrop-blur-lg rounded-3xl p-4 md:p-8 border border-purple-200 shadow-xl">
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 md:mb-6 space-y-4 md:space-y-0">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-white">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center" style={{ color: '#8A37EA' }}>
               CREATE AUDIO HUG
             </h1>
           </div>
 
           {/* Message Preview */}
-          <div className="bg-white/10 backdrop-blur-lg rounded-xl md:rounded-2xl p-4 md:p-6 mb-6 md:mb-8 border border-white/20">
-            <h3 className="text-base md:text-lg font-semibold mb-3 text-white">Your Message Preview</h3>
-            <div className="bg-white/20 backdrop-blur-md rounded-lg md:rounded-xl p-3 md:p-4 text-white leading-relaxed whitespace-pre-line text-xs md:text-sm max-h-32 md:max-h-48 overflow-y-auto border border-white/30">
+          <div className="bg-white/60 backdrop-blur-lg rounded-xl md:rounded-2xl p-4 md:p-6 mb-6 md:mb-8 border border-purple-200">
+            <h3 className="text-base md:text-lg font-semibold mb-3" style={{ color: '#8A37EA' }}>Your Message Preview</h3>
+            <div className="bg-white/60 backdrop-blur-md rounded-lg md:rounded-xl p-3 md:p-4 leading-relaxed whitespace-pre-line text-xs md:text-sm max-h-32 md:max-h-48 overflow-y-auto border border-purple-200" style={{ color: '#8A37EA' }}>
               {soulHugMessage}
             </div>
           </div>
@@ -200,15 +200,15 @@ With gratitude and love`
             {/* Right Column - Mixer, Cover Image, and Delivery */}
             <div className="space-y-4 md:space-y-6">
               {/* Audio Mixer - Always Visible */}
-              <div className="bg-white/10 backdrop-blur-lg rounded-xl md:rounded-2xl p-4 md:p-6 border border-white/20">
-                <h3 className="text-lg md:text-xl font-semibold mb-4 flex items-center text-white">
+              <div className="bg-white/60 backdrop-blur-lg rounded-xl md:rounded-2xl p-4 md:p-6 border border-purple-200">
+                <h3 className="text-lg md:text-xl font-semibold mb-4 flex items-center" style={{ color: '#8A37EA' }}>
                   <Volume2 className="w-5 h-5 md:w-6 md:h-6 mr-2" />
                   Audio Mixer
                 </h3>
                 
                 <div className="space-y-4 mb-4">
                   <div>
-                    <label className="block text-sm font-medium text-white mb-2">
+                    <label className="block text-sm font-medium mb-2" style={{ color: '#8A37EA' }}>
                       Voice Volume: {voiceVolume}%
                     </label>
                     <input
@@ -217,13 +217,13 @@ With gratitude and love`
                       max="100"
                       value={voiceVolume}
                       onChange={(e) => handleVolumeChange('voice', Number(e.target.value))}
-                      className="w-full h-2 bg-white/20 backdrop-blur-sm rounded-lg appearance-none cursor-pointer slider"
+                      className="w-full h-2 bg-purple-200 backdrop-blur-sm rounded-lg appearance-none cursor-pointer slider"
                       disabled={!hasAudio}
                     />
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-white mb-2">
+                    <label className="block text-sm font-medium mb-2" style={{ color: '#8A37EA' }}>
                       Music Volume: {musicVolume}%
                     </label>
                     <input
@@ -232,7 +232,7 @@ With gratitude and love`
                       max="100"
                       value={musicVolume}
                       onChange={(e) => handleVolumeChange('music', Number(e.target.value))}
-                      className="w-full h-2 bg-white/20 backdrop-blur-sm rounded-lg appearance-none cursor-pointer slider"
+                      className="w-full h-2 bg-purple-200 backdrop-blur-sm rounded-lg appearance-none cursor-pointer slider"
                       disabled={!selectedMusic}
                     />
                   </div>
@@ -241,14 +241,15 @@ With gratitude and love`
                 <button
                   onClick={mixAudio}
                   disabled={isMixing || !canMix}
-                  className="w-full bg-white/20 backdrop-blur-lg border border-white/30 text-white px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:bg-white/30 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/40 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-white/60 backdrop-blur-lg border border-purple-300 px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:bg-white/80 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 disabled:opacity-50 disabled:cursor-not-allowed"
+                  style={{ color: '#8A37EA' }}
                 >
                   <Music className="w-4 h-4 mr-2" />
                   {isMixing ? 'Mixing Audio...' : 'Mix Audio'}
                 </button>
 
                 {!canMix && (
-                  <p className="text-xs md:text-sm text-white/70 mt-2 text-center">
+                  <p className="text-xs md:text-sm mt-2 text-center" style={{ color: '#8A37EA', opacity: 0.7 }}>
                     Add both voice and music to enable mixing
                   </p>
                 )}
@@ -256,7 +257,7 @@ With gratitude and love`
                 {mixedAudioUrl && (
                   <div className="mt-4 p-3 bg-green-500/20 backdrop-blur-sm border border-green-400/30 rounded-lg">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-green-200 text-xs md:text-sm font-medium">Audio mixed successfully!</span>
+                      <span className="text-green-600 text-xs md:text-sm font-medium">Audio mixed successfully!</span>
                     </div>
                     <audio controls src={mixedAudioUrl} className="w-full h-6 md:h-8" />
                   </div>
@@ -278,12 +279,13 @@ With gratitude and love`
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row justify-between items-center mt-6 md:mt-8 pt-4 md:pt-6 border-t border-white/20 space-y-4 sm:space-y-0">
+          <div className="flex flex-col sm:flex-row justify-between items-center mt-6 md:mt-8 pt-4 md:pt-6 border-t border-purple-200 space-y-4 sm:space-y-0">
             <div className="flex justify-center space-x-2 md:space-x-3 w-full">
               <button
                 onClick={handleDownload}
                 disabled={!hasAudio}
-                className="bg-white/20 backdrop-blur-lg border border-white/30 text-white px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:bg-white/30 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/40 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-white/60 backdrop-blur-lg border border-purple-300 px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:bg-white/80 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 disabled:opacity-50 disabled:cursor-not-allowed"
+                style={{ color: '#8A37EA' }}
               >
                 <Download className="w-4 h-4 mr-2" />
                 <span className="hidden sm:inline">Download</span>
@@ -293,7 +295,8 @@ With gratitude and love`
               <button
                 onClick={handleShare}
                 disabled={!hasAudio}
-                className="bg-white/20 backdrop-blur-lg border border-white/30 text-white px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:bg-white/30 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/40 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-white/60 backdrop-blur-lg border border-purple-300 px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:bg-white/80 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 disabled:opacity-50 disabled:cursor-not-allowed"
+                style={{ color: '#8A37EA' }}
               >
                 <Share2 className="w-4 h-4 mr-2" />
                 Share

@@ -51,25 +51,25 @@ export default function DefinePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-300 via-pink-200 to-blue-200 pb-20">
+    <div className="min-h-screen light-background pb-20">
 
       {/* Floating back button */}
       <div className="fixed top-6 left-6 z-10">
         <Link href="/">
-          <button className="flex items-center justify-center w-12 h-12 bg-white/20 backdrop-blur-md rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-white/30 group hover:bg-white/30">
-            <ArrowLeft className="w-5 h-5 text-gray-700 group-hover:text-purple-600 transition-colors" />
+          <button className="flex items-center justify-center w-12 h-12 bg-white/60 backdrop-blur-md rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-white/50 group hover:bg-white/80">
+            <ArrowLeft className="w-5 h-5 text-purple-600 group-hover:text-purple-700 transition-colors" />
           </button>
         </Link>
       </div>
 
-      <div className="max-w-2xl mx-auto px-6 py-12">
+      <div className="max-w-2xl mx-auto px-6 py-12 page-content">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-white mb-3">
+          <h1 className="text-3xl font-bold mb-3" style={{ color: '#8A37EA' }}>
             DEFINE YOUR HUG
           </h1>
           
-          <p className="text-lg text-white/80">
+          <p className="text-lg" style={{ color: '#8A37EA', opacity: 0.8 }}>
             Tell us about the message you want to create
           </p>
         </div>
@@ -78,10 +78,10 @@ export default function DefinePage() {
         <div className="space-y-6">
           {/* Recipient Field */}
           <div className="space-y-3">
-            <label className="flex items-center text-lg font-semibold text-white">
+            <label className="flex items-center text-lg font-semibold" style={{ color: '#8A37EA' }}>
               <Heart className="w-5 h-5 mr-2" />
               <span>Who is this for?</span>
-              <span className="text-white/60 font-normal text-base ml-2">(Optional)</span>
+              <span className="font-normal text-base ml-2" style={{ color: '#8A37EA', opacity: 0.6 }}>(Optional)</span>
               {completedFields.includes('recipient') && (
                 <CheckCircle className="w-5 h-5 text-green-400 ml-2" />
               )}
@@ -91,17 +91,18 @@ export default function DefinePage() {
               value={formData.recipient}
               onChange={(e) => setFormData({...formData, recipient: e.target.value})}
               placeholder="Enter their name or leave blank..."
-              className={`w-full px-4 py-3 bg-white/10 backdrop-blur-md border-2 rounded-xl transition-all duration-300 text-white placeholder-white/60 ${
+              className={`w-full px-4 py-3 bg-white/60 backdrop-blur-md border-2 rounded-xl transition-all duration-300 placeholder-purple-400 ${
                 completedFields.includes('recipient')
-                  ? 'border-green-400 bg-white/20'
-                  : 'border-white/30 hover:border-white/50 focus:border-white/60 focus:bg-white/20'
+                  ? 'border-green-400 bg-white/80'
+                  : 'border-purple-300 hover:border-purple-400 focus:border-purple-500 focus:bg-white/80'
               }`}
+              style={{ color: '#8A37EA' }}
             />
           </div>
 
           {/* Core Feeling Field */}
           <div className="space-y-3">
-            <label className="flex items-center text-lg font-semibold text-white">
+            <label className="flex items-center text-lg font-semibold" style={{ color: '#8A37EA' }}>
               <Heart className="w-5 h-5 mr-2" />
               <span>How do you want them to feel?</span>
               <span className="text-red-400 ml-1">*</span>
@@ -114,11 +115,12 @@ export default function DefinePage() {
               value={formData.coreFeeling}
               onChange={(e) => setFormData({...formData, coreFeeling: e.target.value})}
               placeholder="e.g., deeply appreciated, truly valued, completely loved..."
-              className={`w-full px-4 py-3 bg-white/10 backdrop-blur-md border-2 rounded-xl transition-all duration-300 text-white placeholder-white/60 ${
+              className={`w-full px-4 py-3 bg-white/60 backdrop-blur-md border-2 rounded-xl transition-all duration-300 placeholder-purple-400 ${
                 completedFields.includes('coreFeeling')
-                  ? 'border-green-400 bg-white/20'
-                  : 'border-white/30 hover:border-white/50 focus:border-white/60 focus:bg-white/20'
+                  ? 'border-green-400 bg-white/80'
+                  : 'border-purple-300 hover:border-purple-400 focus:border-purple-500 focus:bg-white/80'
               }`}
+              style={{ color: '#8A37EA' }}
               required
             />
           </div>
@@ -127,7 +129,7 @@ export default function DefinePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Occasion Field */}
             <div className="space-y-3">
-              <label className="flex items-center text-lg font-semibold text-white">
+              <label className="flex items-center text-lg font-semibold" style={{ color: '#8A37EA' }}>
                 <Heart className="w-5 h-5 mr-2" />
                 <span>Occasion</span>
                 {completedFields.includes('occasion') && (
@@ -137,11 +139,12 @@ export default function DefinePage() {
               <select
                 value={formData.occasion}
                 onChange={(e) => setFormData({...formData, occasion: e.target.value})}
-                className={`w-full px-4 py-3 bg-white/10 backdrop-blur-md border-2 rounded-xl transition-all duration-300 text-white appearance-none cursor-pointer ${
+                className={`w-full px-4 py-3 bg-white/60 backdrop-blur-md border-2 rounded-xl transition-all duration-300 appearance-none cursor-pointer ${
                   completedFields.includes('occasion')
-                    ? 'border-green-400 bg-white/20'
-                    : 'border-white/30 hover:border-white/50 focus:border-white/60 focus:bg-white/20'
+                    ? 'border-green-400 bg-white/80'
+                    : 'border-purple-300 hover:border-purple-400 focus:border-purple-500 focus:bg-white/80'
                 }`}
+                style={{ color: '#8A37EA' }}
               >
                 <option value="">Select occasion...</option>
                 {occasions.map(occasion => (
@@ -152,7 +155,7 @@ export default function DefinePage() {
 
             {/* Tone Field */}
             <div className="space-y-3">
-              <label className="flex items-center text-lg font-semibold text-white">
+              <label className="flex items-center text-lg font-semibold" style={{ color: '#8A37EA' }}>
                 <Heart className="w-5 h-5 mr-2" />
                 <span>Tone</span>
                 <span className="text-red-400 ml-1">*</span>
@@ -163,11 +166,12 @@ export default function DefinePage() {
               <select
                 value={formData.tone}
                 onChange={(e) => setFormData({...formData, tone: e.target.value})}
-                className={`w-full px-4 py-3 bg-white/10 backdrop-blur-md border-2 rounded-xl transition-all duration-300 text-white appearance-none cursor-pointer ${
+                className={`w-full px-4 py-3 bg-white/60 backdrop-blur-md border-2 rounded-xl transition-all duration-300 appearance-none cursor-pointer ${
                   completedFields.includes('tone')
-                    ? 'border-green-400 bg-white/20'
-                    : 'border-white/30 hover:border-white/50 focus:border-white/60 focus:bg-white/20'
+                    ? 'border-green-400 bg-white/80'
+                    : 'border-purple-300 hover:border-purple-400 focus:border-purple-500 focus:bg-white/80'
                 }`}
+                style={{ color: '#8A37EA' }}
                 required
               >
                 <option value="">Select tone...</option>
@@ -187,7 +191,7 @@ export default function DefinePage() {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="text-sm text-red-200 mb-4 bg-red-500/20 backdrop-blur-sm border border-red-400/30 rounded-xl px-4 py-3"
+                className="text-sm text-red-600 mb-4 bg-red-100/80 backdrop-blur-sm border border-red-300 rounded-xl px-4 py-3"
               >
                 Please fill in the required fields: feeling and tone
               </motion.p>
@@ -202,9 +206,10 @@ export default function DefinePage() {
               whileTap={canProceed ? { scale: 0.95 } : {}}
               className={`inline-flex items-center px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 ${
                 canProceed
-                  ? 'bg-white/20 backdrop-blur-lg border border-white/30 text-white hover:bg-white/30 shadow-lg'
-                  : 'bg-white/5 text-white/40 cursor-not-allowed border border-white/10'
+                  ? 'bg-white/60 backdrop-blur-lg border border-purple-300 hover:bg-white/80 shadow-lg'
+                  : 'bg-white/20 cursor-not-allowed border border-purple-200'
               }`}
+              style={{ color: canProceed ? '#8A37EA' : '#8A37EA80' }}
             >
               <span>Continue to Gather</span>
               <ArrowRight className="w-5 h-5 ml-2" />
