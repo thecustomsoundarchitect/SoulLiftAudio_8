@@ -4,6 +4,7 @@ import { ArrowRight, ArrowLeft, Heart, CheckCircle } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useSoulHug } from '../context/SoulHugContext'
 import ProgressIndicator from '../components/ProgressIndicator'
+import { PlaceholdersAndVanishInput } from '../components/ui/placeholders-and-vanish-input'
 
 export default function DefinePage() {
   const { currentSoulHug, updateCurrentSoulHug } = useSoulHug()
@@ -28,6 +29,20 @@ export default function DefinePage() {
     'Professional & Respectful', 'Serious & Thoughtful', 'Grateful & Appreciative'
   ]
 
+  // Animated placeholders for the core feeling input
+  const feelingPlaceholders = [
+    "deeply appreciated and valued",
+    "completely loved and cherished",
+    "truly seen and understood",
+    "incredibly proud and accomplished",
+    "peacefully calm and centered",
+    "joyfully celebrated and honored",
+    "warmly supported and cared for",
+    "confidently empowered and strong",
+    "gently comforted and safe",
+    "beautifully unique and special"
+  ]
+
   const canProceed = formData.coreFeeling.trim().length > 0 && formData.tone.length > 0
 
   // Calculate completed fields
@@ -48,6 +63,10 @@ export default function DefinePage() {
       occasion: formData.occasion,
       tone: formData.tone
     })
+  }
+
+  const handleCoreFeelingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({...formData, coreFeeling: e.target.value})
   }
 
   return (
@@ -100,7 +119,7 @@ export default function DefinePage() {
             />
           </div>
 
-          {/* Core Feeling Field */}
+          {/* Core Feeling Field with Animated Input */}
           <div className="space-y-3">
             <label className="flex items-center text-lg font-semibold text-gray-800">
               <Heart className="w-5 h-5 mr-2" />
@@ -110,18 +129,28 @@ export default function DefinePage() {
                 <CheckCircle className="w-5 h-5 text-green-500 ml-2" />
               )}
             </label>
-            <input
-              type="text"
-              value={formData.coreFeeling}
-              onChange={(e) => setFormData({...formData, coreFeeling: e.target.value})}
-              placeholder="e.g., deeply appreciated, truly valued, completely loved..."
-              className={`w-full px-4 py-3 bg-white border-2 rounded-xl transition-all duration-300 text-gray-900 placeholder-gray-400 ${
-                completedFields.includes('coreFeeling')
-                  ? 'border-green-400 bg-green-50/50'
-                  : 'border-gray-200 hover:border-gray-300 focus:border-purple-400'
-              }`}
-              required
-            />
+            
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="relative"
+            >
+              <PlaceholdersAndVanishInput
+                placeholders={feelingPlaceholders}
+                onChange={handleCoreFeelingChange}
+                value={formData.coreFeeling}
+                className={`${
+                  completedFields.includes('coreFeeling')
+                    ? 'border-green-400 bg-green-50/50'
+                    : 'border-gray-200 hover:border-gray-300 focus-within:border-purple-400'
+                }`}
+              />
+            </motion.div>
+            
+            <p className="text-xs text-gray-500 mt-2">
+              💡 Watch the examples cycle through for inspiration
+            </p>
           </div>
 
           {/* Two Column Layout for Occasion and Tone */}
@@ -184,25 +213,32 @@ export default function DefinePage() {
         <div className="mt-8 text-center">
           <AnimatePresence>
             {!canProceed && (
-              <p className="text-sm text-red-500 mb-4 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+              <motion.p 
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="text-sm text-red-500 mb-4 bg-red-50 border border-red-200 rounded-xl px-4 py-3"
+              >
                 Please fill in the required fields: feeling and tone
-              </p>
+              </motion.p>
             )}
           </AnimatePresence>
           
           <Link href="/gather">
-            <button 
+            <motion.button 
               onClick={handleContinue}
               disabled={!canProceed}
+              whileHover={canProceed ? { scale: 1.05 } : {}}
+              whileTap={canProceed ? { scale: 0.95 } : {}}
               className={`inline-flex items-center px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 ${
                 canProceed
-                  ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg hover:shadow-xl hover:scale-105'
+                  ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg hover:shadow-xl'
                   : 'bg-gray-200 text-gray-400 cursor-not-allowed'
               }`}
             >
               <span>Continue to Gather</span>
               <ArrowRight className="w-5 h-5 ml-2" />
-            </button>
+            </motion.button>
           </Link>
         </div>
 
