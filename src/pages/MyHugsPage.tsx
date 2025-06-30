@@ -235,18 +235,13 @@ export default function MyHugsPage() {
         >
           <Link href="/define">
             <motion.button 
-              className="bg-white/20 backdrop-blur-lg border border-white/30 text-white px-8 py-4 rounded-xl font-medium transition-all duration-200 hover:bg-white/30 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/40 text-lg relative overflow-hidden"
+              className="bg-white/60 backdrop-blur-lg border border-purple-300 px-8 py-4 rounded-xl font-medium transition-all duration-200 hover:bg-white/80 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 text-lg relative overflow-hidden"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              style={{ color: '#8A37EA' }}
             >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"
-                animate={{ x: ["-100%", "100%"] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                className="bg-white/60 backdrop-blur-lg border border-purple-300 px-8 py-4 rounded-xl font-medium transition-all duration-200 hover:bg-white/80 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 text-lg relative overflow-hidden"
               <span className="relative z-10 flex items-center">
                 <Plus className="w-5 h-5 mr-2" />
-                style={{ color: '#8A37EA' }}
                 Create New Soul Hug
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-purple-200/50 to-transparent"
