@@ -214,7 +214,7 @@ With gratitude and love`
                   onDragOver={handleDragOver}
                   placeholder="Begin crafting your Soul Hug here... Click on ingredients from the left panel to add them, or start typing your heart's message."
                   className="w-full h-80 p-4 border-2 border-dashed border-input rounded-xl glass-surface focus:outline-none focus:border-focus glass-hover resize-none leading-relaxed"
-                  style={{ fontFamily: 'Calibri, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif' }}
+                  className="w-full h-80 p-4 border-2 border-dashed border-white/30 bg-white/10 backdrop-blur-md rounded-xl focus:outline-none focus:border-white/50 focus:bg-white/20 resize-none leading-relaxed text-primary placeholder-white/60"
                   style={{ color: '#4D1A77', fontFamily: 'Calibri, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif' }}
                 />
               </div>
@@ -222,7 +222,7 @@ With gratitude and love`
           </div>
 
           {/* Bottom Controls */}
-          <div className="mt-8 pt-6 border-t border-purple-200">
+          <div className="mt-8 pt-6 border-t border-white/20">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
               {/* Target Length */}
               <div className="flex items-center space-x-4">
@@ -232,7 +232,7 @@ With gratitude and love`
                   name="targetLength"
                   value={targetLength}
                   onChange={(e) => setTargetLength(e.target.value)}
-                  className="px-3 py-2 border border-input glass-surface rounded-lg focus:outline-none focus:ring-2 focus:ring-focus text-sm"
+                  className="px-3 py-2 border border-white/30 bg-white/10 backdrop-blur-md rounded-lg focus:outline-none focus:ring-2 focus:ring-white/40 text-sm"
                   style={{ color: '#4D1A77' }}
                 >
                   <option value="30s - Brief">30s - Brief</option>
@@ -278,7 +278,7 @@ With gratitude and love`
           </div>
 
           {/* Navigation */}
-          <div className="flex justify-between items-center mt-8 pt-6 border-t border-purple-200">
+          <div className="flex justify-between items-center mt-8 pt-6 border-t border-white/20">
             <Link href="/gather">
               <button className="flex items-center px-6 py-3 glass-surface glass-hover rounded-xl transition-all duration-200 text-primary">
                 <ArrowLeft className="w-4 h-4 mr-2" />

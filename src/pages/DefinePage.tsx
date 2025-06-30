@@ -56,8 +56,8 @@ export default function DefinePage() {
       {/* Floating back button */}
       <div className="fixed top-6 left-6 z-10">
         <Link href="/">
-          <button className="flex items-center justify-center w-12 h-12 bg-white/60 backdrop-blur-md rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-white/50 group hover:bg-white/80">
-            <ArrowLeft className="w-5 h-5 text-purple-600 group-hover:text-purple-700 transition-colors" />
+          <button className="flex items-center justify-center w-12 h-12 bg-white/10 backdrop-blur-md rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 group hover:bg-white/20">
+            <ArrowLeft className="w-5 h-5 text-primary group-hover:text-secondary transition-colors" />
           </button>
         </Link>
       </div>
@@ -91,10 +91,10 @@ export default function DefinePage() {
               value={formData.recipient}
               onChange={(e) => setFormData({...formData, recipient: e.target.value})}
               placeholder="Enter their name or leave blank..."
-              className={`w-full px-4 py-3 bg-white/60 backdrop-blur-md border-2 rounded-xl transition-all duration-300 placeholder-purple-400 ${
+              className={`w-full px-4 py-3 bg-white/10 backdrop-blur-lg border-2 rounded-xl transition-all duration-300 placeholder-purple-400 ${
                 completedFields.includes('recipient')
-                  ? 'border-green-400 bg-white/80'
-                  : 'border-input hover:border-focus focus:border-focus focus:bg-white/80'
+                  ? 'border-green-400 bg-white/20'
+                  : 'border-white/20 hover:border-white/30 focus:border-white/40 focus:bg-white/20'
               }`}
               style={{ color: '#4D1A77' }}
             />
@@ -115,10 +115,10 @@ export default function DefinePage() {
               value={formData.coreFeeling}
               onChange={(e) => setFormData({...formData, coreFeeling: e.target.value})}
               placeholder="e.g., deeply appreciated, truly valued, completely loved..."
-              className={`w-full px-4 py-3 bg-white/60 backdrop-blur-md border-2 rounded-xl transition-all duration-300 placeholder-purple-400 ${
+              className={`w-full px-4 py-3 bg-white/10 backdrop-blur-lg border-2 rounded-xl transition-all duration-300 placeholder-purple-400 ${
                 completedFields.includes('coreFeeling')
-                  ? 'border-green-400 bg-white/80'
-                  : 'border-input hover:border-focus focus:border-focus focus:bg-white/80'
+                  ? 'border-green-400 bg-white/20'
+                  : 'border-white/20 hover:border-white/30 focus:border-white/40 focus:bg-white/20'
               }`}
               style={{ color: '#4D1A77' }}
               required
@@ -139,10 +139,10 @@ export default function DefinePage() {
               <select
                 value={formData.occasion}
                 onChange={(e) => setFormData({...formData, occasion: e.target.value})}
-                className={`w-full px-4 py-3 bg-white/60 backdrop-blur-md border-2 rounded-xl transition-all duration-300 appearance-none cursor-pointer ${
+                className={`w-full px-4 py-3 bg-white/10 backdrop-blur-lg border-2 rounded-xl transition-all duration-300 appearance-none cursor-pointer ${
                   completedFields.includes('occasion')
-                    ? 'border-green-400 bg-white/80'
-                    : 'border-input hover:border-focus focus:border-focus focus:bg-white/80'
+                    ? 'border-green-400 bg-white/20'
+                    : 'border-white/20 hover:border-white/30 focus:border-white/40 focus:bg-white/20'
                 }`}
                 style={{ color: '#4D1A77' }}
               >
@@ -166,10 +166,10 @@ export default function DefinePage() {
               <select
                 value={formData.tone}
                 onChange={(e) => setFormData({...formData, tone: e.target.value})}
-                className={`w-full px-4 py-3 bg-white/60 backdrop-blur-md border-2 rounded-xl transition-all duration-300 appearance-none cursor-pointer ${
+                className={`w-full px-4 py-3 bg-white/10 backdrop-blur-lg border-2 rounded-xl transition-all duration-300 appearance-none cursor-pointer ${
                   completedFields.includes('tone')
-                    ? 'border-green-400 bg-white/80'
-                    : 'border-input hover:border-focus focus:border-focus focus:bg-white/80'
+                    ? 'border-green-400 bg-white/20'
+                    : 'border-white/20 hover:border-white/30 focus:border-white/40 focus:bg-white/20'
                 }`}
                 style={{ color: '#4D1A77' }}
                 required
@@ -206,8 +206,8 @@ export default function DefinePage() {
               whileTap={canProceed ? { scale: 0.95 } : {}}
               className={`inline-flex items-center px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 ${
                 canProceed
-                  ? 'bg-white/60 backdrop-blur-lg border border-input hover:bg-white/80 shadow-lg text-primary'
-                  : 'bg-white/20 cursor-not-allowed border border-input text-muted'
+                  ? 'bg-white/10 backdrop-blur-lg border border-white/20 hover:bg-white/20 shadow-lg text-primary'
+                  : 'bg-white/5 cursor-not-allowed border border-white/10 text-muted'
               }`}
             >
               <span>Continue to Gather</span>

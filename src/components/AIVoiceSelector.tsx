@@ -64,13 +64,14 @@ export const AIVoiceSelector: React.FC<AIVoiceSelectorProps> = ({
   }
 
   return (
-    <div className={`bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 ${className}`}>
+    <div className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 ${className}`}>
       <h3 className="text-xl font-semibold mb-4 flex items-center text-blue-700">
-        <Volume2 className="w-6 h-6 mr-2" />
+      <h3 className="text-xl font-semibold mb-4 flex items-center text-primary">
+        <Volume2 className="w-6 h-6 mr-2 text-primary" />
         AI Voice Option
       </h3>
       
-      <p className="text-sm text-gray-600 mb-4">
+      <p className="text-sm text-secondary mb-4">
         Don't want to record? Let AI read your message with a warm, natural voice.
       </p>
       
@@ -80,25 +81,25 @@ export const AIVoiceSelector: React.FC<AIVoiceSelectorProps> = ({
             key={voice.value}
             className={`p-4 rounded-lg border-2 cursor-pointer transition-all ${
               selectedVoice === voice.value
-                ? 'border-blue-500 bg-blue-50'
-                : 'border-gray-200 hover:border-blue-300 bg-white'
+                ? 'border-purple-500 bg-white/20 backdrop-blur-md'
+                : 'border-white/30 hover:border-white/50 bg-white/10 backdrop-blur-md'
             }`}
             onClick={() => setSelectedVoice(voice.value)}
           >
             <div className="flex items-center justify-between">
               <div className="flex-1">
-                <h4 className="font-medium text-gray-800">{voice.label}</h4>
-                <p className="text-sm text-gray-600 mt-1">{voice.description}</p>
+                <h4 className="font-medium text-primary">{voice.label}</h4>
+                <p className="text-sm text-secondary mt-1">{voice.description}</p>
               </div>
               <button
                 onClick={(e) => {
                   e.stopPropagation()
                   playPreview(voice.preview)
                 }}
-                className="ml-3 p-2 bg-blue-100 hover:bg-blue-200 rounded-lg transition-colors"
+                className="ml-3 p-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-lg transition-colors"
                 title="Preview voice"
               >
-                <Play className="w-4 h-4 text-blue-600" />
+                <Play className="w-4 h-4 text-primary" />
               </button>
             </div>
           </div>
@@ -106,9 +107,9 @@ export const AIVoiceSelector: React.FC<AIVoiceSelectorProps> = ({
       </div>
       
       {generatedAudio && (
-        <div className="mb-4 p-3 bg-green-100 border border-green-300 rounded-lg">
+        <div className="mb-4 p-3 bg-green-500/20 backdrop-blur-sm border border-green-400/30 rounded-lg">
           <div className="flex items-center justify-between">
-            <span className="text-green-700 text-sm font-medium">Voice generated successfully!</span>
+            <span className="text-green-600 text-sm font-medium">Voice generated successfully!</span>
             <audio controls className="h-8">
               <source src={generatedAudio} type="audio/mpeg" />
             </audio>
@@ -119,14 +120,14 @@ export const AIVoiceSelector: React.FC<AIVoiceSelectorProps> = ({
       <button
         onClick={generateVoice}
         disabled={isGenerating || !message.trim()}
-        className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-3 rounded-lg font-medium transition-colors flex items-center justify-center"
+        className="w-full bg-purple-600 hover:bg-purple-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-3 rounded-lg font-medium transition-colors flex items-center justify-center"
       >
         <Wand2 className="w-4 h-4 mr-2" />
         {isGenerating ? 'Generating Voice...' : 'Generate AI Voice'}
       </button>
       
       {!message.trim() && (
-        <p className="text-xs text-gray-500 mt-2 text-center">
+        <p className="text-xs text-muted mt-2 text-center">
           Complete your message in the Craft step to generate AI voice
         </p>
       )}

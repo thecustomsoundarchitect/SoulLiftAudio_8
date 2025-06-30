@@ -45,8 +45,8 @@ export default function MyHugsPage() {
         whileTap={{ scale: 0.95 }}
       >
         <Link href="/">
-          <button className="flex items-center justify-center w-12 h-12 bg-white/60 backdrop-blur-md rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-200 group hover:bg-white/80">
-            <Heart className="w-5 h-5 text-gray-700 group-hover:text-purple-600 transition-colors" />
+          <button className="flex items-center justify-center w-12 h-12 bg-white/10 backdrop-blur-md rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 group hover:bg-white/20">
+            <Heart className="w-5 h-5 text-primary group-hover:text-secondary transition-colors" />
           </button>
         </Link>
       </motion.div>

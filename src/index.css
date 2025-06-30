@@ -59,7 +59,7 @@
 
 /* Light background for pages */
 .light-background {
-  background: linear-gradient(to br, #FCE3F1, #D0C4F1);
+  background: linear-gradient(to br, #c4e8f4, #d9e6f5, #f3f3fb);
 }
 
 /* SoulLift Glass Theme Color Tokens */
@@ -75,18 +75,19 @@
   --border-glass: rgba(255, 255, 255, 0.2);
   --border-input: #A082C6;
   --border-focus: #4D1A77;
+  --bg-main-gradient: linear-gradient(to br, #c4e8f4, #d9e6f5, #f3f3fb);
 }
 
 /* Glass components */
 .glass-surface {
-  background: var(--bg-glass-surface);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-glass);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .glass-hover:hover {
-  background: var(--bg-glass-hover);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .text-primary {

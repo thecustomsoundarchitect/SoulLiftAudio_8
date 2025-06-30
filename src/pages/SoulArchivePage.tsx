@@ -11,9 +11,9 @@ export default function SoulArchivePage() {
       <div className="absolute inset-0 bg-white/20 backdrop-blur-sm"></div>
       
       {/* Floating glass orbs for visual interest */}
-      <div className="absolute top-24 right-16 w-32 h-32 bg-purple-200/30 rounded-full blur-xl animate-pulse delay-200"></div>
-      <div className="absolute bottom-32 left-12 w-40 h-40 bg-purple-100/20 rounded-full blur-2xl animate-pulse delay-800"></div>
-      <div className="absolute top-1/2 right-1/4 w-24 h-24 bg-purple-200/20 rounded-full blur-lg animate-pulse delay-1100"></div>
+      <div className="absolute top-24 right-16 w-32 h-32 bg-white/20 rounded-full blur-xl animate-pulse delay-200"></div>
+      <div className="absolute bottom-32 left-12 w-40 h-40 bg-white/15 rounded-full blur-2xl animate-pulse delay-800"></div>
+      <div className="absolute top-1/2 right-1/4 w-24 h-24 bg-white/10 rounded-full blur-lg animate-pulse delay-1100"></div>
 
       <div className="max-w-4xl mx-auto px-6 py-8 relative z-10 page-content">
         {/* Header */}
@@ -50,8 +50,7 @@ export default function SoulArchivePage() {
         </div>
 
         {/* Content */}
-        <div className="bg-white/60 backdrop-blur-md rounded-lg p-8 border border-purple-200 shadow-xl">
-          <div className="glass-surface rounded-lg p-8 shadow-xl">
+        <div className="glass-surface rounded-lg p-8 shadow-xl">
             {activeTab === 'profile' && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -162,7 +161,6 @@ export default function SoulArchivePage() {
               </motion.div>
             )}
           </div>
-        </div>
       </div>
     </div>
   )

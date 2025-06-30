@@ -170,9 +170,9 @@ With gratitude and love`
           </div>
 
           {/* Message Preview */}
-          <div className="bg-white/60 backdrop-blur-lg rounded-xl md:rounded-2xl p-4 md:p-6 mb-6 md:mb-8 border border-purple-200">
+          <div className="glass-surface rounded-xl md:rounded-2xl p-4 md:p-6 mb-6 md:mb-8">
             <h3 className="text-base md:text-lg font-semibold mb-3 text-primary">Your Message Preview</h3>
-            <div className="glass-surface rounded-lg md:rounded-xl p-3 md:p-4 leading-relaxed whitespace-pre-line text-xs md:text-sm max-h-32 md:max-h-48 overflow-y-auto text-primary">
+            <div className="bg-white/20 backdrop-blur-md rounded-lg md:rounded-xl p-3 md:p-4 leading-relaxed whitespace-pre-line text-xs md:text-sm max-h-32 md:max-h-48 overflow-y-auto text-primary border border-white/30">
               {soulHugMessage}
             </div>
           </div>
@@ -217,7 +217,7 @@ With gratitude and love`
                       max="100"
                       value={voiceVolume}
                       onChange={(e) => handleVolumeChange('voice', Number(e.target.value))}
-                      className="w-full h-2 bg-input rounded-lg appearance-none cursor-pointer slider"
+                      className="w-full h-2 bg-white/20 backdrop-blur-sm rounded-lg appearance-none cursor-pointer slider"
                       disabled={!hasAudio}
                     />
                   </div>
@@ -232,7 +232,7 @@ With gratitude and love`
                       max="100"
                       value={musicVolume}
                       onChange={(e) => handleVolumeChange('music', Number(e.target.value))}
-                      className="w-full h-2 bg-input rounded-lg appearance-none cursor-pointer slider"
+                      className="w-full h-2 bg-white/20 backdrop-blur-sm rounded-lg appearance-none cursor-pointer slider"
                       disabled={!selectedMusic}
                     />
                   </div>
@@ -278,7 +278,7 @@ With gratitude and love`
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row justify-between items-center mt-6 md:mt-8 pt-4 md:pt-6 border-t border-purple-200 space-y-4 sm:space-y-0">
+          <div className="flex flex-col sm:flex-row justify-between items-center mt-6 md:mt-8 pt-4 md:pt-6 border-t border-white/20 space-y-4 sm:space-y-0">
             <div className="flex justify-center space-x-2 md:space-x-3 w-full">
               <button
                 onClick={handleDownload}

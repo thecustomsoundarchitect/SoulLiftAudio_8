@@ -79,9 +79,10 @@ export const CoverImageSelector: React.FC<CoverImageSelectorProps> = ({
   }
 
   return (
-    <div className={`bg-gradient-to-br from-green-50 to-teal-50 rounded-2xl p-6 ${className}`}>
+    <div className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 ${className}`}>
       <h3 className="text-xl font-semibold mb-4 flex items-center text-green-700">
-        <Image className="w-6 h-6 mr-2" />
+      <h3 className="text-xl font-semibold mb-4 flex items-center text-primary">
+        <Image className="w-6 h-6 mr-2 text-primary" />
         Cover Image
       </h3>
       
@@ -94,7 +95,7 @@ export const CoverImageSelector: React.FC<CoverImageSelectorProps> = ({
               selectedImage === image.id ? 'ring-4 ring-green-500 scale-105' : 'hover:scale-105'
             }`}
           >
-            <Image className="w-6 h-6 text-white" />
+            <Image className="w-6 h-6 text-white opacity-80" />
             <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 rounded-lg transition-all flex items-center justify-center">
               <span className="text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">
                 {image.name}
@@ -124,14 +125,14 @@ export const CoverImageSelector: React.FC<CoverImageSelectorProps> = ({
       )}
 
       {selectedImage && !customImage && (
-        <div className="mb-4 p-3 bg-green-100 rounded-lg">
+        <div className="mb-4 p-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg">
           <div className="flex items-center justify-between">
-            <span className="text-green-800 font-medium text-sm">
+            <span className="text-primary font-medium text-sm">
               Selected: {presetImages.find(img => img.id === selectedImage)?.name}
             </span>
             <button
               onClick={clearSelection}
-              className="text-green-600 hover:text-green-800 text-xs underline"
+              className="text-secondary hover:text-primary text-xs underline"
             >
               Remove
             </button>
@@ -139,9 +140,9 @@ export const CoverImageSelector: React.FC<CoverImageSelectorProps> = ({
         </div>
       )}
       
-      <label className="w-full border-2 border-dashed border-gray-300 rounded-lg p-4 text-center hover:border-green-400 transition-colors cursor-pointer block">
-        <Upload className="w-6 h-6 text-gray-400 mx-auto mb-2" />
-        <span className="text-sm text-gray-600">Upload Custom Image</span>
+      <label className="w-full border-2 border-dashed border-white/30 rounded-lg p-4 text-center hover:border-white/50 transition-colors cursor-pointer block">
+        <Upload className="w-6 h-6 text-muted mx-auto mb-2" />
+        <span className="text-sm text-secondary">Upload Custom Image</span>
         <input
           type="file"
           accept="image/*"
