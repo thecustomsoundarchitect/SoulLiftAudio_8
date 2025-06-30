@@ -202,7 +202,6 @@ With gratitude and love`
               {/* Audio Mixer - Always Visible */}
               <div className="glass-surface rounded-xl md:rounded-2xl p-4 md:p-6">
                 <h3 className="text-lg md:text-xl font-semibold mb-4 flex items-center text-primary">
-                  <Volume2 className="w-5 h-5 md:w-6 md:h-6 mr-2" />
                   Audio Mixer
                 </h3>
                 
