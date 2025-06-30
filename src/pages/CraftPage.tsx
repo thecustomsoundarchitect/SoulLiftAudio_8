@@ -98,9 +98,17 @@ With gratitude and love`
   const wordCount = message ? message.split(' ').filter(word => word.length > 0).length : 0
 
   return (
-    <div className="min-h-screen pt-8 pb-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="soul-card">
+    <div className="min-h-screen bg-gradient-to-br from-[#DCB2EF] via-[#C8A8E8] to-[#B1E0EC] relative overflow-hidden pt-8 pb-16">
+      {/* Glass morphism overlay */}
+      <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
+      
+      {/* Floating glass orbs for visual interest */}
+      <div className="absolute top-24 left-20 w-32 h-32 bg-white/20 rounded-full blur-xl animate-pulse delay-500"></div>
+      <div className="absolute bottom-40 right-16 w-40 h-40 bg-white/15 rounded-full blur-2xl animate-pulse delay-1200"></div>
+      <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-white/10 rounded-full blur-lg animate-pulse delay-800"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="bg-white/20 backdrop-blur-md rounded-3xl p-6 md:p-8 border border-white/30 shadow-2xl">
           <h1 className="text-4xl font-bold text-center bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent mb-8">
             <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               CRAFT YOUR SOUL HUG
@@ -110,7 +118,7 @@ With gratitude and love`
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Left Column - Ingredients */}
             <div>
-              <div className="bg-purple-50 rounded-2xl p-6 mb-6">
+              <div className="bg-purple-50/60 backdrop-blur-sm rounded-2xl p-6 mb-6 border border-white/30">
                 <div className="flex items-center mb-4">
                   <div className="w-8 h-8 bg-purple-500 rounded-lg flex items-center justify-center mr-3">
                     <span className="text-white text-sm font-bold">✓</span>
@@ -120,8 +128,8 @@ With gratitude and love`
                 
                 {ingredients.length === 0 ? (
                   <div className="text-center py-8">
-                    <p className="text-gray-500 text-sm">No ingredients available</p>
-                    <p className="text-gray-400 text-xs mt-1">Go back to Gather to collect some!</p>
+                    <p className="text-gray-600 text-sm">No ingredients available</p>
+                    <p className="text-gray-500 text-xs mt-1">Go back to Gather to collect some!</p>
                   </div>
                 ) : (
                   <div className="space-y-3">
@@ -130,7 +138,7 @@ With gratitude and love`
                         key={index}
                         draggable
                         onDragStart={(e) => handleDragStart(e, ingredient)}
-                        className="bg-white rounded-lg p-3 shadow-sm cursor-grab active:cursor-grabbing hover:shadow-md transition-shadow border border-gray-100"
+                        className="bg-white/70 backdrop-blur-sm rounded-lg p-3 shadow-sm cursor-grab active:cursor-grabbing hover:shadow-md transition-shadow border border-white/30"
                       >
                         <p className="text-sm text-gray-700 leading-relaxed">
                           {ingredient.includes(':') ? (
@@ -154,7 +162,7 @@ With gratitude and love`
 
               {/* Descriptors */}
               {descriptors.length > 0 && (
-                <div className="bg-gray-50 rounded-2xl p-6">
+                <div className="bg-gray-50/60 backdrop-blur-sm rounded-2xl p-6 border border-white/30">
                   <div className="flex items-center justify-between mb-3">
                     <h4 className="font-medium text-gray-700">Selected Descriptors</h4>
                     <button
@@ -167,7 +175,7 @@ With gratitude and love`
                   <div 
                     draggable={descriptors.length > 0}
                     onDragStart={handleDescriptorDragStart}
-                    className={`bg-white rounded-lg p-3 shadow-sm border border-gray-200 ${
+                    className={`bg-white/70 backdrop-blur-sm rounded-lg p-3 shadow-sm border border-white/30 ${
                       descriptors.length > 0 ? 'cursor-grab active:cursor-grabbing hover:shadow-md' : ''
                     } transition-shadow`}
                   >
@@ -175,7 +183,7 @@ With gratitude and love`
                       {descriptors.map((descriptor) => (
                         <span
                           key={descriptor}
-                          className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium"
+                          className="px-3 py-1 bg-blue-100/80 text-blue-800 rounded-full text-sm font-medium"
                         >
                           {descriptor}
                         </span>
@@ -193,7 +201,7 @@ With gratitude and love`
 
             {/* Right Column - Message */}
             <div>
-              <div className="bg-green-50 rounded-2xl p-6">
+              <div className="bg-green-50/60 backdrop-blur-sm rounded-2xl p-6 border border-white/30">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center">
                     <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center mr-3">
@@ -214,7 +222,7 @@ With gratitude and love`
                   onDrop={handleDrop}
                   onDragOver={handleDragOver}
                   placeholder="Begin crafting your Soul Hug here... Click on ingredients from the left panel to add them, or start typing your heart's message."
-                  className="w-full h-80 p-4 border-2 border-dashed border-gray-300 rounded-xl bg-white focus:outline-none focus:border-green-400 focus:bg-green-50/30 resize-none text-gray-700 leading-relaxed"
+                  className="w-full h-80 p-4 border-2 border-dashed border-gray-300/50 rounded-xl bg-white/70 backdrop-blur-sm focus:outline-none focus:border-green-400 focus:bg-white/80 resize-none text-gray-700 leading-relaxed"
                   style={{ fontFamily: 'Calibri, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif' }}
                 />
               </div>
@@ -222,7 +230,7 @@ With gratitude and love`
           </div>
 
           {/* Bottom Controls */}
-          <div className="mt-8 pt-6 border-t border-gray-200">
+          <div className="mt-8 pt-6 border-t border-white/30">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
               {/* Target Length */}
               <div className="flex items-center space-x-4">
@@ -232,7 +240,7 @@ With gratitude and love`
                   name="targetLength"
                   value={targetLength}
                   onChange={(e) => setTargetLength(e.target.value)}
-                  className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm"
+                  className="px-3 py-2 border border-white/40 bg-white/70 backdrop-blur-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm"
                 >
                   <option value="30s - Brief">30s - Brief</option>
                   <option value="1m - Heartfelt">1m - Heartfelt</option>
@@ -246,7 +254,7 @@ With gratitude and love`
                 <button
                   onClick={aiWeave}
                   disabled={isWeaving || ingredients.length === 0}
-                  className="soul-button disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-sm"
                 >
                   {isWeaving ? 'AI Weaving...' : 'AI Weave (1 Credit)'}
                 </button>
@@ -254,7 +262,7 @@ With gratitude and love`
                 <button
                   onClick={aiPolish}
                   disabled={isPolishing || !message.trim()}
-                  className="soul-button disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-sm"
                 >
                   {isPolishing ? 'AI Polishing...' : 'AI Polish (1 Credit)'}
                 </button>
@@ -262,7 +270,7 @@ With gratitude and love`
                 <button
                   onClick={exportHug}
                   disabled={!message.trim()}
-                  className="soul-button disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-sm"
                 >
                   <Download className="w-4 h-4 mr-2" />
                   Export Hug
@@ -271,15 +279,15 @@ With gratitude and love`
             </div>
 
             {/* Pro tip */}
-            <p className="text-xs text-gray-500 mt-4">
+            <p className="text-xs text-gray-600 mt-4">
               Pro tip: Click on ingredients from the left panel to add them to your message. Use AI Weave to create from ingredients, or AI Polish to refine existing text.
             </p>
           </div>
 
           {/* Navigation */}
-          <div className="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+          <div className="flex justify-between items-center mt-8 pt-6 border-t border-white/30">
             <Link href="/gather">
-              <button className="flex items-center px-6 py-3 text-gray-600 border border-gray-300 rounded-xl hover:bg-gray-50 transition-all duration-200">
+              <button className="flex items-center px-6 py-3 text-gray-700 border border-white/40 bg-white/60 backdrop-blur-sm rounded-xl hover:bg-white/80 transition-all duration-200">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Gather
               </button>
@@ -288,7 +296,7 @@ With gratitude and love`
             <Link href="/audio-hug">
               <button
                 disabled={!message.trim()}
-                className="soul-button disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-sm"
               >
                 Continue to Audio
               </button>

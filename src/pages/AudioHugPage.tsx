@@ -159,9 +159,17 @@ With gratitude and love`
   }
 
   return (
-    <div className="min-h-screen pt-4 md:pt-8 pb-20 md:pb-16">
-      <div className="max-w-sm sm:max-w-2xl lg:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="soul-card">
+    <div className="min-h-screen bg-gradient-to-br from-[#DCB2EF] via-[#C8A8E8] to-[#B1E0EC] relative overflow-hidden pt-4 md:pt-8 pb-20 md:pb-16">
+      {/* Glass morphism overlay */}
+      <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
+      
+      {/* Floating glass orbs for visual interest */}
+      <div className="absolute top-32 right-12 w-28 h-28 bg-white/20 rounded-full blur-xl animate-pulse delay-400"></div>
+      <div className="absolute bottom-24 left-20 w-36 h-36 bg-white/15 rounded-full blur-2xl animate-pulse delay-900"></div>
+      <div className="absolute top-2/3 right-1/3 w-20 h-20 bg-white/10 rounded-full blur-lg animate-pulse delay-600"></div>
+
+      <div className="max-w-sm sm:max-w-2xl lg:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="bg-white/20 backdrop-blur-md rounded-3xl p-4 md:p-8 border border-white/30 shadow-2xl">
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 md:mb-6 space-y-4 md:space-y-0">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               CREATE AUDIO HUG
@@ -169,9 +177,9 @@ With gratitude and love`
           </div>
 
           {/* Message Preview */}
-          <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl md:rounded-2xl p-4 md:p-6 mb-6 md:mb-8">
+          <div className="bg-purple-50/60 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 mb-6 md:mb-8 border border-white/30">
             <h3 className="text-base md:text-lg font-semibold mb-3 text-purple-700">Your Message Preview</h3>
-            <div className="bg-white rounded-lg md:rounded-xl p-3 md:p-4 text-gray-700 leading-relaxed whitespace-pre-line text-xs md:text-sm max-h-32 md:max-h-48 overflow-y-auto">
+            <div className="bg-white/70 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-4 text-gray-700 leading-relaxed whitespace-pre-line text-xs md:text-sm max-h-32 md:max-h-48 overflow-y-auto border border-white/30">
               {soulHugMessage}
             </div>
           </div>
@@ -199,7 +207,7 @@ With gratitude and love`
             {/* Right Column - Mixer, Cover Image, and Delivery */}
             <div className="space-y-4 md:space-y-6">
               {/* Audio Mixer - Always Visible */}
-              <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl md:rounded-2xl p-4 md:p-6">
+              <div className="bg-indigo-50/60 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 border border-white/30">
                 <h3 className="text-lg md:text-xl font-semibold mb-4 flex items-center text-indigo-700">
                   <Volume2 className="w-5 h-5 md:w-6 md:h-6 mr-2" />
                   Audio Mixer
@@ -216,7 +224,7 @@ With gratitude and love`
                       max="100"
                       value={voiceVolume}
                       onChange={(e) => handleVolumeChange('voice', Number(e.target.value))}
-                      className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                      className="w-full h-2 bg-gray-200/70 backdrop-blur-sm rounded-lg appearance-none cursor-pointer slider"
                       disabled={!hasAudio}
                     />
                   </div>
@@ -231,7 +239,7 @@ With gratitude and love`
                       max="100"
                       value={musicVolume}
                       onChange={(e) => handleVolumeChange('music', Number(e.target.value))}
-                      className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                      className="w-full h-2 bg-gray-200/70 backdrop-blur-sm rounded-lg appearance-none cursor-pointer slider"
                       disabled={!selectedMusic}
                     />
                   </div>
@@ -240,20 +248,20 @@ With gratitude and love`
                 <button
                   onClick={mixAudio}
                   disabled={isMixing || !canMix}
-                  className="w-full soul-button disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-sm"
                 >
                   <Music className="w-4 h-4 mr-2" />
                   {isMixing ? 'Mixing Audio...' : 'Mix Audio'}
                 </button>
 
                 {!canMix && (
-                  <p className="text-xs md:text-sm text-gray-500 mt-2 text-center">
+                  <p className="text-xs md:text-sm text-gray-600 mt-2 text-center">
                     Add both voice and music to enable mixing
                   </p>
                 )}
 
                 {mixedAudioUrl && (
-                  <div className="mt-4 p-3 bg-green-100 border border-green-300 rounded-lg">
+                  <div className="mt-4 p-3 bg-green-100/80 backdrop-blur-sm border border-green-300/50 rounded-lg">
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-green-700 text-xs md:text-sm font-medium">Audio mixed successfully!</span>
                     </div>
@@ -277,12 +285,12 @@ With gratitude and love`
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row justify-between items-center mt-6 md:mt-8 pt-4 md:pt-6 border-t border-gray-200 space-y-4 sm:space-y-0">
+          <div className="flex flex-col sm:flex-row justify-between items-center mt-6 md:mt-8 pt-4 md:pt-6 border-t border-white/30 space-y-4 sm:space-y-0">
             <div className="flex justify-center space-x-2 md:space-x-3 w-full">
               <button
                 onClick={handleDownload}
                 disabled={!hasAudio}
-                className="soul-button disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-sm"
               >
                 <Download className="w-4 h-4 mr-2" />
                 <span className="hidden sm:inline">Download</span>
@@ -292,7 +300,7 @@ With gratitude and love`
               <button
                 onClick={handleShare}
                 disabled={!hasAudio}
-                className="soul-button disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-sm"
               >
                 <Share2 className="w-4 h-4 mr-2" />
                 Share

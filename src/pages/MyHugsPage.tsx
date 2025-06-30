@@ -36,7 +36,10 @@ export default function MyHugsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-green-50/20 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-[#DCB2EF] via-[#C8A8E8] to-[#B1E0EC] relative overflow-hidden">
+      {/* Glass morphism overlay */}
+      <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
+      
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -46,7 +49,7 @@ export default function MyHugsPage() {
             rotate: [0, 180, 360]
           }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-r from-green-200/30 to-teal-200/30 rounded-full blur-xl"
+          className="absolute top-20 right-10 w-32 h-32 bg-white/20 rounded-full blur-xl"
         />
         <motion.div
           animate={{ 
@@ -55,7 +58,7 @@ export default function MyHugsPage() {
             rotate: [360, 180, 0]
           }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-20 left-10 w-40 h-40 bg-gradient-to-r from-blue-200/30 to-green-200/30 rounded-full blur-xl"
+          className="absolute bottom-20 left-10 w-40 h-40 bg-white/15 rounded-full blur-xl"
         />
       </div>
 
@@ -66,8 +69,8 @@ export default function MyHugsPage() {
         whileTap={{ scale: 0.95 }}
       >
         <Link href="/">
-          <button className="flex items-center justify-center w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100/50 group">
-            <Heart className="w-5 h-5 text-gray-600 group-hover:text-green-600 transition-colors" />
+          <button className="flex items-center justify-center w-12 h-12 bg-white/20 backdrop-blur-md rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-white/30 group hover:bg-white/30">
+            <Heart className="w-5 h-5 text-gray-700 group-hover:text-purple-600 transition-colors" />
           </button>
         </Link>
       </motion.div>
@@ -92,7 +95,7 @@ export default function MyHugsPage() {
           </motion.h1>
           
           <motion.p 
-            className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto"
+            className="text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
@@ -108,45 +111,47 @@ export default function MyHugsPage() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.6, duration: 0.6 }}
           >
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="mb-8"
-            >
-              <Heart className="w-20 h-20 text-gray-300 mx-auto" />
-            </motion.div>
-            <motion.h3 
-              className="text-2xl font-semibold text-gray-500 mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-            >
-              No Soul Hugs Yet
-            </motion.h3>
-            <motion.p 
-              className="text-gray-400 mb-8 text-lg"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.0 }}
-            >
-              Create your first heartfelt message to get started
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.2 }}
-            >
-              <Link href="/define">
-                <motion.button 
-                  className="soul-button text-lg px-8 py-4"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Plus className="w-5 h-5 mr-2" />
-                  Create Your First Soul Hug
-                </motion.button>
-              </Link>
-            </motion.div>
+            <div className="bg-white/20 backdrop-blur-md rounded-3xl p-8 border border-white/30 shadow-2xl">
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="mb-8"
+              >
+                <Heart className="w-20 h-20 text-gray-600 mx-auto" />
+              </motion.div>
+              <motion.h3 
+                className="text-2xl font-semibold text-gray-700 mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
+              >
+                No Soul Hugs Yet
+              </motion.h3>
+              <motion.p 
+                className="text-gray-600 mb-8 text-lg"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.0 }}
+              >
+                Create your first heartfelt message to get started
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.2 }}
+              >
+                <Link href="/define">
+                  <motion.button 
+                    className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-xl font-medium transition-all duration-200 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 backdrop-blur-sm text-lg"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Plus className="w-5 h-5 mr-2" />
+                    Create Your First Soul Hug
+                  </motion.button>
+                </Link>
+              </motion.div>
+            </div>
           </motion.div>
         ) : (
           <motion.div
@@ -154,7 +159,9 @@ export default function MyHugsPage() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.6 }}
           >
-            <ExpandableCardDemo />
+            <div className="bg-white/20 backdrop-blur-md rounded-3xl p-6 border border-white/30 shadow-2xl">
+              <ExpandableCardDemo />
+            </div>
             
             {/* Floating Dock Demo */}
             <motion.div 
@@ -169,7 +176,7 @@ export default function MyHugsPage() {
                     Quick Navigation
                   </span>
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-700">
                   Access your favorite features with our floating dock
                 </p>
               </div>
@@ -181,14 +188,14 @@ export default function MyHugsPage() {
         {/* Stats */}
         {savedSoulHugs.length > 0 && (
           <motion.div 
-            className="mt-16 pt-8 border-t border-gray-200"
+            className="mt-16 pt-8 border-t border-white/30"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0, duration: 0.6 }}
           >
             <div className="grid grid-cols-3 gap-6">
               <motion.div 
-                className="text-center bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white/50 shadow-lg"
+                className="text-center bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/30 shadow-lg"
                 whileHover={{ scale: 1.05, y: -5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
@@ -199,11 +206,11 @@ export default function MyHugsPage() {
                 >
                   {savedSoulHugs.length}
                 </motion.div>
-                <div className="text-sm text-gray-600 font-medium">Total Hugs</div>
+                <div className="text-sm text-gray-700 font-medium">Total Hugs</div>
               </motion.div>
               
               <motion.div 
-                className="text-center bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white/50 shadow-lg"
+                className="text-center bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/30 shadow-lg"
                 whileHover={{ scale: 1.05, y: -5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
@@ -218,11 +225,11 @@ export default function MyHugsPage() {
                     return total + min + sec / 60
                   }, 0).toFixed(0)}
                 </motion.div>
-                <div className="text-sm text-gray-600 font-medium">Minutes Created</div>
+                <div className="text-sm text-gray-700 font-medium">Minutes Created</div>
               </motion.div>
               
               <motion.div 
-                className="text-center bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white/50 shadow-lg"
+                className="text-center bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/30 shadow-lg"
                 whileHover={{ scale: 1.05, y: -5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
@@ -233,7 +240,7 @@ export default function MyHugsPage() {
                 >
                   {new Set(savedSoulHugs.map(hug => hug.recipient)).size}
                 </motion.div>
-                <div className="text-sm text-gray-600 font-medium">People Touched</div>
+                <div className="text-sm text-gray-700 font-medium">People Touched</div>
               </motion.div>
             </div>
           </motion.div>
@@ -248,7 +255,7 @@ export default function MyHugsPage() {
         >
           <Link href="/define">
             <motion.button 
-              className="soul-button text-lg px-8 py-4 relative overflow-hidden"
+              className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-xl font-medium transition-all duration-200 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 backdrop-blur-sm text-lg relative overflow-hidden"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
